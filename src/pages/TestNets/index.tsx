@@ -1,11 +1,10 @@
 import React from "react";
 import Card from "../../components/Card";
+import "./styles.scss";
 
 const TestNets = () => {
   return (
     <div>
-      {/* Sidebar */}
-      {/* MainSection */}
       <Card />
     </div>
   );

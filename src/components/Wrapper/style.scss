@@ -1,0 +1,7 @@
+.pages--wrapper {
+  background: #f6f8fa;
+  display: flex;
+  flex-direction: column;
+  min-height: calc(100vh - 66px);
+  padding: 40px 60px 40px calc(300px + 60px);
+}

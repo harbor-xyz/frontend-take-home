@@ -1,0 +1,29 @@
+.sidebar--wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: #ffffff;
+  border: 1px solid #dddddd;
+  width: 300px;
+  position: fixed;
+  height: 100%;
+  top: 66px;
+  .sidebar--navigation {
+    width: 100%;
+    padding: 8px 12px 8px 20px;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    box-sizing: border-box;
+    column-gap: 12px;
+    align-items: center;
+    .navigation__icon {
+      display: inline-block;
+    }
+    .navigation__text {
+      font-weight: 600;
+      font-size: 14px;
+      line-height: 24px;
+      color: #999999;
+    }
+  }
+}
