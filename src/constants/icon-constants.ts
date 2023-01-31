@@ -40,6 +40,7 @@ import { ReactComponent as TimeIcon } from "../assets/icons/Icons - Time.svg";
 import { ReactComponent as UserKeyIcon } from "../assets/icons/Icons - User key.svg";
 import { ReactComponent as DuplicateIcon } from "../assets/icons/Duplicate.svg";
 import { ReactComponent as FailedIcon } from "../assets/icons/Failed.svg";
+import { ReactComponent as ArrowDown } from "../assets/icons/ArrowDown.svg";
 
 export const ICONS = {
   HarborLogo,
@@ -84,4 +85,5 @@ export const ICONS = {
   PolygonLogo,
   DuplicateIcon,
   FailedIcon,
+  ArrowDown,
 };
