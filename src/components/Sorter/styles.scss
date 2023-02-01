@@ -1,0 +1,25 @@
+.sorter--wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  .sorter__label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    cursor: pointer;
+    .selected__sorter {
+      display: flex;
+      align-items: center;
+      column-gap: 6px;
+      margin-left: 8px;
+      color: #000;
+      font-weight: 600;
+      .label__arrow {
+        width: 8px;
+      }
+    }
+  }
+}

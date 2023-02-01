@@ -1,0 +1,27 @@
+.filter--wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  .filter__label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 24px;
+    color: #999999;
+    cursor: pointer;
+    .selected__filter {
+      display: flex;
+      align-items: center;
+      column-gap: 6px;
+      margin-left: 8px;
+      .selected__filter--icon {
+        width: 14px;
+        height: 14px;
+      }
+      .label__arrow {
+        width: 8px;
+      }
+    }
+  }
+}

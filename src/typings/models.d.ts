@@ -1,0 +1,7 @@
+export enum Status {
+  RUNNING = "RUNNING",
+  STANDING_UP = "STANDING_UP",
+  UPDATING = "UPDATING",
+  FAILED = "FAILED",
+  KILLED = "KILLED",
+}
