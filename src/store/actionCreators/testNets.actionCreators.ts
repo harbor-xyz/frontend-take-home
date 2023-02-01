@@ -26,8 +26,8 @@ export const fetchTestNets =
     dispatch(fetchTestNetsRequested());
     try {
       const response = await fetch("http://localhost:3000/testnets");
-      const data = await response.json();
-      console.log(data);
+      const json = await response.json();
+      dispatch(fetchTestNetsReceived(json.data.testnet));
     } catch (error: any) {
       console.log(error);
       dispatch(fetchTestNetsError(error?.message));

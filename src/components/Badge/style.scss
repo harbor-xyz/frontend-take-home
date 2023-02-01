@@ -1,6 +1,7 @@
+@import "../../assets/styles/colors";
 .badge--wrapper {
   height: 24px;
-  background: #f6f6f6;
+  background: $greyf6;
   border-radius: 40px;
   padding: 2px 12px;
   display: inline-flex;
@@ -8,5 +9,5 @@
   justify-content: center;
   font-weight: 600;
   font-size: 14px;
-  color: #999999;
+  color: $grey999;
 }

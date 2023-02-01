@@ -19,7 +19,9 @@ const TestNets = () => {
       {/* Header with Filter and Sorter */}
       <TestNetHeader />
       {/* Lists */}
-      <Card />
+      {data.map((card) => (
+        <Card key={card.id} {...card} />
+      ))}
     </div>
   );
 };

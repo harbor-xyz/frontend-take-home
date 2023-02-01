@@ -1,16 +1,17 @@
 import React, { useId } from "react";
 import "./styles.scss";
 import { ICONS } from "../../constants/icon-constants";
-import Badge from "../Badge";
 import TabItem from "./TabItem";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const VerticalTabs = () => {
   const tabId = useId();
+  const { length: count } = useTypedSelector((state) => state.testNets.data);
   const tabs = [
     {
       icon: <ICONS.TestNetsIcon />,
       heading: "Testnets",
-      badgeText: "8",
+      badgeText: count.toString(),
       isSelected: true,
       rightIcon: <ICONS.AddIcon />,
       id: `${tabId}_nets`,
