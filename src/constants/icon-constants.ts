@@ -42,6 +42,8 @@ import { ReactComponent as DuplicateIcon } from "../assets/icons/Duplicate.svg";
 import { ReactComponent as FailedIcon } from "../assets/icons/Failed.svg";
 import { ReactComponent as ArrowDown } from "../assets/icons/ArrowDown.svg";
 import { ReactComponent as BackIcon } from "../assets/icons/BackIcon.svg";
+import { ReactComponent as AcmeStarIcon } from "../assets/icons/AcmeStar.svg";
+import { ReactComponent as CopyIcon } from "../assets/icons/Copy.svg";
 
 export const ICONS = {
   HarborLogo,
@@ -88,4 +90,6 @@ export const ICONS = {
   FailedIcon,
   ArrowDown,
   BackIcon,
+  AcmeStarIcon,
+  CopyIcon,
 };

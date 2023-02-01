@@ -1,0 +1,21 @@
+.vertical-tab--wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  align-self: stretch;
+  .tab__heading {
+    display: flex;
+    padding: 6px 20px 6px 8px;
+    align-items: center;
+    column-gap: 12px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .tab__list {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+    row-gap: 4px;
+  }
+}
