@@ -1,0 +1,23 @@
+@import "../../../assets/styles/colors";
+
+.bottom--wrapper {
+  display: flex;
+  align-items: center;
+  column-gap: 12px;
+  .bottom__item {
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+    color: $tangerine;
+    svg {
+      width: 14px;
+      height: 14px;
+      path {
+        fill: $tangerine;
+      }
+    }
+  }
+}
