@@ -1,3 +1,5 @@
+@import "../../assets/styles/colors";
+
 .filter-item--wrapper {
   display: flex;
   align-items: center;
@@ -9,12 +11,64 @@
   font-weight: 600;
   font-size: 14px;
   line-height: 24px;
-  color: #555555;
+  color: $grey555;
   .filter-icon {
     display: flex;
     svg {
       width: 14px;
       height: 14px;
+      path {
+        fill: $grey555;
+      }
+    }
+  }
+  &.all {
+    color: $lightBlue;
+    svg {
+      path {
+        fill: $lightBlue;
+      }
+    }
+  }
+  &.running {
+    color: $greenDark;
+    svg {
+      path {
+        fill: $greenDark;
+      }
+    }
+  }
+  &.standing,
+  &.updating {
+    color: $tangerine;
+    svg {
+      path {
+        fill: $tangerine;
+      }
+    }
+  }
+  &.failed {
+    color: $darkRed;
+    svg {
+      path {
+        fill: $darkRed;
+      }
+    }
+  }
+  &.killed {
+    color: $greyAAA;
+    svg {
+      path {
+        fill: $greyAAA;
+      }
+    }
+  }
+  &.cloning {
+    color: $cornFlowerBlue;
+    svg {
+      path {
+        fill: $cornFlowerBlue;
+      }
     }
   }
 }

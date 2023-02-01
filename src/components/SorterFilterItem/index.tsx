@@ -5,7 +5,7 @@ import { Status } from "../../typings/models.d";
 interface SorterAndFilterItemProps {
   icon?: ReactElement;
   text: string;
-  state?: Status;
+  state?: Status | "all";
 }
 
 const SorterAndFilterItem: FC<SorterAndFilterItemProps> = ({

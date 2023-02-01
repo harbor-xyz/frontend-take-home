@@ -4,10 +4,21 @@ import { ICONS } from "../../constants/icon-constants";
 import Dropdown from "../Dropdown";
 import SorterAndFilterItem from "../SorterFilterItem";
 import { Status } from "../../typings/models.d";
+import { ICON_MAPPING } from "../../constants/common";
 
 const Filter = () => {
   const [showDropdown, setShowDropdown] = useState(false);
   const filterList = [
+    {
+      item: (
+        <SorterAndFilterItem
+          text="All"
+          icon={<ICONS.AllStatusIcon />}
+          state="all"
+        />
+      ),
+      id: "0",
+    },
     {
       item: (
         <SorterAndFilterItem
@@ -58,6 +69,16 @@ const Filter = () => {
       ),
       id: "5",
     },
+    {
+      item: (
+        <SorterAndFilterItem
+          text="Cloning (0)"
+          icon={<ICONS.CloneIcon />}
+          state={Status.CLONING}
+        />
+      ),
+      id: "6",
+    },
   ];
   const dropdownCloseHandler = () => {
     setShowDropdown(false);
@@ -66,23 +87,29 @@ const Filter = () => {
     console.log(id);
     dropdownCloseHandler();
   };
+  const filterSelected = {
+    id: "6",
+    state: Status.CLONING,
+    text: "Cloning",
+  };
+  const Icon = ICON_MAPPING[filterSelected.state] ?? null;
   return (
-    <div className="filter--wrapper">
+    <div className={`filter--wrapper ${filterSelected.state}`}>
       <label
         className="filter__label"
         onClick={() => setShowDropdown(!showDropdown)}
       >
         Filter by:
         <span className="selected__filter">
-          <ICONS.AllStatusIcon className="selected__filter--icon" />
-          <span>All</span>
+          <Icon className="selected__filter--icon" />
+          <span>{filterSelected.text}</span>
           <ICONS.ArrowDown className="label__arrow" />
         </span>
       </label>
       <Dropdown
         list={filterList}
         show={showDropdown}
-        selected="1"
+        selected={filterSelected.id}
         closeHandler={dropdownCloseHandler}
         clickHandler={filterItemClickHandler}
       />

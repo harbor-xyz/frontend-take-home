@@ -1,3 +1,5 @@
+@import "../../assets/styles/colors";
+
 .filter--wrapper {
   display: flex;
   align-items: center;
@@ -21,6 +23,79 @@
       }
       .label__arrow {
         width: 8px;
+      }
+    }
+  }
+  &.all {
+    .filter__label {
+      .selected__filter {
+        color: $lightBlue;
+        .selected__filter--icon {
+          path {
+            fill: $lightBlue;
+          }
+        }
+      }
+    }
+  }
+  &.running {
+    .filter__label {
+      .selected__filter {
+        color: $greenDark;
+        .selected__filter--icon {
+          path {
+            fill: $greenDark;
+          }
+        }
+      }
+    }
+  }
+  &.standing,
+  &.updating {
+    .filter__label {
+      .selected__filter {
+        color: $tangerine;
+        .selected__filter--icon {
+          path {
+            fill: $tangerine;
+          }
+        }
+      }
+    }
+  }
+  &.failed {
+    .filter__label {
+      .selected__filter {
+        color: $darkRed;
+        .selected__filter--icon {
+          path {
+            fill: $darkRed;
+          }
+        }
+      }
+    }
+  }
+  &.killed {
+    .filter__label {
+      .selected__filter {
+        color: $greyAAA;
+        .selected__filter--icon {
+          path {
+            fill: $greyAAA;
+          }
+        }
+      }
+    }
+  }
+  &.cloning {
+    .filter__label {
+      .selected__filter {
+        color: $cornFlowerBlue;
+        .selected__filter--icon {
+          path {
+            fill: $cornFlowerBlue;
+          }
+        }
       }
     }
   }
