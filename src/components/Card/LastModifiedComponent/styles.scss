@@ -1,0 +1,17 @@
+@import "../../../assets/styles/colors";
+
+.lastmmodified--wrapper {
+  display: flex;
+  align-items: center;
+  color: $grey999;
+  & > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .lastmmodified__text {
+    margin-left: 6px;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 24px;
+  }
+}

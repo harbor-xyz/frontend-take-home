@@ -1,0 +1,57 @@
+@import "../../../assets/styles/colors";
+
+.status__wrapper {
+  display: inline-flex;
+  align-items: center;
+  & > svg {
+    width: 14px;
+    height: 14px;
+  }
+  .status__text {
+    margin-left: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  &.running {
+    color: $greenDark;
+    svg {
+      path {
+        fill: $greenDark;
+      }
+    }
+  }
+  &.cloning {
+    color: $cornFlowerBlue;
+    svg {
+      path {
+        fill: $cornFlowerBlue;
+      }
+    }
+  }
+  &.updating,
+  &.standing {
+    color: $tangerine;
+    svg {
+      path {
+        fill: $tangerine;
+      }
+    }
+  }
+  &.failed {
+    color: $darkRed;
+    svg {
+      path {
+        fill: $darkRed;
+      }
+    }
+  }
+  &.killed {
+    color: $greyAAA;
+    svg {
+      path {
+        fill: $greyAAA;
+      }
+    }
+  }
+}

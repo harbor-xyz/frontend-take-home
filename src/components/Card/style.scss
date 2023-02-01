@@ -1,3 +1,5 @@
+@import "../../assets/styles/colors";
+
 .card--wrapper {
   display: flex;
   justify-content: space-between;
@@ -28,6 +30,7 @@
         align-items: center;
         column-gap: 12px;
         font-size: 14px;
+        font-weight: 500;
       }
       .card__description-icons {
         display: flex;
@@ -57,17 +60,6 @@
     row-gap: 14px;
     align-items: flex-end;
 
-    .card-right__icon {
-      display: inline-flex;
-      align-items: center;
-      & > svg {
-        width: 14px;
-        height: 14px;
-      }
-      .icon__text {
-        margin-left: 6px;
-      }
-    }
     .card--right-top-section {
       display: flex;
       align-items: center;
@@ -82,6 +74,36 @@
       font-weight: 500;
       font-size: 13px;
       line-height: 24px;
+    }
+  }
+  &.failed {
+    background: $lightRed;
+    border-color: $darkRed;
+    .badge--wrapper {
+      background-color: #ffffff;
+    }
+  }
+  &.killed {
+    background: $aquaHaze;
+    border-color: $greyDDD;
+    .card__heading {
+      color: $grey666;
+    }
+    .badge--wrapper {
+      border: 1px solid $greyDDD;
+      background-color: $aquaHaze;
+    }
+    .card--left-section {
+      .card--left-bottom-section {
+        .card__description-list {
+          color: $grey666;
+        }
+        .card__description-icons {
+          .chain__icon {
+            background-color: $aquaHaze;
+          }
+        }
+      }
     }
   }
 }

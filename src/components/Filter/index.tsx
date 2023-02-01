@@ -23,7 +23,7 @@ const Filter = () => {
         <SorterAndFilterItem
           text="Standing up (3)"
           icon={<ICONS.StandingUpIcon />}
-          state={Status.STANDING_UP}
+          state={Status.STANDING}
         />
       ),
       id: "2",

@@ -44,6 +44,7 @@ import { ReactComponent as ArrowDown } from "../assets/icons/ArrowDown.svg";
 import { ReactComponent as BackIcon } from "../assets/icons/BackIcon.svg";
 import { ReactComponent as AcmeStarIcon } from "../assets/icons/AcmeStar.svg";
 import { ReactComponent as CopyIcon } from "../assets/icons/Copy.svg";
+import { ReactComponent as LastModifiedIcon } from "../assets/icons/Modified.svg";
 
 export const ICONS = {
   HarborLogo,
@@ -92,4 +93,5 @@ export const ICONS = {
   BackIcon,
   AcmeStarIcon,
   CopyIcon,
+  LastModifiedIcon,
 };

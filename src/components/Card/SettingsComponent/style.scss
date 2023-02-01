@@ -1,0 +1,30 @@
+@import "../../../assets/styles/colors";
+
+.settings--wrapper {
+  display: inline-flex;
+  align-items: center;
+  color: $lightBlue;
+  & > svg {
+    width: 14px;
+    height: 14px;
+    path {
+      fill: $lightBlue;
+    }
+  }
+  .settings__text {
+    margin-left: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 24px;
+  }
+  &.cloning,
+  &.standing,
+  &.updating {
+    color: $greyAAA;
+    svg {
+      path {
+        fill: $greyAAA;
+      }
+    }
+  }
+}
