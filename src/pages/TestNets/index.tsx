@@ -12,17 +12,16 @@ const TestNets = () => {
     if (!isLoading && !data.length) {
       fetchTestNets();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div>
-      {/* Header with Filter and Sorter */}
+    <>
       <TestNetHeader />
-      {/* Lists */}
       {data.map((card) => (
-        <Card key={card.id} {...card} />
+        <Card key={card.id} data={card} />
       ))}
-    </div>
+    </>
   );
 };
 

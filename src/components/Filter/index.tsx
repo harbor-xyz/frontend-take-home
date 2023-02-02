@@ -62,6 +62,16 @@ const Filter = () => {
     {
       item: (
         <SorterAndFilterItem
+          text="Cloning (0)"
+          icon={<ICONS.CloneIcon />}
+          state={Status.CLONING}
+        />
+      ),
+      id: "6",
+    },
+    {
+      item: (
+        <SorterAndFilterItem
           text="Killed (1)"
           icon={<ICONS.KilledIcon />}
           state={Status.KILLED}
@@ -69,15 +79,16 @@ const Filter = () => {
       ),
       id: "5",
     },
+
     {
       item: (
         <SorterAndFilterItem
-          text="Cloning (0)"
-          icon={<ICONS.CloneIcon />}
-          state={Status.CLONING}
+          text="Stopped (1)"
+          icon={<ICONS.KilledIcon />}
+          state={Status.STOPPED}
         />
       ),
-      id: "6",
+      id: "7",
     },
   ];
   const dropdownCloseHandler = () => {
@@ -94,7 +105,7 @@ const Filter = () => {
   };
   const Icon = ICON_MAPPING[filterSelected.state] ?? null;
   return (
-    <div className={`filter--wrapper ${filterSelected.state}`}>
+    <div className={`filter--wrapper ${filterSelected.state.toLowerCase()}`}>
       <label
         className="filter__label"
         onClick={() => setShowDropdown(!showDropdown)}

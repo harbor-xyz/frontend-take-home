@@ -10,9 +10,9 @@ interface StatusComponentProps {
 const StatusComponent: FC<StatusComponentProps> = ({ status }) => {
   const Icon = ICON_MAPPING?.[status] ?? null;
   return (
-    <span className={`status__wrapper ${status}`}>
-      <Icon />
-      <span className="status__text">Running</span>
+    <span className={`status__wrapper ${status.toLowerCase()}`}>
+      {Icon && <Icon />}
+      <span className="status__text">{status}</span>
     </span>
   );
 };

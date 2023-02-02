@@ -9,7 +9,7 @@ interface SettingsProps {
 
 const SettingsComponent: FC<SettingsProps> = ({ status }) => {
   return (
-    <span className={`settings--wrapper ${status}`}>
+    <span className={`settings--wrapper ${status.toLowerCase()}`}>
       <ICONS.SettingsIcon />
       <span className="settings__text">Settings</span>
     </span>

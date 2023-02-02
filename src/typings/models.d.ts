@@ -1,10 +1,12 @@
 export enum Status {
-  RUNNING = "running",
-  STANDING = "standing",
-  UPDATING = "updating",
-  FAILED = "failed",
-  KILLED = "killed",
-  CLONING = "cloning",
+  RUNNING = "RUNNING",
+  STANDING = "STANDING",
+  UPDATING = "UPDATING",
+  FAILED = "FAILED",
+  STOPPED = "STOPPED",
+  KILLED = "KILLED",
+  CLONING = "CLONING",
+  PENDING = "PENDING",
 }
 
 export enum BlockChains {
@@ -17,7 +19,7 @@ export enum BlockChains {
 
 export interface TestNetsChains {
   chain: BlockChains;
-  state: Status;
+  status: Status;
 }
 
 export interface TestNetChainActors {

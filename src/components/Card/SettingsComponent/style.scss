@@ -19,7 +19,8 @@
   }
   &.cloning,
   &.standing,
-  &.updating {
+  &.updating,
+  &.pending {
     color: $greyAAA;
     svg {
       path {

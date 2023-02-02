@@ -39,7 +39,8 @@
     }
   }
   &.standing,
-  &.updating {
+  &.updating,
+  &.pending {
     color: $tangerine;
     svg {
       path {
@@ -55,7 +56,8 @@
       }
     }
   }
-  &.killed {
+  &.killed,
+  &.stopped {
     color: $greyAAA;
     svg {
       path {

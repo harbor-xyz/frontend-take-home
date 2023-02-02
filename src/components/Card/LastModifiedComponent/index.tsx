@@ -1,12 +1,18 @@
-import React from "react";
+import React, { FC } from "react";
 import { ICONS } from "../../../constants/icon-constants";
 import "./styles.scss";
 
-const LastModifiedComponent = () => {
+interface LastModifiedComponentProps {
+  lastModified: string;
+}
+
+const LastModifiedComponent: FC<LastModifiedComponentProps> = ({
+  lastModified,
+}) => {
   return (
     <span className="lastmmodified--wrapper">
       <ICONS.LastModifiedIcon />
-      <span className="lastmmodified__text">Modified 2 mins ago</span>
+      <span className="lastmmodified__text">{lastModified}</span>
     </span>
   );
 };

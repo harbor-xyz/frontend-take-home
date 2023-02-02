@@ -14,7 +14,7 @@ const SorterAndFilterItem: FC<SorterAndFilterItemProps> = ({
   state,
 }) => {
   return (
-    <div className={`filter-item--wrapper ${state || ""}`}>
+    <div className={`filter-item--wrapper ${state?.toLowerCase() || ""}`}>
       {icon && <span className="filter-icon">{icon}</span>}
       <span className={`filter-item__text`}>{text}</span>
     </div>

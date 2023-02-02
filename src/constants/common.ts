@@ -7,7 +7,9 @@ export const ICON_MAPPING = {
   [Status.UPDATING]: ICONS.StandingUpIcon,
   [Status.FAILED]: ICONS.FailedIcon,
   [Status.KILLED]: ICONS.KilledIcon,
+  [Status.STOPPED]: ICONS.KilledIcon,
   [Status.CLONING]: ICONS.CloneIcon,
+  [Status.PENDING]: ICONS.StandingUpIcon,
 };
 
 export const CHAIN_MAPPING = {

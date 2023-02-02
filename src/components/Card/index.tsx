@@ -1,4 +1,4 @@
-import React from "react";
+import React, { FC } from "react";
 import "./style.scss";
 import Separator from "../Seperator";
 import StatusComponent from "./StatusComponent";
@@ -7,58 +7,46 @@ import LastModifiedComponent from "./LastModifiedComponent";
 import DescriptionListComponent from "./DescriptionListComponent";
 import DescriptionIconsComponent from "./DescriptionIconsComponent";
 import CardHeaderComponent from "./CardHeaderComponent";
-import { BlockChains, Status } from "../../typings/models.d";
 import CardBottomComponent from "./CardBottomComponent";
+import { TestNet } from "../../store/models/testnets.d";
 
-const Card = () => {
-  const chains = [
-    { chain: BlockChains.ALCHEMY, state: Status.UPDATING },
-    { chain: BlockChains.POLYGON, state: Status.RUNNING },
-    { chain: BlockChains.ARBITRUM, state: Status.UPDATING },
-  ];
-  const chainActors = [
-    {
-      name: "routerCache",
-      status: Status.RUNNING,
-    },
-    {
-      name: "ipfs",
-      status: Status.UPDATING,
-    },
-    {
-      name: "sequencerCache",
-      status: Status.CLONING,
-    },
-  ];
+interface CardProps {
+  data: TestNet;
+}
+
+const Card: FC<CardProps> = ({ data }) => {
+  const { testnet_chains, testnet_off_chain_actors, status, name, updated_at } =
+    data;
   return (
-    <div className="card--wrapper killed">
+    <div className={`card--wrapper ${status.toLocaleLowerCase()}`}>
       <div className="card--top-section">
         <div className="card--left-section">
           <div className="card--left-top-section">
-            <CardHeaderComponent />
+            <CardHeaderComponent text={name} />
           </div>
           <div className="card--left-bottom-section">
             <DescriptionListComponent
-              chains={chains}
-              chainActors={chainActors}
+              chains={testnet_chains}
+              chainActors={testnet_off_chain_actors}
             />
-            <DescriptionIconsComponent chains={chains} />
+            <DescriptionIconsComponent chains={testnet_chains} />
           </div>
         </div>
         <div className="card--right-section">
           <div className="card--right-top-section">
-            <StatusComponent status={Status.RUNNING} />
+            <StatusComponent status={status} />
             <Separator />
-            <SettingsComponent status={Status.STANDING} />
+            <SettingsComponent status={status} />
           </div>
           <div className="card--right-bottom-section">
-            <LastModifiedComponent />
+            <LastModifiedComponent lastModified={updated_at} />
           </div>
         </div>
       </div>
-      <div className="card--bottom-section">
-        <CardBottomComponent chains={chains} chainActors={chainActors} />
-      </div>
+      <CardBottomComponent
+        chains={testnet_chains}
+        chainActors={testnet_off_chain_actors}
+      />
     </div>
   );
 };
