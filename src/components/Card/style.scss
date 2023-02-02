@@ -1,15 +1,16 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
 
 .card--wrapper {
   display: flex;
   flex-direction: column;
-  padding: 24px 32px;
+  padding: toRem(24) toRem(32);
   background: #ffffff;
   border: 1px solid $greye5;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
   border-radius: 20px;
-  row-gap: 10px;
-  margin-bottom: 24px;
+  row-gap: toRem(10);
+  margin-bottom: toRem(24);
   .card--top-section {
     display: flex;
     justify-content: space-between;
@@ -17,14 +18,14 @@
   }
   .card--left-section {
     display: flex;
-    row-gap: 12px;
+    row-gap: toRem(12);
     flex-direction: column;
     .card--left-top-section {
       display: flex;
-      column-gap: 16px;
+      column-gap: toRem(16);
       align-items: center;
       .card__heading {
-        font-size: 20px;
+        font-size: toRem(20);
         font-weight: 700;
       }
     }
@@ -34,27 +35,27 @@
       .card__description-list {
         display: flex;
         align-items: center;
-        column-gap: 12px;
-        font-size: 14px;
+        column-gap: toRem(12);
+        font-size: toRem(14);
         font-weight: 500;
-        line-height: 24px;
+        line-height: toRem(24);
       }
       .card__description-icons {
         display: flex;
         align-items: center;
-        margin-left: 18px;
+        margin-left: toRem(18);
         .chain__icon {
           display: inline-flex;
-          width: 28px;
-          height: 28px;
+          width: toRem(28);
+          height: toRem(28);
           align-items: center;
           border: 1px solid $greyDDD;
           border-radius: 8px;
           justify-content: center;
-          margin-left: -6px;
+          margin-left: toRem(-6);
           background-color: #ffffff;
           img {
-            width: 16px;
+            width: toRem(16);
             object-fit: contain;
           }
         }
@@ -64,23 +65,23 @@
   .card--right-section {
     display: flex;
     flex-direction: column;
-    row-gap: 14px;
+    row-gap: toRem(14);
     align-items: flex-end;
 
     .card--right-top-section {
       display: flex;
       align-items: center;
-      column-gap: 16px;
+      column-gap: toRem(16);
       font-weight: 600;
-      font-size: 14px;
-      line-height: 24px;
+      font-size: toRem(14);
+      line-height: toRem(24);
     }
     .card--right-bottom-section {
       display: flex;
       align-items: center;
       font-weight: 500;
-      font-size: 13px;
-      line-height: 24px;
+      font-size: toRem(13);
+      line-height: toRem(24);
     }
   }
   .card--bottom-section {

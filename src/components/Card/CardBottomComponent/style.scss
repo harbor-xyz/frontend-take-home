@@ -1,20 +1,21 @@
 @import "../../../assets/styles/colors";
+@import "../../../assets/styles/mixin";
 
 .bottom--wrapper {
   display: flex;
   align-items: center;
-  column-gap: 12px;
+  column-gap: toRem(12);
   .bottom__item {
     display: flex;
     align-items: center;
-    column-gap: 8px;
+    column-gap: toRem(8);
     font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
     color: $tangerine;
     svg {
-      width: 14px;
-      height: 14px;
+      width: toRem(14);
+      height: toRem(14);
       path {
         fill: $tangerine;
       }

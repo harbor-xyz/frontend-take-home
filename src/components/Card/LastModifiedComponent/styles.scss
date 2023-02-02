@@ -1,17 +1,18 @@
 @import "../../../assets/styles/colors";
+@import "../../../assets/styles/mixin";
 
 .lastmodified--wrapper {
   display: flex;
   align-items: center;
   color: $grey999;
   & > svg {
-    width: 14px;
-    height: 14px;
+    width: toRem(14);
+    height: toRem(14);
   }
   .lastmodified__text {
-    margin-left: 6px;
+    margin-left: toRem(6);
     font-weight: 500;
-    font-size: 13px;
-    line-height: 24px;
+    font-size: toRem(13);
+    line-height: toRem(24);
   }
 }

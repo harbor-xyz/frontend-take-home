@@ -1,42 +1,45 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
 .testnet--header--wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: toRem(20);
 
   .header__left-section {
     display: flex;
     align-items: center;
-    column-gap: 20px;
+    column-gap: toRem(20);
     h1 {
       font-weight: 700;
-      font-size: 24px;
-      line-height: 28px;
+      font-size: toRem(24);
+      line-height: toRem(28);
     }
     .testnet__add-btn {
       font-weight: 600;
-      font-size: 16px;
-      line-height: 28px;
-      color: #2f80ed;
+      font-size: toRem(16);
+      line-height: toRem(28);
+      color: $lightBlue;
       background: none;
       border: none;
       outline: 0;
       display: flex;
       align-items: center;
-      column-gap: 8px;
+      column-gap: toRem(8);
       cursor: pointer;
       svg {
-        width: 14px;
-        height: 14px;
+        width: toRem(14);
+        height: toRem(14);
         path {
-          fill: #2f80ed;
+          fill: $lightBlue;
         }
       }
     }
   }
   .header__right-section {
     display: flex;
-    column-gap: 20px;
+    column-gap: toRem(20);
     align-items: center;
   }
 }

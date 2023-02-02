@@ -1,24 +1,27 @@
+@import "../../../assets/styles/colors";
+@import "../../../assets/styles/mixin";
+
 .tab__item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 6px 14px 6px 36px;
-  border-radius: 8px;
+  padding: toRem(6) toRem(14) toRem(6) toRem(36);
+  border-radius: toRem(8);
   cursor: pointer;
   .tab__item__left {
     display: flex;
     align-items: center;
-    column-gap: 12px;
+    column-gap: toRem(12);
     font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
     color: #000;
     svg {
-      width: 16px;
-      height: 16px;
+      width: toRem(16);
+      height: toRem(16);
     }
     .badge--wrapper {
-      height: 20px;
+      height: toRem(20);
       border: 1px solid transparent;
     }
   }
@@ -26,27 +29,27 @@
     display: flex;
     align-items: center;
     svg {
-      width: 12px;
-      height: 12px;
+      width: toRem(12);
+      height: toRem(12);
       path {
-        fill: #aaa;
+        fill: $greyAAA;
       }
     }
   }
   &:hover,
   &.selected {
-    background-color: #f6f8fa;
+    background-color: $aquaHaze;
     .tab__item__left {
-      color: #2f80ed;
+      color: $lightBlue;
       font-weight: 600;
       svg {
         path {
-          fill: #2f80ed;
+          fill: $lightBlue;
         }
       }
       .badge--wrapper {
         background: #ffffff;
-        border-color: #f0f0f0;
+        border-color: $greyF0;
       }
     }
   }

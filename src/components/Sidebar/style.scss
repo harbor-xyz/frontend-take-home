@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
 
 .sidebar--wrapper {
   display: flex;
@@ -6,25 +7,25 @@
   align-items: flex-start;
   background: #ffffff;
   border: 1px solid $greyDDD;
-  width: 300px;
+  width: toRem(300);
   position: fixed;
   height: 100%;
-  top: 66px;
+  top: toRem(66);
   .sidebar--navigation {
     width: 100%;
-    padding: 8px 12px 8px 20px;
+    padding: toRem(8) toRem(12) toRem(8) toRem(20);
     border-bottom: 1px solid $greyDDD;
     display: flex;
     box-sizing: border-box;
-    column-gap: 12px;
+    column-gap: toRem(12);
     align-items: center;
     .navigation__icon {
       display: inline-block;
     }
     .navigation__text {
       font-weight: 600;
-      font-size: 14px;
-      line-height: 24px;
+      font-size: toRem(14);
+      line-height: toRem(24);
       color: $grey999;
     }
   }

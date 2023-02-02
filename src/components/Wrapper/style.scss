@@ -1,7 +1,10 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
 .pages--wrapper {
-  background: #f6f8fa;
+  background: $aquaHaze;
   display: flex;
   flex-direction: column;
-  min-height: calc(100vh - 66px);
-  padding: 40px 60px 40px calc(300px + 60px);
+  min-height: calc(100vh - toRem(66));
+  padding: toRem(40) toRem(60) toRem(40) toRem(360);
 }

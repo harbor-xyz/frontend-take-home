@@ -1,6 +1,9 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
 .separator--wrapper {
-  width: 4px;
-  height: 4px;
-  background-color: #d2d5db;
+  width: toRem(4);
+  height: toRem(4);
+  background-color: $greyD2;
   display: inline-block;
 }

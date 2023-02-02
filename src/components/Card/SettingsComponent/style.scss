@@ -1,12 +1,13 @@
 @import "../../../assets/styles/colors";
+@import "../../../assets/styles/mixin";
 
 .settings--wrapper {
   display: inline-flex;
   align-items: center;
   color: $lightBlue;
   & > svg {
-    width: 14px;
-    height: 14px;
+    width: toRem(14);
+    height: toRem(14);
     path {
       fill: $lightBlue;
     }
@@ -14,8 +15,8 @@
   .settings__text {
     margin-left: 6px;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
   }
   &.cloning,
   &.standing,

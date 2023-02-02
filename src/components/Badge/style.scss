@@ -1,13 +1,15 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
 .badge--wrapper {
-  height: 24px;
+  height: toRem(24);
   background: $greyf6;
-  border-radius: 40px;
-  padding: 2px 12px;
+  border-radius: toRem(40);
+  padding: toRem(2) toRem(12);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   font-weight: 600;
-  font-size: 14px;
+  font-size: toRem(14);
   color: $grey999;
 }

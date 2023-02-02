@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
 
 .filter--wrapper {
   display: flex;
@@ -8,21 +9,21 @@
     display: flex;
     align-items: center;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
     color: $grey999;
     cursor: pointer;
     .selected__filter {
       display: flex;
       align-items: center;
-      column-gap: 6px;
-      margin-left: 8px;
+      column-gap: toRem(6);
+      margin-left: toRem(8);
       .selected__filter--icon {
-        width: 14px;
-        height: 14px;
+        width: toRem(14);
+        height: toRem(14);
       }
       .label__arrow {
-        width: 8px;
+        width: toRem(8);
       }
     }
   }

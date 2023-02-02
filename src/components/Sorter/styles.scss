@@ -1,4 +1,5 @@
 @import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
 
 .sorter--wrapper {
   display: flex;
@@ -8,21 +9,21 @@
     display: flex;
     align-items: center;
     font-weight: 500;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
     color: $grey999;
     cursor: pointer;
     .selected__sorter {
       display: flex;
       align-items: center;
-      column-gap: 6px;
-      margin-left: 8px;
+      column-gap: toRem(6);
+      margin-left: toRem(8);
       color: $grey555;
       font-weight: 600;
-      font-size: 14px;
-      line-height: 24px;
+      font-size: toRem(14);
+      line-height: toRem(24);
       .label__arrow {
-        width: 8px;
+        width: toRem(8);
       }
     }
   }

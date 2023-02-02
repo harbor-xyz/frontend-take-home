@@ -1,21 +1,23 @@
+@import "../../assets/styles/mixin";
+
 .vertical-tab--wrapper {
   display: flex;
   flex-direction: column;
-  padding: 12px;
+  padding: toRem(12);
   align-self: stretch;
   .tab__heading {
     display: flex;
-    padding: 6px 20px 6px 8px;
+    padding: toRem(6) toRem(20) toRem(6) toRem(8);
     align-items: center;
-    column-gap: 12px;
+    column-gap: toRem(12);
     font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: toRem(16);
+    line-height: toRem(24);
   }
   .tab__list {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
-    row-gap: 4px;
+    margin-top: toRem(10);
+    row-gap: toRem(4);
   }
 }

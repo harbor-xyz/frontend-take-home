@@ -1,17 +1,20 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
 .dropdown--wrapper {
   position: absolute;
   top: 100%;
   right: 0;
-  width: 200px;
+  width: toRem(200);
   background: #ffffff;
-  border: 1px solid #dddddd;
+  border: 1px solid $greyDDD;
   box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   display: none;
   z-index: 2;
-  padding: 8px;
+  padding: toRem(8);
   flex-direction: column;
-  row-gap: 4px;
+  row-gap: toRem(4);
   cursor: pointer;
   .dropdown__item {
     border-radius: 8px;
@@ -19,7 +22,7 @@
     align-items: center;
     &.selected,
     &:hover {
-      background: #f6f6f6;
+      background: $greyf6;
     }
   }
   &.open {

@@ -1,17 +1,18 @@
 @import "../../../assets/styles/colors";
+@import "../../../assets/styles/mixin";
 
 .status__wrapper {
   display: inline-flex;
   align-items: center;
   & > svg {
-    width: 14px;
-    height: 14px;
+    width: toRem(14);
+    height: toRem(14);
   }
   .status__text {
-    margin-left: 6px;
+    margin-left: toRem(6);
     font-weight: 600;
-    font-size: 14px;
-    line-height: 24px;
+    font-size: toRem(14);
+    line-height: toRem(24);
   }
   &.running {
     color: $greenDark;
