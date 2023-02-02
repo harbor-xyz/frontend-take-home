@@ -1,6 +1,6 @@
 @import "../../../assets/styles/colors";
 
-.lastmmodified--wrapper {
+.lastmodified--wrapper {
   display: flex;
   align-items: center;
   color: $grey999;
@@ -8,7 +8,7 @@
     width: 14px;
     height: 14px;
   }
-  .lastmmodified__text {
+  .lastmodified__text {
     margin-left: 6px;
     font-weight: 500;
     font-size: 13px;
