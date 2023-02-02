@@ -13,7 +13,7 @@ const data = {
       status: "RUNNING",
       endpoint: "3.110.142.253",
       created_at: "2022-10-27T09:38:25.870847+00:00",
-      updated_at: "2022-10-27T09:40:45.834821+00:00",
+      updated_at: "Thu Feb 02 2023 18:46:06 GMT+0530 (India Standard Time)",
       testnet_off_chain_actors: [
         {
           name: "routerCache",
@@ -50,8 +50,8 @@ const data = {
       id: "b9e1a987-d4a3-47a4-a019-19844d02f84e",
       status: "RUNNING",
       endpoint: "3.110.193.51",
-      created_at: "2022-10-27T09:37:59.060386+00:00",
-      updated_at: "2022-10-27T09:40:20.534066+00:00",
+      created_at: "Thu Feb 02 2023 21:53:54 GMT+0530 (India Standard Time)",
+      updated_at: "Thu Feb 02 2023 21:53:54 GMT+0530 (India Standard Time)",
       testnet_off_chain_actors: [
         {
           name: "routerCache",

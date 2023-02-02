@@ -1,15 +1,21 @@
-import { TestNetsState } from "../models/testnets";
+import { SortingOrder, TestNetsState } from "../models/testnets.d";
 import { TEST_NET_ACTION_TYPES } from "../actionTypes";
 import {
   GetTestNetDataError,
   GetTestNetDataReceived,
+  SetSorter,
   TestNetActions,
 } from "../actions/testnet.actions";
+import { Sorters } from "../../typings/models.d";
 
 const Initial_state: TestNetsState = {
   data: [],
   isLoading: false,
   error: false,
+  sortSelection: {
+    key: Sorters.NAME,
+    order: SortingOrder.ASC,
+  },
 };
 
 const actionMap = {
@@ -40,6 +46,15 @@ const actionMap = {
       ...state,
       isLoading: false,
       error: !!action.payload.data,
+    };
+  },
+  [TEST_NET_ACTION_TYPES.SORT_LIST](
+    state: TestNetsState,
+    action: SetSorter
+  ): TestNetsState {
+    return {
+      ...state,
+      sortSelection: action.payload,
     };
   },
 };

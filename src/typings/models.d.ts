@@ -26,3 +26,10 @@ export interface TestNetChainActors {
   name: string;
   status: Status;
 }
+
+export enum Sorters {
+  NAME = "NAME",
+  STATUS = "STATUS",
+  CREATED = "CREATED",
+  UPDATED = "UPDATED",
+}

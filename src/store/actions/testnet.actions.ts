@@ -1,5 +1,5 @@
 import { Action, ActionWithPayload } from "../../utils/reducer.utils";
-import { TestNet } from "../models/testnets";
+import { TestNet, SortSelection } from "../models/testnets.d";
 import { TEST_NET_ACTION_TYPES } from "../actionTypes";
 
 export type GetTestNetDataRequested =
@@ -19,7 +19,13 @@ export type GetTestNetDataError = ActionWithPayload<
   }
 >;
 
+export type SetSorter = ActionWithPayload<
+  TEST_NET_ACTION_TYPES.SORT_LIST,
+  SortSelection
+>;
+
 export type TestNetActions =
   | GetTestNetDataRequested
   | GetTestNetDataReceived
-  | GetTestNetDataError;
+  | GetTestNetDataError
+  | SetSorter;
