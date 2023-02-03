@@ -4,6 +4,9 @@ import "./styles.scss";
 import TestNetHeader from "../../components/TestNetHeader";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 import { useActions } from "../../hooks/useActions";
+import EmptyList from "../../components/EmptyList";
+import Loader from "../../components/Loader";
+import { TestNet } from "../../store/models/testnets.d";
 
 const TestNets = () => {
   const { data, isLoading } = useTypedSelector((state) => state.testNets);
@@ -15,12 +18,14 @@ const TestNets = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  const renderCard = (card: TestNet) => <Card key={card.id} data={card} />;
+
   return (
     <>
       <TestNetHeader />
-      {data.map((card) => (
-        <Card key={card.id} data={card} />
-      ))}
+      {!!data.length && data.map(renderCard)}
+      {!data.length && !isLoading && <EmptyList />}
+      {isLoading && <Loader />}
     </>
   );
 };

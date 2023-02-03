@@ -1,4 +1,5 @@
 import { Dispatch } from "redux";
+import { getTestNets } from "./../../services/testnet";
 import { sortListUtil } from "./../../utils/sorting.utils";
 import {
   GetTestNetDataError,
@@ -10,6 +11,7 @@ import { TEST_NET_ACTION_TYPES } from "../actionTypes";
 import { TestNet } from "../models/testnets.d";
 import { createAction } from "../../utils/reducer.utils";
 import { RootState } from "../reducers";
+import { delay } from "../../utils/common.utils";
 
 export const fetchTestNetsReceived = (
   data: TestNet[]
@@ -29,10 +31,10 @@ export const fetchTestNets =
     const { key, order } = getState().testNets.sortSelection;
     dispatch(fetchTestNetsRequested());
     try {
-      const response = await fetch("http://localhost:3000/testnets");
-      const json = await response.json();
-      const testnets = json.data.testnet as TestNet[];
+      const testnets = await getTestNets();
       const sortedData = sortListUtil(testnets, key, order);
+      // Fake Delay to show loader
+      await delay(3000);
       dispatch(fetchTestNetsReceived(sortedData));
     } catch (error: any) {
       dispatch(fetchTestNetsError(error?.message));

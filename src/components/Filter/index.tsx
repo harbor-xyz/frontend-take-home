@@ -11,7 +11,7 @@ import { Status } from "../../typings/models.d";
 
 const Filter = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const { data: originalDataList, filterSelection } = useTypedSelector(
+  const { originalData: originalDataList, filterSelection } = useTypedSelector(
     (state) => state.testNets
   );
   const { filterList } = useActions();

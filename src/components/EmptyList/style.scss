@@ -1,0 +1,31 @@
+@import "../../assets/styles/colors";
+@import "../../assets/styles/mixin";
+
+.empty-list--wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid $greye5;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  padding: toRem(50) 0;
+  .empty-list__content {
+    font-size: toRem(24);
+    font-weight: 600;
+    color: #000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    button {
+      font-weight: 600;
+      font-size: toRem(14);
+      line-height: toRem(28);
+      color: $lightBlue;
+      background: none;
+      border: none;
+      outline: 0;
+      cursor: pointer;
+    }
+  }
+}
