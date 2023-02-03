@@ -7,9 +7,12 @@ import { useActions } from "../../hooks/useActions";
 import EmptyList from "../../components/EmptyList";
 import Loader from "../../components/Loader";
 import { TestNet } from "../../store/models/testnets.d";
+import ErrorComponent from "../../components/ErrorComponent";
 
 const TestNets = () => {
-  const { data, isLoading } = useTypedSelector((state) => state.testNets);
+  const { data, isLoading, error } = useTypedSelector(
+    (state) => state.testNets
+  );
   const { fetchTestNets } = useActions();
   useEffect(() => {
     if (!isLoading && !data.length) {
@@ -26,6 +29,7 @@ const TestNets = () => {
       {!!data.length && data.map(renderCard)}
       {!data.length && !isLoading && <EmptyList />}
       {isLoading && <Loader />}
+      {error && <ErrorComponent />}
     </>
   );
 };

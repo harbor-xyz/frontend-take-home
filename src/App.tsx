@@ -3,12 +3,15 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import Wrapper from "./components/Wrapper";
 import "./assets/styles/main.scss";
+import ErrorBoundary from "./components/ErrorBoundary";
 
 const App = () => {
   return (
-    <Provider store={store}>
-      <Wrapper />
-    </Provider>
+    <ErrorBoundary>
+      <Provider store={store}>
+        <Wrapper />
+      </Provider>
+    </ErrorBoundary>
   );
 };
 
