@@ -21,7 +21,9 @@ export interface SortSelection {
 
 export interface TestNetsState {
   data: TestNet[];
+  originalData: TestNet[];
   isLoading: boolean;
   error: boolean;
   sortSelection: SortSelection;
+  filterSelection: Status | "all";
 }

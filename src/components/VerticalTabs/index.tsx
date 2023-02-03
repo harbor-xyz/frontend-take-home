@@ -6,7 +6,9 @@ import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const VerticalTabs = () => {
   const tabId = useId();
-  const { length: count } = useTypedSelector((state) => state.testNets.data);
+  const { length: count } = useTypedSelector(
+    (state) => state.testNets.originalData
+  );
   const tabs = [
     {
       icon: <ICONS.TestNetsIcon />,

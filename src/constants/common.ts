@@ -48,3 +48,65 @@ export const SorterList = [
     id: `${Sorters.UPDATED}:${SortingOrder.DESC}`,
   },
 ];
+
+export const FilterList: {
+  text: string;
+  icon: any;
+  state: Status | "all";
+  id: Status | "all";
+}[] = [
+  {
+    text: "All",
+    icon: ICONS.AllStatusIcon,
+    state: "all",
+    id: "all",
+  },
+  {
+    text: "Running",
+    icon: ICONS.TickInCircleIcon,
+    state: Status.RUNNING,
+    id: Status.RUNNING,
+  },
+  {
+    text: "Standing up",
+    icon: ICONS.StandingUpIcon,
+    state: Status.STANDING,
+    id: Status.STANDING,
+  },
+  {
+    text: "Updating",
+    icon: ICONS.StandingUpIcon,
+    state: Status.UPDATING,
+    id: Status.UPDATING,
+  },
+  {
+    text: "Pending",
+    icon: ICONS.StandingUpIcon,
+    state: Status.PENDING,
+    id: Status.PENDING,
+  },
+  {
+    text: "Cloning",
+    icon: ICONS.CloneIcon,
+    state: Status.CLONING,
+    id: Status.CLONING,
+  },
+  {
+    text: "Killed",
+    icon: ICONS.KilledIcon,
+    state: Status.KILLED,
+    id: Status.KILLED,
+  },
+  {
+    text: "Stopped",
+    icon: ICONS.KilledIcon,
+    state: Status.STOPPED,
+    id: Status.STOPPED,
+  },
+  {
+    text: "Failed",
+    icon: ICONS.FailedIcon,
+    state: Status.FAILED,
+    id: Status.FAILED,
+  },
+];

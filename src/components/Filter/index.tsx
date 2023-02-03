@@ -3,109 +3,48 @@ import "./styles.scss";
 import { ICONS } from "../../constants/icon-constants";
 import Dropdown from "../Dropdown";
 import SorterAndFilterItem from "../SorterFilterItem";
+import { FilterList, ICON_MAPPING } from "../../constants/common";
+import { useTypedSelector } from "../../hooks/useTypedSelector";
+import { getFilterCount } from "../../utils/filter.utils";
+import { useActions } from "../../hooks/useActions";
 import { Status } from "../../typings/models.d";
-import { ICON_MAPPING } from "../../constants/common";
 
 const Filter = () => {
   const [showDropdown, setShowDropdown] = useState(false);
-  const filterList = [
-    {
+  const { data: originalDataList, filterSelection } = useTypedSelector(
+    (state) => state.testNets
+  );
+  const { filterList } = useActions();
+  const filters = FilterList.map(({ text, id, state, icon }) => {
+    const Icon = icon;
+    const filterCount = getFilterCount(id, originalDataList);
+    const modText = `${text} (${filterCount})`;
+    return {
       item: (
-        <SorterAndFilterItem
-          text="All"
-          icon={<ICONS.AllStatusIcon />}
-          state="all"
-        />
+        <SorterAndFilterItem text={modText} icon={<Icon />} state={state} />
       ),
-      id: "0",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Running (3)"
-          icon={<ICONS.TickInCircleIcon />}
-          state={Status.RUNNING}
-        />
-      ),
-      id: "1",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Standing up (3)"
-          icon={<ICONS.StandingUpIcon />}
-          state={Status.STANDING}
-        />
-      ),
-      id: "2",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Updating (1)"
-          icon={<ICONS.StandingUpIcon />}
-          state={Status.UPDATING}
-        />
-      ),
-      id: "3",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Failed (1)"
-          icon={<ICONS.FailedIcon />}
-          state={Status.FAILED}
-        />
-      ),
-      id: "4",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Cloning (0)"
-          icon={<ICONS.CloneIcon />}
-          state={Status.CLONING}
-        />
-      ),
-      id: "6",
-    },
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Killed (1)"
-          icon={<ICONS.KilledIcon />}
-          state={Status.KILLED}
-        />
-      ),
-      id: "5",
-    },
+      id,
+    };
+  });
 
-    {
-      item: (
-        <SorterAndFilterItem
-          text="Stopped (1)"
-          icon={<ICONS.KilledIcon />}
-          state={Status.STOPPED}
-        />
-      ),
-      id: "7",
-    },
-  ];
   const dropdownCloseHandler = () => {
     setShowDropdown(false);
   };
   const filterItemClickHandler = (id: string) => {
-    console.log(id);
     dropdownCloseHandler();
+    if (id === filterSelection) return;
+    filterList(id as Status | "all");
   };
-  const filterSelected = {
-    id: "6",
-    state: Status.CLONING,
-    text: "Cloning",
-  };
-  const Icon = ICON_MAPPING[filterSelected.state] ?? null;
+
+  const Icon =
+    filterSelection === "all"
+      ? ICONS.AllStatusIcon
+      : ICON_MAPPING[filterSelection];
+  const selectedFilterText = FilterList.find(
+    (a) => a.id === filterSelection
+  )?.text;
   return (
-    <div className={`filter--wrapper ${filterSelected.state.toLowerCase()}`}>
+    <div className={`filter--wrapper ${filterSelection.toLowerCase()}`}>
       <label
         className="filter__label"
         onClick={() => setShowDropdown(!showDropdown)}
@@ -113,14 +52,14 @@ const Filter = () => {
         Filter by:
         <span className="selected__filter">
           <Icon className="selected__filter--icon" />
-          <span>{filterSelected.text}</span>
+          <span>{selectedFilterText}</span>
           <ICONS.ArrowDown className="label__arrow" />
         </span>
       </label>
       <Dropdown
-        list={filterList}
+        list={filters}
         show={showDropdown}
-        selected={filterSelected.id}
+        selected={filterSelection}
         closeHandler={dropdownCloseHandler}
         clickHandler={filterItemClickHandler}
       />

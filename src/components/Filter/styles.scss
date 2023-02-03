@@ -52,7 +52,8 @@
     }
   }
   &.standing,
-  &.updating {
+  &.updating,
+  &.pending {
     .filter__label {
       .selected__filter {
         color: $tangerine;
@@ -76,7 +77,8 @@
       }
     }
   }
-  &.killed {
+  &.killed,
+  &.stopped {
     .filter__label {
       .selected__filter {
         color: $greyAAA;

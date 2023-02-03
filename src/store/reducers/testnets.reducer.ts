@@ -3,19 +3,23 @@ import { TEST_NET_ACTION_TYPES } from "../actionTypes";
 import {
   GetTestNetDataError,
   GetTestNetDataReceived,
+  SetFilter,
   SetSorter,
   TestNetActions,
+  SetSortedAndFilteredList,
 } from "../actions/testnet.actions";
 import { Sorters } from "../../typings/models.d";
 
 const Initial_state: TestNetsState = {
   data: [],
+  originalData: [],
   isLoading: false,
   error: false,
   sortSelection: {
     key: Sorters.NAME,
     order: SortingOrder.ASC,
   },
+  filterSelection: "all",
 };
 
 const actionMap = {
@@ -36,6 +40,7 @@ const actionMap = {
       ...state,
       isLoading: false,
       data: action.payload.data,
+      originalData: action.payload.data,
     };
   },
   [TEST_NET_ACTION_TYPES.GET_DATA_ERROR](
@@ -55,6 +60,24 @@ const actionMap = {
     return {
       ...state,
       sortSelection: action.payload,
+    };
+  },
+  [TEST_NET_ACTION_TYPES.FILTER_LIST](
+    state: TestNetsState,
+    action: SetFilter
+  ): TestNetsState {
+    return {
+      ...state,
+      filterSelection: action.payload,
+    };
+  },
+  [TEST_NET_ACTION_TYPES.SET_SORTED_AND_FILTRED_LIST](
+    state: TestNetsState,
+    action: SetSortedAndFilteredList
+  ): TestNetsState {
+    return {
+      ...state,
+      data: action.payload,
     };
   },
 };

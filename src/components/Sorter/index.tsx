@@ -31,11 +31,12 @@ const Sorter = () => {
     setShowDropdown(false);
   };
   const sorterItemClickHandler = (id: string) => {
+    dropdownCloseHandler();
+    if (id === selectedSortId) return null;
     const parsedId = id.split(":");
     const key = parsedId[0] as Sorters;
     const order = parsedId[1] as SortingOrder;
     sortList({ key, order });
-    dropdownCloseHandler();
   };
   return (
     <div className="sorter--wrapper">

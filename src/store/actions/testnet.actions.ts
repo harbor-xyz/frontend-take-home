@@ -1,3 +1,4 @@
+import { Status } from "./../../typings/models.d";
 import { Action, ActionWithPayload } from "../../utils/reducer.utils";
 import { TestNet, SortSelection } from "../models/testnets.d";
 import { TEST_NET_ACTION_TYPES } from "../actionTypes";
@@ -23,9 +24,19 @@ export type SetSorter = ActionWithPayload<
   TEST_NET_ACTION_TYPES.SORT_LIST,
   SortSelection
 >;
+export type SetFilter = ActionWithPayload<
+  TEST_NET_ACTION_TYPES.FILTER_LIST,
+  Status | "all"
+>;
+export type SetSortedAndFilteredList = ActionWithPayload<
+  TEST_NET_ACTION_TYPES.SET_SORTED_AND_FILTRED_LIST,
+  TestNet[]
+>;
 
 export type TestNetActions =
   | GetTestNetDataRequested
   | GetTestNetDataReceived
   | GetTestNetDataError
-  | SetSorter;
+  | SetSorter
+  | SetFilter
+  | SetSortedAndFilteredList;

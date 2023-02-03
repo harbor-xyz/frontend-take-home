@@ -7,7 +7,9 @@ import Sorter from "../Sorter";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
 
 const TestNetHeader = () => {
-  const { length: count } = useTypedSelector((state) => state.testNets.data);
+  const { length: count } = useTypedSelector(
+    (state) => state.testNets.originalData
+  );
   return (
     <div className="testnet--header--wrapper">
       <div className="header__left-section">

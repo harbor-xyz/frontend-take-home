@@ -2,11 +2,11 @@ export enum Status {
   RUNNING = "RUNNING",
   STANDING = "STANDING",
   UPDATING = "UPDATING",
+  PENDING = "PENDING",
+  CLONING = "CLONING",
   FAILED = "FAILED",
   STOPPED = "STOPPED",
   KILLED = "KILLED",
-  CLONING = "CLONING",
-  PENDING = "PENDING",
 }
 
 export enum BlockChains {
