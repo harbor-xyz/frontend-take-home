@@ -11,6 +11,7 @@
   position: fixed;
   height: 100%;
   top: toRem(66);
+  z-index: 1;
   .sidebar--navigation {
     width: 100%;
     padding: toRem(8) toRem(12) toRem(8) toRem(20);
