@@ -44,7 +44,7 @@ const TestNets = () => {
     <>
       <TestNetHeader />
       {!!data.length && data.map(renderCard)}
-      {!data.length && !isLoading && <EmptyList />}
+      {!data.length && !isLoading && !error && <EmptyList />}
       {isLoading && <Loader />}
       {error && <ErrorComponent />}
       {/* for bottom of the page ref only */}

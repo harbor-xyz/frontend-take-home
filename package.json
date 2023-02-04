@@ -23,7 +23,7 @@
     "typescript": "^4.9.4"
   },
   "scripts": {
-    "start:server": "node index.js",
+    "start:server": "nodemon index.js",
     "start:client": "react-scripts start"
   },
   "eslintConfig": {

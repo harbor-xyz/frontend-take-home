@@ -980,7 +980,7 @@ const data = {
     {
       name: "testnet_name",
       id: "722857b8-fd95-4440-9b59-07c145a6cea1",
-      status: "PENDING",
+      status: "CLONING",
       endpoint: null,
       created_at: "2022-10-26T15:02:46.369266+00:00",
       updated_at: "2022-10-26T15:02:46.369266+00:00",
@@ -993,7 +993,22 @@ const data = {
       ],
       testnet_chains: [
         {
+          chain: "alchemy",
+          status: "PENDING",
+          __typename: "testnet_chain",
+        },
+        {
           chain: "polygon",
+          status: "PENDING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "optimism",
+          status: "PENDING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "atrbitrum",
           status: "PENDING",
           __typename: "testnet_chain",
         },
@@ -1031,7 +1046,7 @@ const data = {
       ],
       testnet_chains: [
         {
-          chain: "ethereum",
+          chain: "optimism",
           status: "RUNNING",
           __typename: "testnet_chain",
         },
@@ -1074,7 +1089,7 @@ const data = {
     {
       name: "aks-testnet-2610",
       id: "a2218c8f-699f-4bca-9baf-d7fc6a533105",
-      status: "RUNNING",
+      status: "FAILED",
       endpoint: "3.110.132.182",
       created_at: "2022-10-26T10:20:38.74962+00:00",
       updated_at: "2022-10-26T15:04:58.9378+00:00",
@@ -1097,7 +1112,7 @@ const data = {
       ],
       testnet_chains: [
         {
-          chain: "ethereum",
+          chain: "atrbitrum",
           status: "RUNNING",
           __typename: "testnet_chain",
         },
