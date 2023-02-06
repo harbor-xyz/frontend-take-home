@@ -24,7 +24,9 @@
   },
   "scripts": {
     "start:server": "nodemon index.js",
-    "start:client": "react-scripts start"
+    "start:client": "react-scripts start",
+    "build:client": "react-scripts build",
+    "serve": "npx serve -s build"
   },
   "eslintConfig": {
     "extends": [

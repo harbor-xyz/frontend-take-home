@@ -5,6 +5,7 @@
   display: inline-flex;
   align-items: center;
   color: $lightBlue;
+  cursor: pointer;
   & > svg {
     width: toRem(14);
     height: toRem(14);
@@ -23,6 +24,7 @@
   &.updating,
   &.pending {
     color: $greyAAA;
+    cursor: not-allowed;
     svg {
       path {
         fill: $greyAAA;
