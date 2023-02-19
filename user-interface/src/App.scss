@@ -14,3 +14,23 @@
   flex-grow: 1;
   background-color: #F5F5F5;
 }
+
+/** Making the layout fit in smaller screens */
+@media screen and (max-width: 768px) {
+  .App {
+    flex-direction: column;
+    overflow: scroll;
+  }
+
+  .mainview_container {
+    order: 2;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .sidebar_container {
+    order: 1;
+    flex: 1 1 100%;
+    width: 100%;
+  }
+}
