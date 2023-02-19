@@ -1,0 +1,73 @@
+.testnet_card {
+    display: flex;
+    justify-content: space-between;
+    min-width: 350px;
+    flex-wrap: wrap;
+    row-gap: 12px;
+    background: #FFFFFF;
+    border: 1px solid #E5E5E5;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 26px 32px;
+
+    &__left_side_content,
+    &__right_side_content {
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        line-height: 22px;
+
+        &>div {
+            display: flex;
+            row-gap: 12px;
+            column-gap: 10px;
+            justify-items: center;
+        }
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__count {
+        border-radius: 10px;
+        color: #999999;
+        background-color: #F6F6F6;
+        border: 1px solid #F0F0F0;
+        border-radius: 8px;
+        padding: 4px 8px;
+        height: 15px;
+        font-size: 12px;
+        line-height: 1.4;
+    }
+
+    &__off_chain_actors_count {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    &__blockchain_count {
+        font-weight: 500;
+        font-size: 14px;
+    }
+
+    &__off_chain_status,
+    &__blockchain_status,
+    &__status,
+    &__settings,
+    &__last_modified_on {
+        font-weight: 600;
+        font-size: 14px;
+        color: #DB9000;
+        justify-items: center;
+        display: flex;
+        column-gap: 5px;
+    }
+
+    &__last_modified_on {
+        font-weight: 500;
+        font-size: 13px;
+        color: #999999;
+    }
+}

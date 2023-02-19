@@ -1,10 +1,10 @@
+import TestnetCard from '../testnet-card/testnet-card';
+
 import './testnet-listing.scss';
 
 export default function TestnetListing({ testnets }) {
     return <div className="testnet_listing">
-        Testnet card
-        <br />
-        Testnet card
-        <br />
+        <TestnetCard />
+        <TestnetCard />
     </div>
 }
