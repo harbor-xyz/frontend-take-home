@@ -1,4 +1,5 @@
 import { Icons } from '../../utils/icons';
+import SidebarItem from '../sidebar-item/sidebar-item';
 
 import './sidebar.scss'
 
@@ -12,6 +13,9 @@ export default function SideBar() {
             <div className="sidebar__project">
                 <img className="sidebar__project_icon" src={Icons.Star} alt="Project Icon" /> <h2 className="sidebar__header">Alchemy University</h2>
             </div>
+            <SidebarItem itemName={"Testnets"} count={8} icon={Icons.Testnet} userActionIcon={Icons.Plus} isSelected />
+            <SidebarItem itemName={"Members"} count={1} icon={Icons.Members} userActionIcon={Icons.Plus} />
+            <SidebarItem itemName={"Project Key"} icon={Icons.ProjectKey} userActionIcon={Icons.Copy} />
         </div>
     </section>
 }
