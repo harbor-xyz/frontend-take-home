@@ -1,0 +1,35 @@
+.testnet_header {
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    min-width: 400px;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 12px;
+
+    &__name {
+        color: #000000;
+        font-size: 24px;
+        display: inline-block;
+        font-weight: bold;
+
+    }
+
+    &__add_new {
+        color: #2F80ED;
+        font-size: 16px;
+        font-weight: 600;
+        margin-left: 20px;
+    }
+
+    &__filter_sort_container {
+        font-size: 14px;
+        display: flex;
+
+        &> :last-child {
+            margin-left: 10px;
+        }
+    }
+}
