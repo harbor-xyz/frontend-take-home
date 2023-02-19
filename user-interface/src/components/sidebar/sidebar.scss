@@ -1,0 +1,41 @@
+.sidebar {
+
+    &__header {
+        font-weight: 600;
+        display: inline-block;
+        font-size: 16px;
+        line-height: 24px;
+        padding: 8px 0;
+        margin-left: 8px;
+    }
+
+    &__project {
+        display: flex;
+        align-items: center;
+
+    }
+
+    &__project_icon {
+        height: 16px;
+        width: 16px;
+    }
+
+    &__navigation {
+        font-size: 14px;
+        color: #999999;
+        font-weight: bold;
+        border-bottom: 1px solid #DDDDDD;
+        padding: 12px;
+    }
+
+    &__list {
+        padding: 12px;
+    }
+
+    &__navigation_link {
+        color: #999999;
+        text-decoration: none;
+    }
+
+    /** TODO - make variables for repeated values like colors */
+}

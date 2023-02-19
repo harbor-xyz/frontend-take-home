@@ -1,0 +1,16 @@
+.App {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.sidebar_container {
+  width: 300px;
+  min-width: 200px;
+  border-right: 1px solid #DDDDDD;
+}
+
+.mainview_container {
+  flex-grow: 1;
+  background-color: #F5F5F5;
+}
