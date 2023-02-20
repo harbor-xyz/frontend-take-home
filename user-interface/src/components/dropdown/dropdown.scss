@@ -1,3 +1,5 @@
+@import "../../styles/variables";
+
 .dropdown {
     text-align: left;
     position: relative;
@@ -17,13 +19,12 @@
         border: 1px solid #ccc;
         border-radius: 5px;
         overflow: auto;
-        background: #FFFFFF;
+        background: $color-white;
         padding: 8px 8px 4px 8px;
-        border: 1px solid #DDDDDD;
+        border: 1px solid $color-border;
         box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
         border-radius: 8px;
         z-index: 99;
-
     }
 
     &__item {
@@ -34,14 +35,14 @@
         margin-bottom: 4px;
         height: 20px;
         font-weight: 600;
-        font-size: 14px;
+        font-size: $font-size-regular;
 
         &:hover {
-            background-color: #F6F6F6;
+            background-color: $color-white-smoke;
         }
 
         &--selected {
-            background-color: #F6F6F6;
+            background-color: $color-white-smoke;
         }
     }
 
@@ -49,7 +50,7 @@
         display: flex;
 
         &_prefix {
-            color: #999999;
+            color: $color-gray;
             size: 14px;
             font-weight: 500;
         }
