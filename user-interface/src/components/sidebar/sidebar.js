@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Icons } from '../../utils/icons';
 import SidebarItem from '../sidebar-item/sidebar-item';
 
@@ -13,9 +14,18 @@ export default function SideBar({ testnetCount }) {
             <div className="sidebar__project">
                 <img className="sidebar__project_icon" src={Icons.Star} alt="Project Icon" /> <h2 className="sidebar__header">Alchemy University</h2>
             </div>
-            <SidebarItem itemName={"Testnets"} count={testnetCount} icon={Icons.Testnet} userActionIcon={Icons.Plus} isSelected />
+
+            {/* Add your routes here */}
+
+            {/* Default route that loads the testnets view */}
+            <Link className="sidebar__route_link" to="/"><SidebarItem itemName={"Testnets"} count={testnetCount} icon={Icons.Testnet} userActionIcon={Icons.Plus} isSelected /></Link>
+
+            {/* Not adding any route to below items as we don't yet have their view defined */}
             <SidebarItem itemName={"Members"} count={"1"} icon={Icons.Members} userActionIcon={Icons.Plus} />
             <SidebarItem itemName={"Project Key"} icon={Icons.ProjectKey} userActionIcon={Icons.Copy} />
+
+            {/* End of routes */}
+
         </div>
     </section>
 }

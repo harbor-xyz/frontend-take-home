@@ -31,6 +31,11 @@
 
     &__list {
         padding: 12px;
+
+        // to make sure route links follow the design
+        & .sidebar__route_link {
+            text-decoration: none;
+        }
     }
 
     &__navigation_link {

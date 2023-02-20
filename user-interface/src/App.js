@@ -1,3 +1,4 @@
+import { BrowserRouter as Router } from 'react-router-dom';
 import { useState, useEffect } from 'react'
 import Sidebar from './components/sidebar/sidebar';
 import MainView from './components/main-view/main-view';
@@ -25,12 +26,14 @@ function App() {
 
   return (
     <div className="App">
-      <section className="sidebar_container">
-        <Sidebar testnetCount={testnets.length} />
-      </section>
-      <section className="mainview_container">
-        <MainView testnets={testnets} />
-      </section>
+      <Router>
+        <section className="sidebar_container">
+          <Sidebar testnetCount={testnets.length} />
+        </section>
+        <section className="mainview_container">
+          <MainView testnets={testnets} />
+        </section>
+      </Router>
     </div>
   );
 }
