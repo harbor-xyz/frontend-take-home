@@ -34,3 +34,14 @@
     width: 100%;
   }
 }
+
+/** Making the layout fit in ultra smaller screens */
+@media screen and (max-width: 600px) {
+  .mainview {
+    padding: 1em;
+  }
+
+  .testnet_card {
+    min-width: 200px;
+  }
+}
