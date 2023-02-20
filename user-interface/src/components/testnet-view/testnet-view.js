@@ -55,7 +55,6 @@ export default function TestnetView({ testnets }) {
         } else if (currentSorter === 'descending') {
             sortedTestnets = orderBy(filteredTestnets, ['name'], ['desc'])
         } else if (currentSorter === 'status') {
-            console.log('inside status filter');
             sortedTestnets = orderBy(filteredTestnets, ['status'], ['asc'])
         } else if (currentSorter === 'date_created') {
             sortedTestnets = orderBy(filteredTestnets, (testnet) => { return new moment(testnet.created_at); }, ['asc']);
@@ -69,7 +68,6 @@ export default function TestnetView({ testnets }) {
     const filterAndSortTestnets = () => {
         const filteredTestnets = (!currentFilter || currentFilter === 'All') ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
         const sortedTestnets = getSortedTestnets(filteredTestnets)
-        console.log('sorted testnets', map(sortedTestnets, (testnet) => testnet.status))
         setFilteredSortedTestnets(sortedTestnets);
     }
 

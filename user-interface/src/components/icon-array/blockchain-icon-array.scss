@@ -1,0 +1,13 @@
+.icon_array {
+
+    &__item {
+        background: #FFFFFF;
+        border: 1px solid #DDDDDD;
+        border-radius: 8px;
+        padding: 4px;
+    }
+
+    &__item:not(:first-child) {
+        margin-left: -5px;
+    }
+}

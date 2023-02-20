@@ -2,12 +2,15 @@ import React from 'react';
 import { Icons } from '../../utils/icons';
 import { map } from 'lodash';
 import { BlockchainIconMap, STATUS_ICON_MAP } from '../../utils/mapping';
+import BlockchainIconArray from '../icon-array/blockchain-icon-array';
 import moment from 'moment';
 
 import './testnet-card.scss';
 
 export default function TestnetCard({ testnet }) {
     const { testnet_off_chain_actors: testnetOffChainActors, testnet_chains: testnetChains, name, status } = testnet;
+
+    const BlochchainIconArray = map(testnetChains, (testnetChain) => BlockchainIconMap[testnetChain.chain])
 
     const isBlockchainUpdating = testnetChains.find((chain) => chain.status === 'UPDATING');
 
@@ -24,7 +27,7 @@ export default function TestnetCard({ testnet }) {
                 <span className="testnet_card__off_chain_actors_count">{testnetOffChainActors.length} off-chain actors</span>
                 {testnetChains.length > 0 && <img src={Icons.Dot} alt="information seprator" />}
                 {testnetChains.length > 0 && <span className="testnet_card__blockchain_count">{`${testnetChains.length} Blockchain${testnetChains.length > 1 ? 's' : ''}`}</span>}
-                <img src={Icons.Polygon} alt="blockchain" />
+                {testnetChains.length > 0 && <BlockchainIconArray icons={BlochchainIconArray} />}
             </div>
             {(offChainUpdatingCount > 0 || isBlockchainUpdating) && <div>
                 {offChainUpdatingCount > 0 && <div className="testnet_card__off_chain_status">
