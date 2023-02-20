@@ -8,21 +8,22 @@ import moment from 'moment';
 
 export default function TestnetView({ testnets }) {
     const [currentFilter, setCurrentFilter] = useState('All');
-    const [currentSorter, setCurrentSorter] = useState('Status');
+    const [currentSorter, setCurrentSorter] = useState('status');
     const [uniqStatusValues, setUniqStatusValues] = useState([]);
     const [options, setOptions] = useState([]);
     const [filteredSortedTestnets, setFilteredSortedTestnets] = useState(testnets);
 
     useEffect(() => {
         setUniqStatusValues(getUniqueStatusValues());
+    }, [testnets]);
 
+    useEffect(() => {
         let statusOptions = [{
             value: 'All', label: <div className="filter__option">
                 <img src={Icons.All} alt="Hourglass" />
                 <span>All {`(${testnets.length})`}</span>
             </div>
         }]
-
         statusOptions = statusOptions.concat(uniqStatusValues.map((statusValue) => {
             return {
                 value: statusValue, label: <div className="filter__option">
@@ -34,7 +35,7 @@ export default function TestnetView({ testnets }) {
 
         setOptions(statusOptions);
         filterAndSortTestnets(testnets);
-    }, [testnets, currentFilter, currentSorter]);
+    }, [testnets, currentFilter, currentSorter, uniqStatusValues]);
 
     const handleFilterChange = (newFilter) => {
         setCurrentFilter(newFilter);
@@ -53,11 +54,12 @@ export default function TestnetView({ testnets }) {
             sortedTestnets = orderBy(filteredTestnets, ['name'], ['asc'])
         } else if (currentSorter === 'descending') {
             sortedTestnets = orderBy(filteredTestnets, ['name'], ['desc'])
-        } else if (currentFilter === 'status') {
+        } else if (currentSorter === 'status') {
+            console.log('inside status filter');
             sortedTestnets = orderBy(filteredTestnets, ['status'], ['asc'])
-        } else if (currentFilter === 'date_created') {
+        } else if (currentSorter === 'date_created') {
             sortedTestnets = orderBy(filteredTestnets, (testnet) => { return new moment(testnet.created_at); }, ['asc']);
-        } else if (currentFilter === 'last_modified') {
+        } else if (currentSorter === 'last_modified') {
             sortedTestnets = orderBy(filteredTestnets, (testnet) => { return new moment(testnet.updated_at); }, ['desc']);
         }
 
@@ -67,6 +69,7 @@ export default function TestnetView({ testnets }) {
     const filterAndSortTestnets = () => {
         const filteredTestnets = (!currentFilter || currentFilter === 'All') ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
         const sortedTestnets = getSortedTestnets(filteredTestnets)
+        console.log('sorted testnets', map(sortedTestnets, (testnet) => testnet.status))
         setFilteredSortedTestnets(sortedTestnets);
     }
 

@@ -822,24 +822,24 @@ const data = {
       testnet_off_chain_actors: [
         {
           name: "routerCache",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "messageQueue",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "ipfs",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
       ],
       testnet_chains: [
         {
           chain: "ethereum",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_chain",
         },
       ],
