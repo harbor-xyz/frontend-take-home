@@ -21,7 +21,7 @@ function App() {
   }
   useEffect(() => {
     fetchTestnets()
-  })
+  }, [])
 
   return (
     <div className="App">
