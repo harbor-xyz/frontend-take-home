@@ -28,29 +28,18 @@ const sortOptions = [{
     </div>
 }];
 
-const filterOptions = [{
-    value: 'running', label: <div className="filter__option">
-        <span>Running</span>
-    </div>
-},
-{
-    value: 'killed', label: <div className="filter__option">
-        <span>Killed</span>
-    </div>
-}]
-
-export default function TestnetHeader() {
+export default function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSorterChange }) {
     return <div className="testnet_header">
-        <header className="testnet_header__name">Testnets (5)
+        <header className="testnet_header__name">Testnets {`(${filteredCount})`}
             <span className="testnet_header__add_new">+ New Testnet</span>
         </header>
         <div className="testnet_header__filter_sort_container">
-            <DropDown
-                options={filterOptions}
-                onChange={(value) => console.log(value)} prefix="Filter by" initialSelectedIndex={0} />
+            {uniqStatusValues && uniqStatusValues.length !== 0 && <DropDown
+                options={uniqStatusValues}
+                onChange={(value) => onFilterChange(value)} prefix="Filter by" initialSelectedIndex={0} />}
             <DropDown
                 options={sortOptions}
-                onChange={(value) => console.log(value)} prefix="Sort by" initialSelectedIndex={0} />
+                onChange={(value) => onSorterChange(value)} prefix="Sort by" initialSelectedIndex={2} />
         </div>
     </div>
 }

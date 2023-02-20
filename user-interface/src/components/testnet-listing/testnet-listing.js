@@ -4,7 +4,6 @@ import './testnet-listing.scss';
 
 export default function TestnetListing({ testnets }) {
     return <div className="testnet_listing">
-        <TestnetCard />
-        <TestnetCard />
+        {testnets.map((testnet, index) => <TestnetCard key={index} testnet={testnet} />)}
     </div>
 }

@@ -70,4 +70,17 @@
         font-size: 13px;
         color: #999999;
     }
+
+    &--failed {
+        background-color: #FDF7F8;
+
+        .testnet_card__count {
+            background-color: #FFFFFF;
+        }
+    }
+
+    &--killed {
+        background-color: #F6F8FA;
+    }
+
 }

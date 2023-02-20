@@ -1,41 +1,50 @@
 import React from 'react';
 import { Icons } from '../../utils/icons';
+import { map } from 'lodash';
+import { BlockchainIconMap, STATUS_ICON_MAP } from '../../utils/mapping';
+import moment from 'moment';
 
 import './testnet-card.scss';
 
-export default function TestnetCard() {
-    return <div className="testnet_card">
+export default function TestnetCard({ testnet }) {
+    const { testnet_off_chain_actors: testnetOffChainActors, testnet_chains: testnetChains, name, status } = testnet;
+
+    const isBlockchainUpdating = testnetChains.find((chain) => chain.status === 'UPDATING');
+
+    const offChainUpdatingCount = testnetOffChainActors.filter((chain) => chain.status === 'UPDATING').length;
+
+    return <div className={`testnet_card ${testnet.status === 'FAILED' ? 'testnet_card--failed' : ''} ${testnet.status === 'KILLED' ? 'testnet_card--killed' : ''}`}>
         <div className="testnet_card__left_side_content">
             <div>
-                <span className="testnet_card__name">Testnet Dummy</span>
+                <span className="testnet_card__name">{name}</span>
                 {/* The count shown below is harcoded for every card, couldn't find relevant field in the API payload */}
                 <span className="testnet_card__count">5321</span>
             </div>
             <div>
-                <span className="testnet_card__off_chain_actors_count">2 off-chain actors</span>
-                <img src={Icons.Dot} alt="information seprator" />
-                <span className="testnet_card__blockchain_count">2 Blockchains</span>
-                <img src={Icons.Polygon} alt="information seprator" />
+                <span className="testnet_card__off_chain_actors_count">{testnetOffChainActors.length} off-chain actors</span>
+                {testnetChains.length > 0 && <img src={Icons.Dot} alt="information seprator" />}
+                {testnetChains.length > 0 && <span className="testnet_card__blockchain_count">{`${testnetChains.length} Blockchain${testnetChains.length > 1 ? 's' : ''}`}</span>}
+                <img src={Icons.Polygon} alt="blockchain" />
             </div>
-            <div>
-                <div className="testnet_card__off_chain_status">
+            {(offChainUpdatingCount > 0 || isBlockchainUpdating) && <div>
+                {offChainUpdatingCount > 0 && <div className="testnet_card__off_chain_status">
                     <img src={Icons.Hourglass} alt="Hourglass" />
-                    <span>2 off-chain updating</span>
-                </div>
-                <React.Fragment>
+                    <span>{offChainUpdatingCount} off-chain updating</span>
+                </div>}
+                {isBlockchainUpdating && <React.Fragment>
                     <img src={Icons.Dot} alt="information seprator" />
                     <div className="testnet_card__blockchain_status">
                         <img src={Icons.Hourglass} alt="Hourglass" />
                         <span>Blockchain updating</span>
                     </div>
-                </React.Fragment>
-            </div>
+                </React.Fragment>}
+            </div>}
         </div>
         <div className="testnet_card__right_side_content">
             <div>
                 <div className="testnet_card__status">
-                    <img src={Icons.Running} alt="Hourglass" />
-                    <span>RUNNING</span>
+                    <img src={STATUS_ICON_MAP[status]} alt="Hourglass" />
+                    <span>{status}</span>
                 </div>
                 <img src={Icons.Dot} alt="information seprator" />
                 <div className="testnet_card__settings">
@@ -46,7 +55,7 @@ export default function TestnetCard() {
             <div>
                 <div className="testnet_card__last_modified_on">
                     <img src={Icons.Timer} alt="Hourglass" />
-                    <span>Modified 5 hours ago</span>
+                    <span>Modified {moment(testnet.updated_at).fromNow()}</span>
                 </div>
             </div>
         </div>
