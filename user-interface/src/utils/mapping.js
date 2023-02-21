@@ -28,3 +28,11 @@ export const TESTNET_STATUS = {
     FAILED: "FAILED",
     KILLED: "KILLED",
 }
+
+
+export const FETCH_STATUS = {
+    IDLE: 'idle',
+    FETCHING: 'fetching',
+    FETCHED: 'fetched',
+    ERROR: 'error',
+}
