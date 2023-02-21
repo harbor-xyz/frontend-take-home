@@ -7,6 +7,14 @@ import { STATUS_ICON_MAP } from '../../utils/mapping';
 import { SORT_BY } from '../../utils/mapping';
 import moment from 'moment';
 
+
+/**
+A component that displays a filtered and sorted list of testnets using the TestnetHeader and TestnetListing components.
+@component
+@param {Object} props - The props for the component.
+@param {Array<Object>} props.testnets - An array of testnet objects to be displayed.
+@returns {JSX.Element} A filtered and sorted list of testnets.
+*/
 export default function TestnetView({ testnets }) {
     const [currentFilter, setCurrentFilter] = useState('All');
     const [currentSorter, setCurrentSorter] = useState(SORT_BY.STATUS);

@@ -31,7 +31,7 @@ export const TESTNETS = [
     {
         name: "Testnet 1",
         id: "testnet1",
-        status: "RUNNING",
+        status: "FAILED",
         endpoint: "http://testnet1.com",
         created_at: "2022-02-01T00:00:00.000Z",
         updated_at: "2022-02-01T00:00:00.000Z",
@@ -61,7 +61,7 @@ export const TESTNETS = [
     {
         id: "ABCD",
         name: "Testnet 1",
-        status: "RUNNING",
+        status: "KILLED",
         testnet_off_chain_actors: [
             {
                 name: "Actor 1",
