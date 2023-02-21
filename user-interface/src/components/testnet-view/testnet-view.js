@@ -4,11 +4,12 @@ import TestnetListing from "../testnet-listing/testnet-listing"
 import { map, uniq, filter, orderBy } from 'lodash';
 import { Icons } from "../../utils/icons";
 import { STATUS_ICON_MAP } from '../../utils/mapping';
+import { SORT_BY } from '../../utils/mapping';
 import moment from 'moment';
 
 export default function TestnetView({ testnets }) {
     const [currentFilter, setCurrentFilter] = useState('All');
-    const [currentSorter, setCurrentSorter] = useState('status');
+    const [currentSorter, setCurrentSorter] = useState(SORT_BY.STATUS);
     const [uniqStatusValues, setUniqStatusValues] = useState([]);
     const [options, setOptions] = useState([]);
     const [filteredSortedTestnets, setFilteredSortedTestnets] = useState(testnets);
@@ -50,15 +51,15 @@ export default function TestnetView({ testnets }) {
     const getSortedTestnets = (filteredTestnets) => {
         let sortedTestnets = filteredTestnets;
 
-        if (currentSorter === 'ascending') {
+        if (currentSorter === SORT_BY.ASC) {
             sortedTestnets = orderBy(filteredTestnets, ['name'], ['asc'])
-        } else if (currentSorter === 'descending') {
+        } else if (currentSorter === SORT_BY.DESC) {
             sortedTestnets = orderBy(filteredTestnets, ['name'], ['desc'])
-        } else if (currentSorter === 'status') {
+        } else if (currentSorter === SORT_BY.STATUS) {
             sortedTestnets = orderBy(filteredTestnets, ['status'], ['asc'])
-        } else if (currentSorter === 'date_created') {
+        } else if (currentSorter === SORT_BY.DATE_CREATED) {
             sortedTestnets = orderBy(filteredTestnets, (testnet) => { return new moment(testnet.created_at); }, ['asc']);
-        } else if (currentSorter === 'last_modified') {
+        } else if (currentSorter === SORT_BY.LAST_MODIFIED) {
             sortedTestnets = orderBy(filteredTestnets, (testnet) => { return new moment(testnet.updated_at); }, ['desc']);
         }
 

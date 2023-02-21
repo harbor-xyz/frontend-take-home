@@ -6,6 +6,7 @@ import BlockchainIconArray from '../icon-array/blockchain-icon-array';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import { TESTNET_PROPTYPE } from '../../utils/types';
+import { TESTNET_STATUS } from '../../utils/mapping';
 
 import './testnet-card.scss';
 
@@ -19,11 +20,11 @@ export default function TestnetCard({ testnet }) {
 
     const BlochchainIconArray = map(testnetChains, (testnetChain) => BlockchainIconMap[testnetChain.chain])
 
-    const isBlockchainUpdating = testnetChains.find((chain) => chain.status === 'UPDATING');
+    const isBlockchainUpdating = testnetChains.find((chain) => chain.status === TESTNET_STATUS.UPDATING);
 
-    const offChainUpdatingCount = testnetOffChainActors.filter((chain) => chain.status === 'UPDATING').length;
+    const offChainUpdatingCount = testnetOffChainActors.filter((chain) => chain.status === TESTNET_STATUS.UPDATING).length;
 
-    return <div className={`testnet_card ${testnet.status === 'FAILED' ? 'testnet_card--failed' : ''} ${testnet.status === 'KILLED' ? 'testnet_card--killed' : ''}`}>
+    return <div className={`testnet_card ${testnet.status === TESTNET_STATUS.FAILED ? 'testnet_card--failed' : ''} ${testnet.status === TESTNET_STATUS.KILLED ? 'testnet_card--killed' : ''}`}>
         <div className="testnet_card__left_side_content">
             <div>
                 <span className="testnet_card__name">{name}</span>

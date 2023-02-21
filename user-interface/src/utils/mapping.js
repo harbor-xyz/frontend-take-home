@@ -13,3 +13,18 @@ export const BlockchainIconMap = {
     "fantom": Icons.Fantom,
     "avalance": Icons.Avalance,
 };
+
+export const SORT_BY = {
+    ASC: 'ascending',
+    DESC: 'descending',
+    STATUS: 'status',
+    DATE_CREATED: 'date_created',
+    LAST_MODIFIED: 'last_modified',
+}
+
+export const TESTNET_STATUS = {
+    RUNNING: "RUNNING",
+    UPDATING: "UPDATING",
+    FAILED: "FAILED",
+    KILLED: "KILLED",
+}
