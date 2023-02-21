@@ -1,3 +1,4 @@
+import React from 'react';
 import DropDown from '../dropdown/dropdown';
 import PropTypes from 'prop-types';
 
@@ -37,7 +38,7 @@ const sortOptions = [{
  * @param {Object} props.testnet - The testnet data to be displayed in the card.
  * @returns {JSX.Element} A card component with information about a testnet.
  */
-export default function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSorterChange }) {
+function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSorterChange }) {
     return <div className="testnet_header">
         <header className="testnet_header__name">Testnets {`(${filteredCount})`}
             <span className="testnet_header__add_new">+ New Testnet</span>
@@ -62,3 +63,5 @@ TestnetHeader.propTypes = {
     filteredCount: PropTypes.number.isRequired,
     onSorterChange: PropTypes.func.isRequired,
 };
+
+export default React.memo(TestnetHeader);

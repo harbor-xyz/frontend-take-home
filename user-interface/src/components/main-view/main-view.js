@@ -1,3 +1,4 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import TestnetView from '../testnet-view/testnet-view';
@@ -13,7 +14,7 @@ Renders different views based on the current URL selected by the user.
 @param {array} props.testnets - The array of testnets to be displayed in the main view.
 @returns {JSX.Element} The MainView component.
 */
-export default function MainView({ testnets }) {
+function MainView({ testnets }) {
     return <section className="mainview">
         <Routes>
             <Route exact path="/" element={<ErrorBoundary FallbackComponent={ErrorHandler}>
@@ -31,3 +32,5 @@ const testnetsPropType = PropTypes.arrayOf(testnetPropType);
 MainView.propTypes = {
     testnets: testnetsPropType.isRequired
 };
+
+export default React.memo(MainView);

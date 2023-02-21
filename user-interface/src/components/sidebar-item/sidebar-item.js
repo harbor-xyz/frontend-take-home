@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import './sidebar-item.scss';
@@ -11,7 +12,7 @@ import './sidebar-item.scss';
  * @param {string} props.userActionIcon - URL of the icon for user action associated with the sidebar item.
  * @param {boolean} props.isSelected - Whether the sidebar item is currently selected.
  */
-export default function SidebarItem(props) {
+function SidebarItem(props) {
     const { itemName, icon, count, userActionIcon, isSelected } = props;
     return <div className={`sidebar_item ${isSelected ? "sidebar_item--selected" : ""}`}>
         <img className="sidebar_item__icon" src={icon} alt={itemName} />
@@ -28,3 +29,5 @@ SidebarItem.propTypes = {
     userActionIcon: PropTypes.string.isRequired,
     isSelected: PropTypes.bool,
 };
+
+export default React.memo(SidebarItem);

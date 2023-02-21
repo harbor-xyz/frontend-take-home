@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../utils/icons';
@@ -11,7 +12,7 @@ import './sidebar.scss'
  * @param {number} props.testnetCount - The number of testnets to be displayed in the sidebar.
  * @returns {JSX.Element} The SideBar component.
  */
-export default function SideBar({ testnetCount }) {
+function SideBar({ testnetCount }) {
     return <section className="sidebar">
         <div className="sidebar__navigation">
             <img src={Icons.LeftArrow} alt="Go back to all projects" /> <a className="sidebar__navigation_link" href="#">Back to all projects</a>
@@ -39,3 +40,5 @@ export default function SideBar({ testnetCount }) {
 SideBar.propTypes = {
     testnetCount: PropTypes.number.isRequired,
 };
+
+export default React.memo(SideBar);

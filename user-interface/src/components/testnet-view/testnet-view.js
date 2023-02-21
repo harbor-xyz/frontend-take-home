@@ -1,3 +1,4 @@
+import React from 'react';
 import { useEffect, useState } from "react";
 import TestnetHeader from "../testnet-header/testnet-header"
 import TestnetListing from "../testnet-listing/testnet-listing"
@@ -15,7 +16,7 @@ A component that displays a filtered and sorted list of testnets using the Testn
 @param {Array<Object>} props.testnets - An array of testnet objects to be displayed.
 @returns {JSX.Element} A filtered and sorted list of testnets.
 */
-export default function TestnetView({ testnets }) {
+export function TestnetView({ testnets }) {
     const [currentFilter, setCurrentFilter] = useState('All');
     const [currentSorter, setCurrentSorter] = useState(SORT_BY.STATUS);
     const [uniqStatusValues, setUniqStatusValues] = useState([]);
@@ -89,3 +90,5 @@ export default function TestnetView({ testnets }) {
         <TestnetListing testnets={filteredSortedTestnets} />
     </div>
 }
+
+export default React.memo(TestnetView)

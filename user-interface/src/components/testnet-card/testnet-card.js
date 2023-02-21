@@ -15,7 +15,7 @@ import './testnet-card.scss';
  * @param {Object} props - The props for the component.
  * @param {Object} props.testnet - The testnet data to be displayed in the card.
  */
-export default function TestnetCard({ testnet }) {
+function TestnetCard({ testnet }) {
     const { testnet_off_chain_actors: testnetOffChainActors, testnet_chains: testnetChains, name, status } = testnet;
 
     const BlochchainIconArray = map(testnetChains, (testnetChain) => BlockchainIconMap[testnetChain.chain])
@@ -76,3 +76,5 @@ export default function TestnetCard({ testnet }) {
 TestnetCard.propTypes = {
     testnet: PropTypes.shape(TESTNET_PROPTYPE)
 };
+
+export default React.memo(TestnetCard);

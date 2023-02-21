@@ -1,3 +1,4 @@
+import React from 'react';
 import TestnetCard from '../testnet-card/testnet-card';
 import PropTypes from 'prop-types';
 import { TESTNET_PROPTYPE } from '../../utils/types';
@@ -12,7 +13,7 @@ import './testnet-listing.scss';
  * @param {Array<Object>} props.testnets - An array of testnet objects to be displayed.
  * @returns {JSX.Element} A list of testnets.
  */
-export default function TestnetListing({ testnets }) {
+function TestnetListing({ testnets }) {
     return <div className="testnet_listing">
         {testnets.map((testnet, index) => <TestnetCard key={index} testnet={testnet} />)}
     </div>
@@ -22,3 +23,5 @@ TestnetListing.propTypes = {
         PropTypes.shape(TESTNET_PROPTYPE)
     ),
 };
+
+export default React.memo(TestnetListing);

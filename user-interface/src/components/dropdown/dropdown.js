@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useCallback } from "react";
 import { Icons } from '../../utils/icons';
 import PropTypes from 'prop-types';
 
@@ -19,7 +19,7 @@ Serves as a custom dropdown component where user can select a single option from
 @param {number} props.initialSelectedIndex - The index of the initially selected option
 @returns {JSX.Element} - The JSX for the DropDown component
 */
-export default function DropDown({
+export function DropDown({
     options,
     prefix,
     onChange,
@@ -111,3 +111,5 @@ DropDown.propTypes = {
     /** The index of the option that should be initially selected */
     initialSelectedIndex: PropTypes.number
 };
+
+export default React.memo(DropDown);

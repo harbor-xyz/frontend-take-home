@@ -1,6 +1,7 @@
 import { shallow } from 'enzyme';
 import TestnetCard from './testnet-card';
 import { TESTNETS } from '../../utils/dummy-data';
+import { getMemoisedComponent } from '../../utils/test-utils';
 
 describe('TestnetCard', () => {
     const testnet = TESTNETS[0];
@@ -27,7 +28,7 @@ describe('TestnetCard', () => {
 
     it('displays the correct blockchain icons', () => {
         const wrapper = shallow(<TestnetCard testnet={testnet} />);
-        expect(wrapper.find('BlockchainIconArray').prop('icons')).toEqual(['Polygon.svg', 'Avalance.svg']);
+        expect(wrapper.find(getMemoisedComponent('BlockchainIconArray')).prop('icons')).toEqual(['Polygon.svg', 'Avalance.svg']);
     });
 
     it('displays the correct off-chain status', () => {

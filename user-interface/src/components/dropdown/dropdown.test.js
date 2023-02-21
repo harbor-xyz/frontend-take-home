@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import DropDown from './DropDown';
+import { DropDown } from './DropDown';
 
 describe('DropDown', () => {
     const options = [
