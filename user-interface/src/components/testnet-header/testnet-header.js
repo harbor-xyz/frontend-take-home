@@ -1,4 +1,5 @@
 import DropDown from '../dropdown/dropdown';
+import PropTypes from 'prop-types';
 
 import './testnet-header.scss';
 
@@ -28,6 +29,14 @@ const sortOptions = [{
     </div>
 }];
 
+/**
+ * A card component for displaying information about a testnet.
+ *
+ * @component
+ * @param {Object} props - The props for the component.
+ * @param {Object} props.testnet - The testnet data to be displayed in the card.
+ * @returns {JSX.Element} A card component with information about a testnet.
+ */
 export default function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSorterChange }) {
     return <div className="testnet_header">
         <header className="testnet_header__name">Testnets {`(${filteredCount})`}
@@ -43,3 +52,13 @@ export default function TestnetHeader({ uniqStatusValues, onFilterChange, filter
         </div>
     </div>
 }
+
+TestnetHeader.propTypes = {
+    uniqStatusValues: PropTypes.arrayOf(PropTypes.shape({
+        value: PropTypes.string.isRequired,
+        label: PropTypes.element.isRequired,
+    })),
+    onFilterChange: PropTypes.func.isRequired,
+    filteredCount: PropTypes.number.isRequired,
+    onSorterChange: PropTypes.func.isRequired,
+};

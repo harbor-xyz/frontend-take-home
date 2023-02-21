@@ -1,10 +1,16 @@
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { Icons } from '../../utils/icons';
 import SidebarItem from '../sidebar-item/sidebar-item';
 
 import './sidebar.scss'
 
-/** Serves as a side bar for the app. It contains links to navigate to see details of the testnets, members and key for this project.   */
+/**
+ * Serves as a side bar for the app. It contains links to navigate to see details of the testnets, members and key for this project.
+ * @param {object} props - The props object for SideBar component.
+ * @param {number} props.testnetCount - The number of testnets to be displayed in the sidebar.
+ * @returns {JSX.Element} The SideBar component.
+ */
 export default function SideBar({ testnetCount }) {
     return <section className="sidebar">
         <div className="sidebar__navigation">
@@ -21,7 +27,7 @@ export default function SideBar({ testnetCount }) {
             <Link className="sidebar__route_link" to="/"><SidebarItem itemName={"Testnets"} count={testnetCount} icon={Icons.Testnet} userActionIcon={Icons.Plus} isSelected /></Link>
 
             {/* Not adding any route to below items as we don't yet have their view defined */}
-            <SidebarItem itemName={"Members"} count={"1"} icon={Icons.Members} userActionIcon={Icons.Plus} />
+            <SidebarItem itemName={"Members"} count={1} icon={Icons.Members} userActionIcon={Icons.Plus} />
             <SidebarItem itemName={"Project Key"} icon={Icons.ProjectKey} userActionIcon={Icons.Copy} />
 
             {/* End of routes */}
@@ -31,3 +37,6 @@ export default function SideBar({ testnetCount }) {
 }
 
 
+SideBar.propTypes = {
+    testnetCount: PropTypes.number.isRequired,
+};

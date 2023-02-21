@@ -4,9 +4,16 @@ import { map } from 'lodash';
 import { BlockchainIconMap, STATUS_ICON_MAP } from '../../utils/mapping';
 import BlockchainIconArray from '../icon-array/blockchain-icon-array';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+import { TESTNET_PROPTYPE } from '../../utils/types';
 
 import './testnet-card.scss';
 
+/**
+ * A card component for displaying information about a testnet.
+ * @param {Object} props - The props for the component.
+ * @param {Object} props.testnet - The testnet data to be displayed in the card.
+ */
 export default function TestnetCard({ testnet }) {
     const { testnet_off_chain_actors: testnetOffChainActors, testnet_chains: testnetChains, name, status } = testnet;
 
@@ -64,3 +71,7 @@ export default function TestnetCard({ testnet }) {
         </div>
     </div>
 }
+
+TestnetCard.propTypes = {
+    testnet: PropTypes.shape(TESTNET_PROPTYPE)
+};
