@@ -7,12 +7,9 @@ import { FETCH_STATUS } from './utils/mapping';
 import './App.scss';
 
 function App() {
-
-
   const TESTNET_API_ENDPOINT = 'http://localhost:3000/testnets';
 
   const { data, status, error } = useFetch(TESTNET_API_ENDPOINT);
-
 
   return (
     <div className="App">

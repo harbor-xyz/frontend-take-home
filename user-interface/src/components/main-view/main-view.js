@@ -12,7 +12,8 @@ Renders different views based on the current URL selected by the user.
 @param {object} props - The props object for MainView component.
 @param {array} props.testnets - The array of testnets to be displayed in the main view.
 @returns {JSX.Element} The MainView component.
-*/export default function MainView({ testnets }) {
+*/
+export default function MainView({ testnets }) {
     return <section className="mainview">
         <Routes>
             <Route exact path="/" element={<ErrorBoundary FallbackComponent={ErrorHandler}>

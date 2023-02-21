@@ -26,7 +26,7 @@ export default function SideBar({ testnetCount }) {
             {/* Default route that loads the testnets view */}
             <Link className="sidebar__route_link" to="/"><SidebarItem itemName={"Testnets"} count={testnetCount} icon={Icons.Testnet} userActionIcon={Icons.Plus} isSelected /></Link>
 
-            {/* Not adding any route to below items as we don't yet have their view defined */}
+            {/* Not adding any route for below items as we don't yet have their view defined */}
             <SidebarItem itemName={"Members"} count={1} icon={Icons.Members} userActionIcon={Icons.Plus} />
             <SidebarItem itemName={"Project Key"} icon={Icons.ProjectKey} userActionIcon={Icons.Copy} />
 
@@ -35,7 +35,6 @@ export default function SideBar({ testnetCount }) {
         </div>
     </section>
 }
-
 
 SideBar.propTypes = {
     testnetCount: PropTypes.number.isRequired,

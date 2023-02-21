@@ -1,5 +1,5 @@
 import { shallow } from 'enzyme';
-import TestnetHeader from './TestnetHeader';
+import TestnetHeader from './testnet-header';
 
 describe('TestnetHeader', () => {
     const props = {
