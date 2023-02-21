@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import DropDown from '../dropdown/dropdown';
 import PropTypes from 'prop-types';
 
@@ -39,6 +39,19 @@ const sortOptions = [{
  * @returns {JSX.Element} A card component with information about a testnet.
  */
 function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSorterChange }) {
+
+    const handleFilterClick = useCallback((value) => {
+        if (onFilterChange) {
+            onFilterChange(value);
+        }
+    }, [onFilterChange]);
+
+    const handleSorterClick = useCallback((value) => {
+        if (onSorterChange) {
+            onSorterChange(value);
+        }
+    }, [onSorterChange]);
+
     return <div className="testnet_header">
         <header className="testnet_header__name">Testnets {`(${filteredCount})`}
             <span className="testnet_header__add_new">+ New Testnet</span>
@@ -46,10 +59,10 @@ function TestnetHeader({ uniqStatusValues, onFilterChange, filteredCount, onSort
         <div className="testnet_header__filter_sort_container">
             {uniqStatusValues && uniqStatusValues.length !== 0 && <DropDown
                 options={uniqStatusValues}
-                onChange={(value) => onFilterChange(value)} prefix="Filter by" initialSelectedIndex={0} />}
+                onChange={handleFilterClick} prefix="Filter by" initialSelectedIndex={0} />}
             <DropDown
                 options={sortOptions}
-                onChange={(value) => onSorterChange(value)} prefix="Sort by" initialSelectedIndex={2} />
+                onChange={handleSorterClick} prefix="Sort by" initialSelectedIndex={2} />
         </div>
     </div>
 }

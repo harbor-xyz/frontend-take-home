@@ -1,5 +1,4 @@
-import React from 'react';
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import TestnetHeader from "../testnet-header/testnet-header"
 import TestnetListing from "../testnet-listing/testnet-listing"
 import { map, uniq, filter, orderBy } from 'lodash';
@@ -47,17 +46,17 @@ export function TestnetView({ testnets }) {
         filterAndSortTestnets(testnets);
     }, [testnets, currentFilter, currentSorter, uniqStatusValues]);
 
-    const handleFilterChange = (newFilter) => {
+    const handleFilterChange = useCallback((newFilter) => {
         setCurrentFilter(newFilter);
         filterAndSortTestnets();
-    }
+    }, []);
 
-    const handleSorterChange = (newSorter) => {
+    const handleSorterChange = useCallback((newSorter) => {
         setCurrentSorter(newSorter);
         filterAndSortTestnets();
-    }
+    }, [])
 
-    const getSortedTestnets = (filteredTestnets) => {
+    const getSortedTestnets = useCallback((filteredTestnets) => {
         let sortedTestnets = filteredTestnets;
 
         if (currentSorter === SORT_BY.ASC) {
@@ -73,7 +72,7 @@ export function TestnetView({ testnets }) {
         }
 
         return sortedTestnets
-    }
+    }, [currentFilter, currentSorter])
 
     const filterAndSortTestnets = () => {
         const filteredTestnets = (!currentFilter || currentFilter === 'All') ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
@@ -81,9 +80,9 @@ export function TestnetView({ testnets }) {
         setFilteredSortedTestnets(sortedTestnets);
     }
 
-    const getUniqueStatusValues = () => {
+    const getUniqueStatusValues = useCallback(() => {
         return uniq(map(testnets, (testnet) => testnet.status));
-    }
+    }, [testnets])
 
     return <div>
         <TestnetHeader uniqStatusValues={options} onFilterChange={handleFilterChange} onSorterChange={handleSorterChange} filteredCount={filteredSortedTestnets.length} />

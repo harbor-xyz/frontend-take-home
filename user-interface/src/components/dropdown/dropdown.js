@@ -42,36 +42,36 @@ export function DropDown({
         };
     });
 
-    const handleInputClick = (e) => {
+    const handleInputClick = useCallback((e) => {
         setOpenDropdown(!openDropdown);
-    };
+    }, []);
 
-    const getPrefixedDisplay = (label) => {
+    const getPrefixedDisplay = useCallback((label) => {
         return <div className="dropdown__selected_option">
             <span className="dropdown__selected_option_prefix">{prefix}: </span>
             <span className="dropdown__selected_option_label">{label}</span>
         </div>
-    }
+    }, [])
 
-    const getDisplay = () => {
+    const getDisplay = useCallback(() => {
         if (!selectedValue) {
             return getPrefixedDisplay(options[initialSelectedIndex].label)
         }
         return getPrefixedDisplay(selectedValue.label)
-    };
+    }, [selectedValue]);
 
 
-    const onItemClick = (option) => {
+    const onItemClick = useCallback((option) => {
         setSelectedValue(option);
         onChange(option.value);
-    };
+    }, []);
 
-    const isSelected = (option) => {
+    const isSelected = useCallback((option) => {
         if (!selectedValue) {
             return false;
         }
         return selectedValue.value === option.value;
-    };
+    }, [selectedValue]);
 
     return (
         <div className="dropdown">
