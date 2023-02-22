@@ -15,19 +15,15 @@ describe('TestnetView', () => {
 
     const MemoisedTestnetHeader = getMemoisedComponent('TestnetHeader')
 
-    beforeAll(() => {
-        // We are passing testnet array with bare minimum details which is tripping the proptypes check 
-        // (due to few required properties not being available)
-        // and leading to console errors. We are suppressing these errors.
-        const stub = sinon.stub(console, 'error');
-    });
-
     it('renders the TestnetHeader and TestnetListing components', () => {
         const wrapper = shallow(<TestnetView testnets={testnets} />);
         expect(wrapper.find(MemoisedTestnetHeader)).toHaveLength(1);
         expect(wrapper.find(getMemoisedComponent('TestnetListing'))).toHaveLength(1);
     });
 
+    // These filter and sort ops should be tested by mount instead of shallow method
+    // enzyme react adapter 16 (the one that we are currently using ) is not compatible 
+    // with the react version we are using so skipping these tests.
     xit('updates the filtered and sorted testnets when the filter or sorter changes', () => {
         const wrapper = shallow(<TestnetView testnets={testnets} />);
         wrapper.find(MemoisedTestnetHeader).props().onFilterChange('RUNNING');
@@ -45,9 +41,5 @@ describe('TestnetView', () => {
         wrapper.find(MemoisedTestnetHeader).props().onFilterChange('RUNNING');
         wrapper.find(MemoisedTestnetHeader).props().onSorterChange('Name (A-Z)');
         expect(wrapper.find(MemoisedTestnetHeader).props().filteredCount).toBe(3);
-    });
-
-    afterAll(() => {
-        console.error.restore();
     });
 });
