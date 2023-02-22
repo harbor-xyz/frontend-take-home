@@ -18,15 +18,11 @@ A component that displays a filtered and sorted list of testnets using the Testn
 export function TestnetView({ testnets }) {
     const [currentFilter, setCurrentFilter] = useState('All');
     const [currentSorter, setCurrentSorter] = useState(SORT_BY.STATUS);
-    const [uniqStatusValues, setUniqStatusValues] = useState([]);
     const [options, setOptions] = useState([]);
     const [filteredSortedTestnets, setFilteredSortedTestnets] = useState(testnets);
 
     useEffect(() => {
-        setUniqStatusValues(getUniqueStatusValues());
-    }, [testnets]);
-
-    useLayoutEffect(() => {
+        const uniqStatusValues = getUniqueStatusValues();
         let statusOptions = [{
             value: 'All', label: <div className="filter__option">
                 <img src={Icons.All} alt="Hourglass" />
@@ -43,17 +39,18 @@ export function TestnetView({ testnets }) {
         }))
 
         setOptions(statusOptions);
-        filterAndSortTestnets(testnets);
-    }, [testnets, currentFilter, currentSorter, uniqStatusValues]);
+    }, []);
+
+    useLayoutEffect(() => {
+        setFilteredSortedTestnets(getFilterAndSortTestnets(testnets));
+    }, [currentFilter, currentSorter]);
 
     const handleFilterChange = useCallback((newFilter) => {
         setCurrentFilter(newFilter);
-        filterAndSortTestnets();
     }, []);
 
     const handleSorterChange = useCallback((newSorter) => {
         setCurrentSorter(newSorter);
-        filterAndSortTestnets();
     }, [])
 
     const getSortedTestnets = useCallback((filteredTestnets) => {
@@ -74,10 +71,10 @@ export function TestnetView({ testnets }) {
         return sortedTestnets
     }, [currentFilter, currentSorter])
 
-    const filterAndSortTestnets = () => {
+    const getFilterAndSortTestnets = () => {
         const filteredTestnets = (!currentFilter || currentFilter === 'All') ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
-        const sortedTestnets = getSortedTestnets(filteredTestnets)
-        setFilteredSortedTestnets(sortedTestnets);
+        return getSortedTestnets(filteredTestnets)
+
     }
 
     const getUniqueStatusValues = useCallback(() => {

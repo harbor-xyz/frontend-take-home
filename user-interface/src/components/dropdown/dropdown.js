@@ -55,6 +55,7 @@ export function DropDown({
 
     const getDisplay = useCallback(() => {
         if (!selectedValue) {
+            setSelectedValue(options[initialSelectedIndex]);
             return getPrefixedDisplay(options[initialSelectedIndex].label)
         }
         return getPrefixedDisplay(selectedValue.label)
