@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useLayoutEffect } from "react";
 import TestnetHeader from "../testnet-header/testnet-header"
 import TestnetListing from "../testnet-listing/testnet-listing"
 import { map, uniq, filter, orderBy } from 'lodash';
@@ -26,7 +26,7 @@ export function TestnetView({ testnets }) {
         setUniqStatusValues(getUniqueStatusValues());
     }, [testnets]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         let statusOptions = [{
             value: 'All', label: <div className="filter__option">
                 <img src={Icons.All} alt="Hourglass" />
