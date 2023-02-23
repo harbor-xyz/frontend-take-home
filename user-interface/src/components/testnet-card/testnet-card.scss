@@ -33,6 +33,10 @@
         font-weight: 700;
     }
 
+    &__settings {
+        cursor: pointer;
+    }
+
     &__count {
         border-radius: 10px;
         color: $color-gray;
@@ -81,5 +85,12 @@
 
     &--killed {
         background-color: $color-ghost-white;
+    }
+
+    &--pending {
+        .testnet_card__settings {
+            opacity: 0.4;
+            cursor: default;
+        }
     }
 }

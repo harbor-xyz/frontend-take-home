@@ -24,7 +24,7 @@ function TestnetCard({ testnet }) {
 
     const offChainUpdatingCount = testnetOffChainActors.filter((chain) => chain.status === TESTNET_STATUS.UPDATING).length;
 
-    return <div className={`testnet_card ${testnet.status === TESTNET_STATUS.FAILED ? 'testnet_card--failed' : ''} ${testnet.status === TESTNET_STATUS.KILLED ? 'testnet_card--killed' : ''}`}>
+    return <div className={`testnet_card ${'testnet_card--'}${status.toLowerCase()}`}>
         <div className="testnet_card__left_side_content">
             <div>
                 <span className="testnet_card__name">{name}</span>

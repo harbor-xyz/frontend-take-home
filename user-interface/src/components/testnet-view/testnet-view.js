@@ -7,6 +7,7 @@ import { STATUS_ICON_MAP } from '../../utils/mapping';
 import { SORT_BY } from '../../utils/mapping';
 import moment from 'moment';
 
+const FILTER_ALL = 'All';
 
 /**
 A component that displays a filtered and sorted list of testnets using the TestnetHeader and TestnetListing components.
@@ -16,7 +17,7 @@ A component that displays a filtered and sorted list of testnets using the Testn
 @returns {JSX.Element} A filtered and sorted list of testnets.
 */
 export function TestnetView({ testnets }) {
-    const [currentFilter, setCurrentFilter] = useState('All');
+    const [currentFilter, setCurrentFilter] = useState(FILTER_ALL);
     const [currentSorter, setCurrentSorter] = useState(SORT_BY.STATUS);
     const [options, setOptions] = useState([]);
     const [filteredSortedTestnets, setFilteredSortedTestnets] = useState(testnets);
@@ -24,9 +25,9 @@ export function TestnetView({ testnets }) {
     useEffect(() => {
         const uniqStatusValues = getUniqueStatusValues();
         let statusOptions = [{
-            value: 'All', label: <div className="filter__option">
+            value: FILTER_ALL, label: <div className="filter__option">
                 <img src={Icons.All} alt="Hourglass" />
-                <span>All {`(${testnets.length})`}</span>
+                <span>{FILTER_ALL}</span>
             </div>
         }]
         statusOptions = statusOptions.concat(uniqStatusValues.map((statusValue) => {
@@ -72,7 +73,7 @@ export function TestnetView({ testnets }) {
     }, [currentFilter, currentSorter])
 
     const getFilterAndSortTestnets = () => {
-        const filteredTestnets = (!currentFilter || currentFilter === 'All') ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
+        const filteredTestnets = (!currentFilter || currentFilter === FILTER_ALL) ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
         return getSortedTestnets(filteredTestnets)
 
     }
