@@ -12,14 +12,15 @@ function App() {
   const { data, status, error } = useFetch(TESTNET_API_ENDPOINT);
 
   return (
-    <div className="App">
+    <div className="app">
       <Router>
-        <section className="sidebar_container">
+        <section className="app__sidebar_container">
           <Sidebar testnetCount={data?.data?.testnet.length ?? 0} />
         </section>
-        <section className="mainview_container">
+        <section className="app__mainview_container">
           {data?.data?.testnet && <MainView testnets={data.data.testnet} />}
-          {status === FETCH_STATUS.ERROR && <h3 className="App__error">An error occurred while fetching the data, please try again after some time.</h3>}
+          {status === FETCH_STATUS.FETCHING && <div className="app--loading">Loading...</div>}
+          {status === FETCH_STATUS.ERROR && <h3 className="app__error">An error occurred while fetching the data, please try again after some time.</h3>}
         </section>
       </Router>
     </div>
