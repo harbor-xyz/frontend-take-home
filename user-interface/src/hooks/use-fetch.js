@@ -1,4 +1,4 @@
-import { useEffect, useRef, useReducer, useState } from 'react';
+import { useEffect, useRef, useReducer } from 'react';
 import { FETCH_STATUS } from '../utils/mapping';
 
 // Initialize the initial state of the data fetched from the API
@@ -12,12 +12,6 @@ const initialState = {
 export default function useFetch(url) {
     // Creating a cache using useRef hook to store fetched data
     const cache = useRef({});
-
-    // Initializing the current status of fetching the data from the API
-    const [status, setStatus] = useState(FETCH_STATUS.IDLE);
-
-    // Initializing the data returned from the API
-    const [data, setData] = useState({});
 
     // useReducer hook is used to manage complex state logic
     // Here, it is used to manage the data, status and error messages

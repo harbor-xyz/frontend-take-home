@@ -20,7 +20,7 @@ function App() {
         <section className="app__mainview_container">
           {data?.data?.testnet && <MainView testnets={data.data.testnet} />}
           {status === FETCH_STATUS.FETCHING && <div className="app--loading">Loading...</div>}
-          {status === FETCH_STATUS.ERROR && <h3 className="app__error">An error occurred while fetching the data, please try again after some time.</h3>}
+          {status === FETCH_STATUS.ERROR && <h3 className="app__error">An error occurred while fetching the data, please try again after some time.<br />{error}</h3>}
         </section>
       </Router>
     </div>
