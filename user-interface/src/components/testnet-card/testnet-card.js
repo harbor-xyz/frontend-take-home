@@ -18,13 +18,20 @@ import './testnet-card.scss';
 function TestnetCard({ testnet }) {
     const { testnet_off_chain_actors: testnetOffChainActors, testnet_chains: testnetChains, name, status } = testnet;
 
+    // Get icons array for the all the chains in this testnet
     const BlochchainIconArray = map(testnetChains, (testnetChain) => BlockchainIconMap[testnetChain.chain])
 
+    // check if the chain in this testnet is updating
     const isBlockchainUpdating = testnetChains.find((chain) => chain.status === TESTNET_STATUS.UPDATING);
 
+    // count the number of chains in updating status in this testnet
     const offChainUpdatingCount = testnetOffChainActors.filter((chain) => chain.status === TESTNET_STATUS.UPDATING).length;
 
     return <div className={`testnet_card ${'testnet_card--'}${status.toLowerCase()}`}>
+
+        {/* The left side contains the name of the testnet, the number of off-chain actors, 
+        the number of blockchains, and their corresponding icons. 
+        The left side also displays information about any off-chain actors or blockchains that are currently updating. */}
         <div className="testnet_card__left_side_content">
             <div>
                 <span className="testnet_card__name">{name}</span>
@@ -51,6 +58,9 @@ function TestnetCard({ testnet }) {
                 </React.Fragment>}
             </div>}
         </div>
+
+        {/* The right side contains information about the status of the testnet, 
+        a link to its settings, and the date/time it was last modified. */}
         <div className="testnet_card__right_side_content">
             <div>
                 <div className="testnet_card__status">

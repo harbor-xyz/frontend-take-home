@@ -1,5 +1,6 @@
 import { Icons } from './icons';
 
+// Map the testnet status to relevant icon
 export const STATUS_ICON_MAP = {
     "RUNNING": Icons.Running,
     "PENDING": Icons.Hourglass,
@@ -7,6 +8,7 @@ export const STATUS_ICON_MAP = {
     "KILLED": Icons.Killed,
 };
 
+// Map the blockchains to their relevant icon
 export const BlockchainIconMap = {
     "ethereum": Icons.Ether,
     "polygon": Icons.Polygon,
@@ -14,6 +16,7 @@ export const BlockchainIconMap = {
     "avalance": Icons.Avalance,
 };
 
+// Various sort orders to be applied on testnet status
 export const SORT_BY = {
     ASC: 'ascending',
     DESC: 'descending',
@@ -22,6 +25,7 @@ export const SORT_BY = {
     LAST_MODIFIED: 'last_modified',
 }
 
+// Testnet status 
 export const TESTNET_STATUS = {
     RUNNING: "RUNNING",
     UPDATING: "UPDATING",
@@ -29,7 +33,7 @@ export const TESTNET_STATUS = {
     KILLED: "KILLED",
 }
 
-
+// Fetch request status
 export const FETCH_STATUS = {
     IDLE: 'idle',
     FETCHING: 'fetching',

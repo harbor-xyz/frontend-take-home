@@ -42,10 +42,12 @@ export function DropDown({
         };
     });
 
+    // handler for the input element
     const handleInputClick = useCallback((e) => {
         setOpenDropdown(!openDropdown);
     }, []);
 
+    // format the selected option label with a prefix
     const getPrefixedDisplay = useCallback((label) => {
         return <div className="dropdown__selected_option">
             <span className="dropdown__selected_option_prefix">{prefix}: </span>
@@ -53,6 +55,7 @@ export function DropDown({
         </div>
     }, [])
 
+    // function to get the display value of the selected option
     const getDisplay = useCallback(() => {
         if (!selectedValue) {
             setSelectedValue(options[initialSelectedIndex]);
@@ -61,12 +64,13 @@ export function DropDown({
         return getPrefixedDisplay(selectedValue.label)
     }, [selectedValue]);
 
-
+    // update the selected value when the user clicks on an option and call the onChange prop function.
     const onItemClick = useCallback((option) => {
         setSelectedValue(option);
         onChange(option.value);
     }, []);
 
+    // check whether an option is currently selected
     const isSelected = useCallback((option) => {
         if (!selectedValue) {
             return false;

@@ -7,6 +7,7 @@ import { STATUS_ICON_MAP } from '../../utils/mapping';
 import { SORT_BY } from '../../utils/mapping';
 import moment from 'moment';
 
+// represents the option to show all testnets in the list.
 const FILTER_ALL = 'All';
 
 /**
@@ -22,6 +23,9 @@ export function TestnetView({ testnets }) {
     const [options, setOptions] = useState([]);
     const [filteredSortedTestnets, setFilteredSortedTestnets] = useState(testnets);
 
+    // populate the options state with an array of objects representing the filter options 
+    // for the dropdown menu. The hook is executed only once when the component mounts, 
+    // because the dependency array is empty
     useEffect(() => {
         const uniqStatusValues = getUniqueStatusValues();
         let statusOptions = [{
@@ -42,10 +46,14 @@ export function TestnetView({ testnets }) {
         setOptions(statusOptions);
     }, []);
 
+    // update the filteredSortedTestnets state with the result of filtering and sorting 
+    // the testnets, based on the current filter and sorter options. 
+    // The hook is executed whenever currentFilter or currentSorter change.
     useLayoutEffect(() => {
         setFilteredSortedTestnets(getFilterAndSortTestnets(testnets));
     }, [currentFilter, currentSorter]);
 
+    // update the corresponding state when the user selects a new filter or sorter option from the dropdown menus.
     const handleFilterChange = useCallback((newFilter) => {
         setCurrentFilter(newFilter);
     }, []);
@@ -54,6 +62,9 @@ export function TestnetView({ testnets }) {
         setCurrentSorter(newSorter);
     }, [])
 
+    // takes an array of filtered testnets and returns a new array of testnets sorted 
+    // based on the current sorter option. The function uses the orderBy function from the 
+    // lodash library to sort the array by different properties, such as name, status, created_at, and updated_at.
     const getSortedTestnets = useCallback((filteredTestnets) => {
         let sortedTestnets = filteredTestnets;
 
@@ -72,12 +83,18 @@ export function TestnetView({ testnets }) {
         return sortedTestnets
     }, [currentFilter, currentSorter])
 
+    // filters the testnets based on the current filter option and then passes the filtered
+    // testnets to the getSortedTestnets function to sort them based on the current sorter option.
+    // The function returns the sorted and filtered testnets.
     const getFilterAndSortTestnets = () => {
         const filteredTestnets = (!currentFilter || currentFilter === FILTER_ALL) ? testnets : testnets.filter((testnet) => testnet.status === currentFilter)
         return getSortedTestnets(filteredTestnets)
 
     }
 
+    // uses the map and uniq functions from the lodash library to extract a unique list
+    // of status values from the testnets array. The function is used to populate
+    // the options state in the useEffect hook.
     const getUniqueStatusValues = useCallback(() => {
         return uniq(map(testnets, (testnet) => testnet.status));
     }, [testnets])
