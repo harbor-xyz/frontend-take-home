@@ -1,0 +1,26 @@
+@import '@/styles/_variables.module.scss';
+
+.pageSidebar {
+  position: absolute;
+  width: 20vw;
+  height: calc(100vh - 6rem);
+  top: 6rem;
+  left: 0;
+  background-color: #FFF;
+  border-right: 1px solid $primary-border-color;
+}
+
+.sidebarHeader {
+  border-bottom: 1px solid $primary-border-color;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.2rem 0.4rem;
+}
+
+.headerText {
+  color: $tertiary-text-color;
+  margin-left: 1.2rem;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+}
