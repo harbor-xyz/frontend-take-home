@@ -1,7 +1,8 @@
 import Head from 'next/head'
-import { ComponentProps } from 'react';
+import { ComponentProps, useState } from 'react';
 import Layout from '@/components/organisms/layout'
 import styles from './dashboard.module.scss'
+import { TabViewMap } from './dashboard.constants';
 
 export async function getServerSideProps() {
   // fetch the page data from the testnets api
@@ -14,14 +15,17 @@ export async function getServerSideProps() {
 }
 
 export default function Dashboard({data}: ComponentProps<any>) {
+  const [activeTab, setActiveTab] = useState('Testnets');
+  console.log({activeTab});
+  
   return (
     <>
       <Head>
         <title>Harbor XYZ Dashboard</title>
       </Head>
-      <Layout>
+      <Layout activeTab={activeTab} handleClick={(currentTab) => setActiveTab(currentTab)}>
         <div className={styles.mainContainer}>
-          Dashboard
+          {TabViewMap[activeTab]()}
         </div>
       </Layout>
     </>

@@ -2,7 +2,7 @@ import styles from './button.module.scss'
 
 type ButtonProps = {
   btnContent?: string | React.ReactNode,
-  handleClick?: () => void,
+  handleClick?: any,
   btnType?: 'primary' | 'secondary' | 'tertiary',
   btnClasses?: any
 }
@@ -13,7 +13,7 @@ const Button = ({btnContent, handleClick, btnClasses}: ButtonProps) => {
     className={`${styles.btnClass} ${btnClasses}`}
     name={isBtnContentText ? btnContent : undefined}
     value={isBtnContentText ? btnContent : undefined}
-    onClick={handleClick}>
+    onClick={handleClick ? (e) => handleClick(e) : undefined}>
       {btnContent}
     </button>
 }

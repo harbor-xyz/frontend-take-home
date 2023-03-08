@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from 'react'
 import SidebarItem from '@/components/atoms/sidebarItem'
 import ButtonWithIcon from '../buttonWithIcon'
 import styles from './sidebarList.module.scss'
@@ -9,6 +10,8 @@ type SidebarItemType = {
 } 
 
 type SidebarListProps = {
+  activeTab: string,
+  handleClick: Dispatch<SetStateAction<string>>,
   sidebarItems: {
     title: string,
     icon: string,
@@ -16,7 +19,7 @@ type SidebarListProps = {
   }
 }
 
-const SidebarList = ({sidebarItems}: SidebarListProps) => {
+const SidebarList = ({activeTab, handleClick, sidebarItems}: SidebarListProps) => {
   
   return (
     <div className={styles.listTitleWrap}>
@@ -26,7 +29,7 @@ const SidebarList = ({sidebarItems}: SidebarListProps) => {
           sidebarItems.items.map((item: SidebarItemType, idx) => {
             return (
               <div key={idx}>
-                <SidebarItem {...item}></SidebarItem>
+                <SidebarItem {...item} activeTab={activeTab} handleClick={handleClick}></SidebarItem>
               </div>
             )
           })
