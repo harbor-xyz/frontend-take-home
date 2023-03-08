@@ -3,6 +3,7 @@ import ButtonWithIcon from '@/components/molecules/buttonWithIcon'
 import styles from './sidebar.module.scss'
 
 import leftArrow from '../../../../public/images/left-arrow.svg';
+import sidebarConfig from './sidebar.constants';
 
 export default function Sidebar() {
   
@@ -11,7 +12,7 @@ export default function Sidebar() {
       <div className={styles.sidebarHeader}>
         <ButtonWithIcon btnClasses={styles.headerText} leftIcon={leftArrow} btnContent={'Back to all Projects'}></ButtonWithIcon>
       </div>
-      <SidebarList></SidebarList>
+      <SidebarList sidebarItems={sidebarConfig}></SidebarList>
     </aside>
   )
 }

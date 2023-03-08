@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import {ComponentProps} from 'react';
+import { ComponentProps } from 'react';
 import Layout from '@/components/organisms/layout'
 import styles from './dashboard.module.scss'
 
