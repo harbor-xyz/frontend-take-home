@@ -32,7 +32,7 @@ const TestnetCard = ({cardData}: CardProps) => {
               <>
                 <Image src={dotSeparator} alt="dot separator"/>
                 <span>{`${testnet_chains.length} Blockchain${testnet_chains.length > 1 ? 's' : ''}`}</span>
-                <div>
+                <div className={styles.chainIconList}>
                   {
                     testnet_chains.map((chainObj: any) => {
                       return (
@@ -52,21 +52,18 @@ const TestnetCard = ({cardData}: CardProps) => {
         && (
           <div className={styles.btmChunkWrapper}>
             {
-              (offChainUpdatingCount > 0
-                && (
-                  <div>
-                    <ButtonWithIcon leftIcon={hourGlass} btnContent={`${offChainUpdatingCount} off-chain updating`}></ButtonWithIcon>
-                  </div>
-                ))
-                || (isChainUpdating && (
-                  <>
-                    <Image src={dotSeparator} alt="dot separator"/>
-                    <div>
-                      <ButtonWithIcon leftIcon={hourGlass} btnContent={`blockchain updating`}></ButtonWithIcon>
-                    </div>
-                  </>
-                  
-                ))
+              (offChainUpdatingCount > 0) && (
+                <ButtonWithIcon leftIcon={hourGlass} wrapperClass={styles.btnWithIconWrapper} btnClasses={`${styles.textWrapper} ${styles.goldenText}`} leftIconSize={14} btnContent={`${offChainUpdatingCount} off-chain updating`}></ButtonWithIcon>
+              )
+            }
+            {
+              isChainUpdating && (
+                <>
+                  <Image src={dotSeparator} alt="dot separator"/>
+                  <ButtonWithIcon leftIcon={hourGlass} wrapperClass={styles.btnWithIconWrapper} btnClasses={`${styles.textWrapper} ${styles.goldenText}`} btnContent={`blockchain updating`}></ButtonWithIcon>
+                </>
+                
+              )
             }
           </div>
         )
@@ -79,7 +76,7 @@ const TestnetCard = ({cardData}: CardProps) => {
         <ButtonWithIcon leftIcon={`/images/settings.svg`} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.textWrapper} leftIconSize={14} btnContent={'Settings'}></ButtonWithIcon>
       </div>
       <div>
-        <ButtonWithIcon leftIcon={`/images/timer.svg`} leftIconSize={14} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.timeTextWrapper} btnContent={`Modified ${timeFromNow(updated_at)}`}></ButtonWithIcon>
+        <ButtonWithIcon leftIcon={`/images/timer.svg`} leftIconSize={14} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.timeTextWrapper} btnContent={`Modified ${timeFromNow(new Date(updated_at))}`}></ButtonWithIcon>
       </div>
     </div>
   </div>
