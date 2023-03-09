@@ -1,0 +1,35 @@
+@import '@/styles/_variables.module.scss';
+
+.viewHeader {
+  padding: 4rem 6rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headerText {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: $primary-text-color;
+  font-weight: 700;
+}
+
+.linkBtn {
+  color: $active-text-color;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+}
+
+.viewContent {
+  padding: 2rem 6rem;
+}

@@ -7,16 +7,24 @@ import { TabViewMap } from './dashboard.constants';
 export async function getServerSideProps() {
   // fetch the page data from the testnets api
   const res = await fetch(`${process.env.BASE_URL}/api/testnets`);
-  const data = await res.json();
+  const testnetsData = await res.json();
+  const dashboardData = {
+    testnetsData,
+    membersData: [''], // data placeholders for other pages
+    projectKeyData: [] // data placeholders for other pages
+  }
 
   return {
-    props: { data }
+    props: { dashboardData }
   };
 }
 
-export default function Dashboard({data}: ComponentProps<any>) {
+export default function Dashboard({dashboardData}: ComponentProps<any>) {
   const [activeTab, setActiveTab] = useState('Testnets');
-  console.log({activeTab});
+  const renderDashboardTab = () => {
+    const TabViewComponent = TabViewMap[activeTab];
+    return TabViewComponent(dashboardData);
+  }
   
   return (
     <>
@@ -25,7 +33,7 @@ export default function Dashboard({data}: ComponentProps<any>) {
       </Head>
       <Layout activeTab={activeTab} handleClick={(currentTab) => setActiveTab(currentTab)}>
         <div className={styles.mainContainer}>
-          {TabViewMap[activeTab]()}
+          {renderDashboardTab()}
         </div>
       </Layout>
     </>

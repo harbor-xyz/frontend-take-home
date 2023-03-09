@@ -1,0 +1,6 @@
+export const TESTNET_STATUS = {
+  RUNNING: "RUNNING",
+  UPDATING: "UPDATING",
+  FAILED: "FAILED",
+  KILLED: "KILLED",
+}

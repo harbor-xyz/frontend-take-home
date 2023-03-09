@@ -3,7 +3,7 @@ import MembersView from '@/components/organisms/membersView'
 import ProjectKeyView from '@/components/organisms/projectKeyView'
 
 type TabViewType = {
-  [key: string]: () => JSX.Element
+  [key: string]: (props: any) => JSX.Element
 }
 
 export const TabViewMap: TabViewType = {
