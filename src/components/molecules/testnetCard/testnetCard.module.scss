@@ -8,7 +8,7 @@
   border: 1px solid $secondary-border-color;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
   border-radius: 2rem;
-  padding: 2.6rem 3.2rem;
+  padding: 2.4rem 3.2rem;
   margin-bottom: 2.4rem;
   font-size: 1.4rem;
 }
@@ -23,7 +23,7 @@
 
 .topChunkWrapper,
 .midChunkWrapper,
-.bottomChunkWrapper {
+.btmChunkWrapper {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -56,7 +56,8 @@
   }
 }
 
-.midChunkWrapper {
+.midChunkWrapper,
+.btmChunkWrapper {
   gap: 1.2rem;
   line-height: 2.4rem;
 }
@@ -73,6 +74,13 @@
   font-weight: 600;
 }
 
+.chainIconList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .chainIconWrapper {
   width: 2.8rem;
   height: 2.8rem;
@@ -82,6 +90,7 @@
   justify-content: center;
   align-items: center;
   margin-left: -0.6rem;
+  background-color: #FFF;
 
   &:first-child {
     margin-left: 0;
@@ -94,4 +103,8 @@
   font-size: 1.3rem;
   line-height: 2.4rem;
   padding-left: 0.6rem;
+}
+
+.goldenText {
+  color: $golden-text-color;
 }
