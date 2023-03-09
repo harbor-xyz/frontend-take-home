@@ -1,8 +1,10 @@
 @import '@/styles/_variables.module.scss';
 
 .mainContainer {
-  padding: 20px;
   padding-left: 20vw;
   background-color: $primary-light-bg;
   height: calc(100vh - 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
