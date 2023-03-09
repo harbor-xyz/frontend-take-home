@@ -5,7 +5,7 @@ import downArrow from '../../../../public/images/down.svg'
 import ButtonWithIcon from '@/components/molecules/buttonWithIcon'
 
 type SelectDropdownProps = {
-  options: Array<string | React.ReactNode>,
+  options: Array<any>,
   label?: string | React.ReactNode,
   handleChange: Dispatch<SetStateAction<any>>
 }
@@ -42,18 +42,28 @@ const SelectDropdown = ({
       window.removeEventListener('click', pageClickEvent);
     }
   });
-
   return (
     <div className={styles.selectWrapper}>
       <div className={styles.selectDisplay} onClick={onHeaderClick}>
         {label && <span className={styles.selectLabel}>{label}</span>}
-        <span className={styles.selectedValue}>{selectedValue}</span>
+        <span className={styles.selectedValue}>{selectedValue.label}</span>
         <Image src={downArrow} alt={'down arrow'} width={8} height={8}/>
       </div>
       <div ref={dropdownRef} className={`${styles.optionsWrapper} ${isSelectActive && styles.activeDropdown}`}>
         {
-          options.map((option: any, idx) => {
-            return <ButtonWithIcon wrapperClass={`${styles.optionWrapper} ${option === selectedValue && styles.activeOption}`} btnClasses={styles.optionText} btnContent={option} key={idx} handleClick={handleOptionClick(option)}></ButtonWithIcon>
+          options.map((option: any) => {
+            return (
+              <ButtonWithIcon
+                leftIcon={`/images/${option.icon}.svg`}
+                leftIconSize={12}
+                wrapperClass={`${styles.optionWrapper} ${option.value === selectedValue && styles.activeOption}`}
+                btnClasses={styles.optionText}
+                btnStyles={{color : option.color}}
+                btnContent={option.label}
+                key={option.value}
+                handleClick={handleOptionClick(option.value)}>
+              </ButtonWithIcon>
+            )
           })
         }
       </div>

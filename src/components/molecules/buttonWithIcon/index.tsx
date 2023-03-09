@@ -15,6 +15,7 @@ type ButtonWithIconProps = {
   btnType?: any,
   btnClasses?: any,
   children?: React.ReactNode,
+  btnStyles?: any
 }
 
 const ButtonWithIcon = ({
@@ -28,6 +29,7 @@ const ButtonWithIcon = ({
   rightIconSize,
   handleClick,
   children,
+  btnStyles
 }: ButtonWithIconProps) => {
 
   const handleWrapperClick = useCallback((e: any) => {
@@ -38,7 +40,7 @@ const ButtonWithIcon = ({
 
   return <div className={`${styles.buttonWithIconWrap} ${wrapperClass}`} onClick={handleWrapperClick}>
     { leftIcon ? <Image src={leftIcon} width={leftIconSize} height={leftIconSize} alt="left icon"/> : undefined }
-    <Button btnClasses={btnClasses} btnType={btnType} btnContent={btnContent}/>
+    <Button btnClasses={btnClasses} btnStyles={btnStyles} btnType={btnType} btnContent={btnContent}/>
     { children }
     { rightIcon ? <Image src={rightIcon} width={rightIconSize} height={rightIconSize} alt="left icon"/> : undefined }
   </div>

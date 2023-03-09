@@ -1,8 +1,12 @@
 import { useCallback, useEffect, useState } from "react";
+
 import Button from "@/components/atoms/button";
 import TestnetCard from "@/components/molecules/testnetCard";
-import styles from './testnetsView.module.scss';
 import SelectDropdown from "@/components/atoms/select";
+
+import { createFilterOptions } from './testnetsView.helpers';
+
+import styles from './testnetsView.module.scss';
 
 type TestnetViewProps = {
   testnetsData: any
@@ -22,8 +26,9 @@ const TestnetsView = (props: TestnetViewProps) => {
 
   useEffect(() => {
     const statuses = testnet.map((item: any) => item.status);
-    const filterOptions = Array.from(new Set(statuses));
-    setFilterOptions([...filterOptions]);
+    const uniqueStatuses: Array<string> = Array.from(new Set(statuses));
+    const filterOptions = createFilterOptions(uniqueStatuses);
+    setFilterOptions(filterOptions);
   }, [testnet]);
 
   const applyFilter = useCallback((ev: any) => {
