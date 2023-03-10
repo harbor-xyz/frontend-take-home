@@ -25,10 +25,10 @@ const SelectDropdown = ({
   }, [isSelectActive]);
 
   const handleOptionClick = useCallback((selected: string) => () => {
-    setSelectedValue(selected);
+    setSelectedValue(options.find(option => option.value === selected));
     handleChange(selected);
     setSelectAsActive(false);
-  }, [handleChange]);
+  }, [handleChange, options]);
 
   useEffect(() => {
     const pageClickEvent = (e: any) => {
@@ -46,17 +46,23 @@ const SelectDropdown = ({
     <div className={styles.selectWrapper}>
       <div className={styles.selectDisplay} onClick={onHeaderClick}>
         {label && <span className={styles.selectLabel}>{label}</span>}
-        <span className={styles.selectedValue}>{selectedValue.label}</span>
-        <Image src={downArrow} alt={'down arrow'} width={8} height={8}/>
+        {
+          selectedValue.value && (
+            <>
+              <ButtonWithIcon leftIcon={selectedValue.icon ? `/images/${selectedValue.icon}.svg` : undefined} leftIconSize={12} wrapperClass={styles.selectedValueWrapper} btnClasses={styles.selectedValue} btnContent={selectedValue.label}/>
+              <Image src={downArrow} alt={'down arrow'} width={8} height={8}/>
+            </>
+          )
+        }
       </div>
       <div ref={dropdownRef} className={`${styles.optionsWrapper} ${isSelectActive && styles.activeDropdown}`}>
         {
           options.map((option: any) => {
             return (
               <ButtonWithIcon
-                leftIcon={`/images/${option.icon}.svg`}
+                leftIcon={option.icon ? `/images/${option.icon}.svg`: undefined}
                 leftIconSize={12}
-                wrapperClass={`${styles.optionWrapper} ${option.value === selectedValue && styles.activeOption}`}
+                wrapperClass={`${styles.optionWrapper} ${option.value === selectedValue.value && styles.activeOption}`}
                 btnClasses={styles.optionText}
                 btnStyles={{color : option.color}}
                 btnContent={option.label}

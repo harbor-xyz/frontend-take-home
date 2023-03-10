@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
+import Image from 'next/image'
 
 import Button from "@/components/atoms/button";
 import TestnetCard from "@/components/molecules/testnetCard";
 import SelectDropdown from "@/components/atoms/select";
-
+import dotSeparator from '../../../../public/images/dot.svg'
 import { createFilterOptions } from './testnetsView.helpers';
 
 import styles from './testnetsView.module.scss';
@@ -11,6 +12,11 @@ import styles from './testnetsView.module.scss';
 type TestnetViewProps = {
   testnetsData: any
 }
+
+const sortOptions: any = [{
+  label: 'Name A-Z',
+  value: 'ASC'
+}];
 
 const TestnetsView = (props: TestnetViewProps) => {
   const { testnetsData } = props;
@@ -34,6 +40,10 @@ const TestnetsView = (props: TestnetViewProps) => {
   const applyFilter = useCallback((ev: any) => {
     console.log(ev);
   }, []);
+
+  const applySort = useCallback((ev: any) => {
+    console.log(ev);
+  }, []);
   
   return (
     <>
@@ -43,8 +53,15 @@ const TestnetsView = (props: TestnetViewProps) => {
           <Button btnClasses={styles.linkBtn} btnContent={'+ New Testnet'}/>
         </div>
         <div className={styles.rightSection}>
-          { filterOptions?.length && <SelectDropdown options={filterOptions} label={'Filter by: '} handleChange={applyFilter}/> }
-          {/* <Select options={sortOptions} label={'Sort by: '} selectedValue={} handleChange={}></Select> */}
+          { 
+            filterOptions?.length && (
+              <>
+                <SelectDropdown options={filterOptions} label={'Filter by: '} handleChange={applyFilter}/>
+                <Image src={dotSeparator} alt="dot separator"/>
+              </>
+            )
+          }
+          <SelectDropdown options={sortOptions} label={'Sort by: '} handleChange={applySort}></SelectDropdown>
         </div>
       </div>
       <div className={styles.viewContent}>
