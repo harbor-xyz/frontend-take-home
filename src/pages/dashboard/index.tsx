@@ -2,7 +2,7 @@ import Head from 'next/head'
 import { ComponentProps, useCallback, useState } from 'react';
 import Layout from '@/components/organisms/layout'
 import styles from './dashboard.module.scss'
-import { TabViewMap } from './dashboard.constants';
+import { TabViewMap } from '@/constants/dashboard';
 
 export async function getServerSideProps() {
   // fetch the page data from the testnets api
