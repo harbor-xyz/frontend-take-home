@@ -58,7 +58,7 @@ const TestnetsView = (props: TestnetViewProps) => {
   }, []);
   
   return (
-    <div className="testnet-view">
+    <>
       <div className={styles.viewHeader}>
         <div className={styles.leftSection}>
           <span className={styles.headerText}>Testnets ({currentFilter === 'ALL' ? listData.length : statusCountMap[currentFilter]})</span>
@@ -79,7 +79,7 @@ const TestnetsView = (props: TestnetViewProps) => {
       <div className={styles.viewContent}>
         {renderTestnetCards()}
       </div>
-    </div>
+    </>
   )
 }
 
