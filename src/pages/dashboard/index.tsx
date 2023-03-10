@@ -32,7 +32,7 @@ export default function Dashboard({dashboardData}: ComponentProps<any>) {
       <Head>
         <title>Harbor XYZ Dashboard</title>
       </Head>
-      <Layout activeTab={activeTab} handleClick={(newTab) => { console.log('clicked,', newTab); setActiveTab(newTab)}}>
+      <Layout activeTab={activeTab} handleClick={(newTab) => { setActiveTab(newTab) }}>
         <div className={styles.mainContainer}>
           {renderDashboardTab()}
         </div>
