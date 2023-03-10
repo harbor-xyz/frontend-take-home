@@ -8,9 +8,8 @@ export const TESTNET_STATUS_ICON_MAPPING: stringMap = {
   PENDING: "hourglass",
   UPDATING: "hourglass",
   FAILED: "failed",
-  STOPPED: "killed"
+  STOPPED: "stopped"
 }
-
 
 export const TESTNET_STATUS_COLOR_MAPPING: stringMap = {
   ALL: "#2F80ED",

@@ -11,7 +11,20 @@ $dead-text-color: #555555;
 
 $primary-light-bg: #F6F8FA;
 $secondary-light-bg: #F6F6F6;
+$failed-light-bg: #FDF7F8;
 $primary-dark-bg: #000000;
 
 $primary-border-color: #DDDDDD;
 $secondary-border-color: #E5E5E5;
+$failed-border-color: #CD3A4C;
+
+$white: #FFFFFF;
+$black: #000000;
+
+:export {
+  failedBgColor: $failed-light-bg;
+  failedBorderColor: $failed-border-color;
+  secondaryBorderColor: $secondary-border-color;
+  stoppedBorderColor: $primary-border-color;
+  white: $white;
+}

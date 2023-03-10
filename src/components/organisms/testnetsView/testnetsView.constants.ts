@@ -8,7 +8,7 @@ export const STATUS_LABEL_MAPPING: stringMap = {
   PENDING: "Standing Up",
   UPDATING: "Updating",
   FAILED: "Failed",
-  STOPPED: "Killed"
+  STOPPED: "Stopped"
 }
 
 export const SORT_TYPE = {

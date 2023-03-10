@@ -57,7 +57,7 @@ const TestnetsView = (props: TestnetViewProps) => {
       <div className={styles.viewHeader}>
         <div className={styles.leftSection}>
           <span className={styles.headerText}>Testnets ({listData.length})</span>
-          <ButtonWithIcon leftIconSize={14} leftIcon={`/images/blue-add.svg`} btnClasses={styles.linkBtn} btnContent={'New Testnet'}/>
+          <ButtonWithIcon leftIconSize={14} leftIcon={`/images/blue-add.svg`} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.linkBtn} btnContent={'New Testnet'}/>
         </div>
         <div className={styles.rightSection}>
           { 

@@ -28,6 +28,7 @@
   font-size: 1.6rem;
   line-height: 2.4rem;
   font-weight: 600;
+  margin-left: 0.8rem;
 }
 
 .viewContent {
@@ -42,4 +43,8 @@
   justify-content: flex-end;
   align-items: center;
   gap: 1.2rem;
+}
+
+.btnWithIconWrapper {
+  padding: 0;
 }

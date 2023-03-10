@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import styles from './testnetCard.module.scss'
 import { TESTNET_STATUS_ICON_MAPPING, TESTNET_STATUS_COLOR_MAPPING } from '@/constants/globals'
-import { TESTNET_STATUS,  } from './testnetCard.constants'
+import { getCardStylesFromStatus, parseCardData } from './testnetCard.helpers';
 
 import dotSeparator from '../../../../public/images/dot.svg'
 import hourGlass from '../../../../public/images/hourglass.svg'
@@ -15,11 +15,9 @@ type CardProps = {
 
 const TestnetCard = ({cardData}: CardProps) => {
   const { name, status, testnet_off_chain_actors, testnet_chains, updated_at } = cardData;
+  const [offChainUpdatingCount, isChainUpdating] = parseCardData(testnet_off_chain_actors, testnet_chains);
 
-  const offChainUpdatingCount = testnet_off_chain_actors.filter((chain: any) => chain.status === TESTNET_STATUS.UPDATING).length;
-  const isChainUpdating = testnet_chains.find((chain: any) => chain.status === TESTNET_STATUS.UPDATING);
-
-  return <div className={styles.cardWrapper}>
+  return <div className={styles.cardWrapper} style={getCardStylesFromStatus(status)}>
     <div className={styles.leftSection}>
       <div className={styles.topChunkWrapper}>
           <span className="name">{name}</span>
