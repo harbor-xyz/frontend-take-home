@@ -11,20 +11,33 @@ export const STATUS_LABEL_MAPPING: stringMap = {
   STOPPED: "Killed"
 }
 
-export const STATUS_ICON_MAPPING: stringMap = {
-  ALL: "all",
-  RUNNING: "running",
-  PENDING: "hourglass",
-  UPDATING: "hourglass",
-  FAILED: "failed",
-  STOPPED: "killed"
+export const SORT_TYPE = {
+  ASC: 'asc',
+  DESC: 'desc',
+  STATUS: 'status',
+  CREATED_AT: 'created_at',
+  UPDATED_AT: 'updated_at'
 }
 
-export const STATUS_TEXT_COLOR_MAPPING: stringMap = {
-  ALL: "#2F80ED",
-  RUNNING: "#509900",
-  PENDING: "#DB9000",
-  UPDATING: "#DB9000",
-  FAILED: "#CD3A4C",
-  STOPPED: "#555555"
-}
+export const SORT_OPTIONS = [
+  {
+    label: 'Name A-Z',
+    value: SORT_TYPE.ASC
+  },
+  {
+    label: 'Name Z-A',
+    value: SORT_TYPE.DESC
+  },
+  {
+    label: 'Status',
+    value: SORT_TYPE.STATUS
+  },
+  {
+    label: 'Date created',
+    value: SORT_TYPE.CREATED_AT
+  },
+  {
+    label: 'Last modified',
+    value: SORT_TYPE.UPDATED_AT
+  }
+]

@@ -1,56 +1,63 @@
 import { useCallback, useEffect, useState } from "react";
 import Image from 'next/image'
 
-import Button from "@/components/atoms/button";
 import TestnetCard from "@/components/molecules/testnetCard";
 import SelectDropdown from "@/components/atoms/select";
 import dotSeparator from '../../../../public/images/dot.svg'
-import { createFilterOptions } from './testnetsView.helpers';
+import { SORT_OPTIONS } from "./testnetsView.constants";
+import { createFilterOptions, getFilteredAndSortedData } from './testnetsView.helpers';
 
 import styles from './testnetsView.module.scss';
+import ButtonWithIcon from "@/components/molecules/buttonWithIcon";
 
 type TestnetViewProps = {
   testnetsData: any
 }
 
-const sortOptions: any = [{
-  label: 'Name A-Z',
-  value: 'ASC'
-}];
-
 const TestnetsView = (props: TestnetViewProps) => {
   const { testnetsData } = props;
-  const { testnet } = testnetsData;
+  const { testnet: listData } = testnetsData;
 
   const [filterOptions, setFilterOptions] = useState<any[]>([]);
+  const [currentSort, setCurrentSort] = useState('');
+  const [currentFilter, setCurrentFilter] = useState('');
+  const [filteredAndSortedData, setFilteredAndSortedData] = useState<any[]>([]);
 
   const renderTestnetCards = () => {
-    return testnet.map((item: any) => {
+    return filteredAndSortedData.map((item: any) => {
       return <TestnetCard cardData={item} key={item.id} />
     })
   };
 
   useEffect(() => {
-    const statuses = testnet.map((item: any) => item.status);
+    const statuses = listData.map((item: any) => item.status);
     const uniqueStatuses: Array<string> = Array.from(new Set(statuses));
     const filterOptions = createFilterOptions(uniqueStatuses);
     setFilterOptions(filterOptions);
-  }, [testnet]);
+    setCurrentFilter(filterOptions[0].value);
+    setCurrentSort(SORT_OPTIONS[0].value);
+    setFilteredAndSortedData(listData);
+  }, [listData]);
 
-  const applyFilter = useCallback((ev: any) => {
-    console.log(ev);
+  useEffect(() => {
+    const data = getFilteredAndSortedData({data: listData, currentFilter, currentSort});
+    setFilteredAndSortedData([...data]);
+  }, [listData, currentFilter, currentSort]);
+
+  const applyFilter = useCallback((filterKey: string) => {
+    setCurrentFilter(filterKey);
   }, []);
 
-  const applySort = useCallback((ev: any) => {
-    console.log(ev);
+  const applySort = useCallback((sortKey: string) => {
+    setCurrentSort(sortKey);
   }, []);
   
   return (
     <>
       <div className={styles.viewHeader}>
         <div className={styles.leftSection}>
-          <span className={styles.headerText}>Testnets ({testnet.length})</span>
-          <Button btnClasses={styles.linkBtn} btnContent={'+ New Testnet'}/>
+          <span className={styles.headerText}>Testnets ({listData.length})</span>
+          <ButtonWithIcon leftIconSize={14} leftIcon={`/images/blue-add.svg`} btnClasses={styles.linkBtn} btnContent={'New Testnet'}/>
         </div>
         <div className={styles.rightSection}>
           { 
@@ -61,7 +68,7 @@ const TestnetsView = (props: TestnetViewProps) => {
               </>
             )
           }
-          <SelectDropdown options={sortOptions} label={'Sort by: '} handleChange={applySort}></SelectDropdown>
+          <SelectDropdown options={SORT_OPTIONS} label={'Sort by: '} handleChange={applySort}></SelectDropdown>
         </div>
       </div>
       <div className={styles.viewContent}>

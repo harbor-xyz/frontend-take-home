@@ -49,7 +49,14 @@ const SelectDropdown = ({
         {
           selectedValue.value && (
             <>
-              <ButtonWithIcon leftIcon={selectedValue.icon ? `/images/${selectedValue.icon}.svg` : undefined} leftIconSize={12} wrapperClass={styles.selectedValueWrapper} btnClasses={styles.selectedValue} btnContent={selectedValue.label}/>
+              <ButtonWithIcon
+                leftIcon={selectedValue.icon ? `/images/${selectedValue.icon}.svg` : undefined}
+                leftIconSize={12}
+                wrapperClass={styles.selectedValueWrapper}
+                btnStyles={{color : selectedValue.color}}
+                btnClasses={styles.selectedValue}
+                btnContent={selectedValue.label}
+              />
               <Image src={downArrow} alt={'down arrow'} width={8} height={8}/>
             </>
           )

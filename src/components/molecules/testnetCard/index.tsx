@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import styles from './testnetCard.module.scss'
-import { TESTNET_STATUS } from './testnetCard.constants'
+import { TESTNET_STATUS_ICON_MAPPING, TESTNET_STATUS_COLOR_MAPPING } from '@/constants/globals'
+import { TESTNET_STATUS,  } from './testnetCard.constants'
 
 import dotSeparator from '../../../../public/images/dot.svg'
 import hourGlass from '../../../../public/images/hourglass.svg'
@@ -71,7 +72,7 @@ const TestnetCard = ({cardData}: CardProps) => {
     </div>
     <div className={styles.rightSection}>
       <div className={styles.topChunkWrapper}>
-        <ButtonWithIcon leftIcon={`/images/${status.toLowerCase()}.svg`} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.textWrapper} leftIconSize={14} btnContent={status}></ButtonWithIcon>
+        <ButtonWithIcon leftIcon={`/images/${TESTNET_STATUS_ICON_MAPPING[status]}.svg`} btnStyles={{color: TESTNET_STATUS_COLOR_MAPPING[status]}} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.textWrapper} leftIconSize={14} btnContent={status}></ButtonWithIcon>
         <Image src={dotSeparator} alt="dot separator"/>
         <ButtonWithIcon leftIcon={`/images/settings.svg`} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.textWrapper} leftIconSize={14} btnContent={'Settings'}></ButtonWithIcon>
       </div>

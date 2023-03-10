@@ -7,8 +7,8 @@ const data = {
       "id": "e50bd5fb-d423-4bbe-9ad3-6c01d10b5e7b",
       "status": "RUNNING",
       "endpoint": "3.110.142.253",
-      "created_at": "2022-10-27T09:38:25.870847+00:00",
-      "updated_at": "2022-10-27T09:40:45.834821+00:00",
+      "created_at": "2022-11-27T09:38:25.870847+00:00",
+      "updated_at": "2022-11-27T09:40:45.834821+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
@@ -71,7 +71,7 @@ const data = {
     {
       "name": "furniture-protection",
       "id": "44b4eaf7-f439-43fb-ac49-ec03a34133d4",
-      "status": "RUNNING",
+      "status": "FAILED",
       "endpoint": "15.207.106.215",
       "created_at": "2022-10-27T09:37:06.367679+00:00",
       "updated_at": "2022-10-27T09:39:36.212997+00:00",
@@ -109,14 +109,14 @@ const data = {
     {
       "name": "solar-fighting",
       "id": "06d7190a-370d-4893-904c-4305603e96a7",
-      "status": "RUNNING",
+      "status": "FAILED",
       "endpoint": "3.108.41.18",
       "created_at": "2022-10-27T09:33:03.17475+00:00",
       "updated_at": "2022-10-27T09:35:22.614039+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "ipfs",
-          "status": "RUNNING",
+          "status": "FAILED",
           "__typename": "testnet_off_chain_actor",
         },
       ],
@@ -171,8 +171,8 @@ const data = {
       "id": "80942ccf-1e6b-4874-9a64-69d2ac826c87",
       "status": "STOPPED",
       "endpoint": "35.154.227.230",
-      "created_at": "2022-10-27T09:10:00.379698+00:00",
-      "updated_at": "2022-10-27T09:31:20.021792+00:00",
+      "created_at": "2022-12-27T09:10:00.379698+00:00",
+      "updated_at": "2022-12-27T09:31:20.021792+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "sequencerCache",
@@ -209,8 +209,8 @@ const data = {
       "id": "d9dadeef-1dd8-431b-bde7-9633f1c2c4f5",
       "status": "RUNNING",
       "endpoint": "13.233.25.45",
-      "created_at": "2022-10-27T09:09:18.632011+00:00",
-      "updated_at": "2022-10-27T09:11:41.364544+00:00",
+      "created_at": "2022-12-27T09:09:18.632011+00:00",
+      "updated_at": "2022-12-27T09:11:41.364544+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
@@ -247,8 +247,8 @@ const data = {
       "id": "eb3c4c4f-b7c5-4910-98db-47620ff9d871",
       "status": "RUNNING",
       "endpoint": "65.0.30.164",
-      "created_at": "2022-10-27T09:08:17.346168+00:00",
-      "updated_at": "2022-10-27T09:10:38.725816+00:00",
+      "created_at": "2022-12-27T09:08:17.346168+00:00",
+      "updated_at": "2022-12-27T09:10:38.725816+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
@@ -272,6 +272,16 @@ const data = {
           "status": "RUNNING",
           "__typename": "testnet_chain",
         },
+        {
+          "chain": "polygon",
+          "status": "RUNNING",
+          "__typename": "testnet_chain",
+        },
+        {
+          "chain": "fantom",
+          "status": "RUNNING",
+          "__typename": "testnet_chain",
+        }
       ],
       "testnet_image": {
         "project_id": "763db951-01d2-455e-8c45-08b839f2248b",
@@ -285,8 +295,8 @@ const data = {
       "id": "7c10bdcf-5fbd-4934-97a6-84f554847b3f",
       "status": "RUNNING",
       "endpoint": "13.233.245.190",
-      "created_at": "2022-10-27T09:07:09.044368+00:00",
-      "updated_at": "2022-10-27T09:09:40.192447+00:00",
+      "created_at": "2022-12-27T09:07:09.044368+00:00",
+      "updated_at": "2022-12-27T09:09:40.192447+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
@@ -473,31 +483,31 @@ const data = {
     {
       "name": "suit-outer",
       "id": "62fe05ce-792b-4620-a55f-bd97953b34b8",
-      "status": "RUNNING",
+      "status": "UPDATING",
       "endpoint": "13.233.134.120",
       "created_at": "2022-10-27T09:02:31.972367+00:00",
       "updated_at": "2022-10-27T09:04:52.454428+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
         {
           "name": "ipfs",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
         {
           "name": "sequencerCache",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
       ],
       "testnet_chains": [
         {
           "chain": "ethereum",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_chain",
         },
       ],
@@ -511,31 +521,31 @@ const data = {
     {
       "name": "environment-dog",
       "id": "aac385d5-ce9c-414e-b60e-1043caabb1c7",
-      "status": "RUNNING",
+      "status": "UPDATING",
       "endpoint": "13.233.90.187",
       "created_at": "2022-10-27T09:00:50.670653+00:00",
       "updated_at": "2022-10-27T09:03:21.585792+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "routerCache",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
         {
           "name": "ipfs",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
         {
           "name": "sequencerCache",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_off_chain_actor",
         },
       ],
       "testnet_chains": [
         {
           "chain": "ethereum",
-          "status": "RUNNING",
+          "status": "UPDATING",
           "__typename": "testnet_chain",
         },
       ],
@@ -627,8 +637,8 @@ const data = {
       "id": "44395e49-d961-40e7-91f0-d10c0a018b63",
       "status": "RUNNING",
       "endpoint": "13.233.75.105",
-      "created_at": "2022-10-27T08:42:30.582892+00:00",
-      "updated_at": "2022-10-27T08:44:47.131931+00:00",
+      "created_at": "2023-01-27T08:42:30.582892+00:00",
+      "updated_at": "2023-01-27T08:44:47.131931+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "ipfs",
@@ -649,8 +659,8 @@ const data = {
       "id": "91fa56bd-fe7b-4e6e-a85d-3bb11522979b",
       "status": "RUNNING",
       "endpoint": "65.0.204.75",
-      "created_at": "2022-10-27T08:04:47.190003+00:00",
-      "updated_at": "2022-10-27T08:07:07.36163+00:00",
+      "created_at": "2023-01-27T08:04:47.190003+00:00",
+      "updated_at": "2023-01-27T08:07:07.36163+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "ipfs",
@@ -671,8 +681,8 @@ const data = {
       "id": "ab04664b-dcf9-412c-83de-704c7e2f93a5",
       "status": "RUNNING",
       "endpoint": "13.127.169.238",
-      "created_at": "2022-10-27T07:36:37.76326+00:00",
-      "updated_at": "2022-10-27T07:38:57.401305+00:00",
+      "created_at": "2023-01-27T07:36:37.76326+00:00",
+      "updated_at": "2023-01-27T07:38:57.40135+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "ipfs",
@@ -693,8 +703,8 @@ const data = {
       "id": "1da6ec94-5ff5-4b40-b0d0-5665c6dbab1d",
       "status": "RUNNING",
       "endpoint": "3.110.148.203",
-      "created_at": "2022-10-27T07:35:30.649162+00:00",
-      "updated_at": "2022-10-27T07:37:39.87499+00:00",
+      "created_at": "2023-01-27T07:35:30.649162+00:00",
+      "updated_at": "2023-01-27T07:37:39.574989+00:00",
       "testnet_off_chain_actors": [
         {
           "name": "ipfs",
@@ -1104,6 +1114,7 @@ const data = {
       },
       "__typename": "testnet",
     },
+    
   ],
 };
 
