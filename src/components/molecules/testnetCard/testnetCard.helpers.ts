@@ -12,7 +12,7 @@ export const getCardStylesFromStatus = (status: string) => {
   let backgroundColor = variables.white;
   switch (status) {
     case (TESTNET_STATUS.FAILED):
-      borderColor = variables.failedBorderColor;
+      borderColor = variables.errorColor;
       backgroundColor = variables.failedBgColor;
       break;
     case (TESTNET_STATUS.STOPPED):

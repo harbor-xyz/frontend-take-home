@@ -7,8 +7,8 @@ import leftArrow from '../../../../public/images/left-arrow.svg';
 import sidebarConfig from './sidebar.constants';
 
 type SidebarProps = {
-  activeTab: string,
-  handleClick: Dispatch<SetStateAction<string>>,
+  activeTab?: string,
+  handleClick?: Dispatch<SetStateAction<string>>,
 }
 
 export default function Sidebar({activeTab, handleClick}: SidebarProps) {

@@ -10,8 +10,8 @@ type SidebarItemType = {
 } 
 
 type SidebarListProps = {
-  activeTab: string,
-  handleClick: Dispatch<SetStateAction<string>>,
+  activeTab?: string,
+  handleClick?: Dispatch<SetStateAction<string>>,
   sidebarItems: {
     title: string,
     icon: string,

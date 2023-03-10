@@ -72,7 +72,7 @@ const SelectDropdown = ({
                 wrapperClass={`${styles.optionWrapper} ${option.value === selectedValue.value && styles.activeOption}`}
                 btnClasses={styles.optionText}
                 btnStyles={{color : option.color}}
-                btnContent={option.label}
+                btnContent={`${option.label}${option.count ? ` (${option.count})` : ''}`}
                 key={option.value}
                 handleClick={handleOptionClick(option.value)}>
               </ButtonWithIcon>

@@ -7,8 +7,8 @@ type SidebarItemProps = {
   title?: string,
   rightIcon?: string,
   count?: number,
-  handleClick: Dispatch<SetStateAction<string>>,
-  activeTab: string
+  handleClick?: Dispatch<SetStateAction<string>>,
+  activeTab?: string
 }
 
 const SidebarItem = ({

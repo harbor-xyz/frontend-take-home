@@ -1,16 +1,20 @@
 import { TESTNET_STATUS_ICON_MAPPING, TESTNET_STATUS_COLOR_MAPPING } from '@/constants/globals';
 import { STATUS_LABEL_MAPPING, SORT_TYPE } from './testnetsView.constants';
 
-export const createFilterOptions = (statuses: Array<string>) => {
-  const options = statuses.map((status) => {
-    return {
+export const createFilterOptions = (statuses: any, totalCount: number) => {
+  const options = [];
+  for (let status in statuses) {
+    options.push({
+      count: statuses[status],
       value: status,
       label: STATUS_LABEL_MAPPING[status],
       icon: TESTNET_STATUS_ICON_MAPPING[status],
       color: TESTNET_STATUS_COLOR_MAPPING[status]
-    }
-  });
+    })
+  }
+
   const filterOptions = [{
+    count: totalCount,
     value: 'ALL',
     label: STATUS_LABEL_MAPPING['ALL'],
     icon: TESTNET_STATUS_ICON_MAPPING['ALL'],

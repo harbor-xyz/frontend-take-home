@@ -1,3 +1,4 @@
+import { useCallback } from 'react';
 import styles from './button.module.scss'
 
 type ButtonProps = {
@@ -10,12 +11,17 @@ type ButtonProps = {
 
 const Button = ({btnContent, handleClick, btnClasses, btnStyles}: ButtonProps) => {
   const isBtnContentText = typeof btnContent === 'string';
+
+  const handleBtnClick = useCallback((e: any) => {
+    handleClick(e);
+  }, [handleClick]);
+
   return <button
     className={`${styles.btnClass} ${btnClasses}`}
     style={btnStyles}
     name={isBtnContentText ? btnContent : undefined}
     value={isBtnContentText ? btnContent : undefined}
-    onClick={handleClick ? (e) => handleClick(e) : undefined}>
+    onClick={handleClick ? handleBtnClick : undefined}>
       {btnContent}
     </button>
 }

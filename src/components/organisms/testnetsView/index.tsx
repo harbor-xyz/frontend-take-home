@@ -22,6 +22,7 @@ const TestnetsView = (props: TestnetViewProps) => {
   const [currentSort, setCurrentSort] = useState('');
   const [currentFilter, setCurrentFilter] = useState('');
   const [filteredAndSortedData, setFilteredAndSortedData] = useState<any[]>([]);
+  const [statusCountMap, setStatusCountMap] = useState<any>({});
 
   const renderTestnetCards = () => {
     return filteredAndSortedData.map((item: any) => {
@@ -31,8 +32,12 @@ const TestnetsView = (props: TestnetViewProps) => {
 
   useEffect(() => {
     const statuses = listData.map((item: any) => item.status);
-    const uniqueStatuses: Array<string> = Array.from(new Set(statuses));
-    const filterOptions = createFilterOptions(uniqueStatuses);
+    const statusCountMap = statuses.reduce((acc: any, value: number) => ({
+      ...acc,
+      [value]: (acc[value] || 0) + 1
+    }), {});
+    const filterOptions = createFilterOptions(statusCountMap, listData.length);
+    setStatusCountMap(statusCountMap);
     setFilterOptions(filterOptions);
     setCurrentFilter(filterOptions[0].value);
     setCurrentSort(SORT_OPTIONS[0].value);
@@ -53,10 +58,10 @@ const TestnetsView = (props: TestnetViewProps) => {
   }, []);
   
   return (
-    <>
+    <div className="testnet-view">
       <div className={styles.viewHeader}>
         <div className={styles.leftSection}>
-          <span className={styles.headerText}>Testnets ({listData.length})</span>
+          <span className={styles.headerText}>Testnets ({currentFilter === 'ALL' ? listData.length : statusCountMap[currentFilter]})</span>
           <ButtonWithIcon leftIconSize={14} leftIcon={`/images/blue-add.svg`} wrapperClass={styles.btnWithIconWrapper} btnClasses={styles.linkBtn} btnContent={'New Testnet'}/>
         </div>
         <div className={styles.rightSection}>
@@ -74,7 +79,7 @@ const TestnetsView = (props: TestnetViewProps) => {
       <div className={styles.viewContent}>
         {renderTestnetCards()}
       </div>
-    </>
+    </div>
   )
 }
 

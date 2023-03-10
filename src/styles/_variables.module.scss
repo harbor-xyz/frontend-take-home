@@ -16,15 +16,18 @@ $primary-dark-bg: #000000;
 
 $primary-border-color: #DDDDDD;
 $secondary-border-color: #E5E5E5;
-$failed-border-color: #CD3A4C;
 
 $white: #FFFFFF;
 $black: #000000;
 
 :export {
   failedBgColor: $failed-light-bg;
-  failedBorderColor: $failed-border-color;
   secondaryBorderColor: $secondary-border-color;
   stoppedBorderColor: $primary-border-color;
   white: $white;
+  activeColor: $active-text-color;
+  successColor: $succes-text-color;
+  goldenColor: $golden-text-color;
+  errorColor: $error-text-color;
+  deadColor: $dead-text-color;
 }
