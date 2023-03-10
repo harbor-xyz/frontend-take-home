@@ -1,0 +1,110 @@
+@import '@/styles/_variables.module.scss';
+
+.cardWrapper {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background: #FFF;
+  border: 1px solid $secondary-border-color;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.06);
+  border-radius: 2rem;
+  padding: 2.4rem 3.2rem;
+  margin-bottom: 2.4rem;
+  font-size: 1.4rem;
+}
+
+.leftSection,
+.rightSection {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.8rem;
+}
+
+.topChunkWrapper,
+.midChunkWrapper,
+.btmChunkWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.topChunkWrapper {
+  gap: 1.6rem;
+
+  :global {
+    .name {
+      font-size: 2rem;
+      font-weight: 700;
+      line-height: 2.4rem;
+    }
+  
+    .count {
+      border-radius: 4rem;
+      color: $tertiary-text-color;
+      background-color: $secondary-light-bg;
+      padding: 0.2rem 1.2rem;
+      font-size: 1.4rem;
+      line-height: 2.4rem;
+      font-weight: 600;
+    }
+
+    .chain-actor-count {
+      font-weight: 500;
+    }
+  }
+}
+
+.midChunkWrapper,
+.btmChunkWrapper {
+  gap: 1.2rem;
+  line-height: 2.4rem;
+}
+
+.btnWithIconWrapper {
+  padding: 0;
+  justify-content: flex-end;
+}
+
+.textWrapper {
+  padding-left: 0.6rem;
+  font-size: 1.4rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+}
+
+.chainIconList {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.chainIconWrapper {
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 1px solid $primary-border-color;
+  border-radius: 0.8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: -0.6rem;
+  background-color: #FFF;
+
+  &:first-child {
+    margin-left: 0;
+  }
+}
+
+.timeTextWrapper {
+  font-weight: 500;
+  color: $tertiary-text-color;
+  font-size: 1.3rem;
+  line-height: 2.4rem;
+  padding-left: 0.6rem;
+}
+
+.goldenText {
+  color: $golden-text-color;
+}

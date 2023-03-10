@@ -1,0 +1,38 @@
+@import '@/styles/_variables.module.scss';
+
+.pageHeader {
+  background-color: $primary-dark-bg;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex: 0;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: row;
+}
+
+.logoContainer {
+  display: flex;
+  align-items: center;
+  margin-right: 4rem;
+}
+
+.btnWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.btnClass {
+  color: $secondary-text-color;
+  font-size: 1.4rem;
+  margin-left: 0.8rem;
+}

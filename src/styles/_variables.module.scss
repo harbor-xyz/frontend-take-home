@@ -1,0 +1,33 @@
+$primary-text-color: #000000;
+$secondary-text-color: #AAAAAA;
+$tertiary-text-color: #999999;
+
+$text-color-1: #666666;
+$active-text-color: #2F80ED;
+$golden-text-color: #DB9000;
+$error-text-color: #CD3A4C;
+$succes-text-color: #509900;
+$dead-text-color: #555555;
+
+$primary-light-bg: #F6F8FA;
+$secondary-light-bg: #F6F6F6;
+$failed-light-bg: #FDF7F8;
+$primary-dark-bg: #000000;
+
+$primary-border-color: #DDDDDD;
+$secondary-border-color: #E5E5E5;
+
+$white: #FFFFFF;
+$black: #000000;
+
+:export {
+  failedBgColor: $failed-light-bg;
+  secondaryBorderColor: $secondary-border-color;
+  stoppedBorderColor: $primary-border-color;
+  white: $white;
+  activeColor: $active-text-color;
+  successColor: $succes-text-color;
+  goldenColor: $golden-text-color;
+  errorColor: $error-text-color;
+  deadColor: $dead-text-color;
+}
