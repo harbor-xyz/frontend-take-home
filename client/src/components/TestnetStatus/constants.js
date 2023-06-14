@@ -1,0 +1,5 @@
+export const TESTNET_STATUS = {
+  RUNNING: "RUNNING",
+  STOPPED: "STOPPED",
+  PENDING: "PENDING",
+};
