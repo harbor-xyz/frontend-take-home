@@ -11,12 +11,8 @@ You can then access the data via `GET localhost:3000/testnets`
 
 We want you to implement the following frontend design (Refer to the Figma link mentioned below in the Resources section to see the full UI flow with clickpoints and design in detail):
 
-### 1. Default view - Dashboard
-> <img width="819" alt="Screen Shot 2022-10-27 at 5 16 36 PM" src="https://user-images.githubusercontent.com/3914624/198275988-7964013e-f63e-4d0d-9be5-5864841c0002.png">
-
-
-### 2. Clicking on "Create new testnet" should bring in the following screen:
-> <img width="819" alt="Breadcrumbs" src="https://github.com/harbor-xyz/frontend-take-home/assets/4207591/ee3b5d8e-1356-4282-bcd0-234c869d0a50">
+### Dashboard
+> <img width="819" alt="Screen Shot 2022-10-27 at 5 16 36 PM" src="https://github.com/harbor-xyz/frontend-take-home/assets/4207591/1e21209a-5de4-4b5c-a2f0-d895e98e814d">
 
 
 ## Let's break the screens down into functional parts:
@@ -29,12 +25,6 @@ We want you to implement the following frontend design (Refer to the Figma link 
 
 **3. Filtering**
 > <img width="400" alt="Screen Shot 2022-10-27 at 5 21 33 PM" src="https://user-images.githubusercontent.com/3914624/198277023-fd60ed69-a8e2-4507-a989-581321f5128e.png">
-
-**4. Breadcrumbs**
-> <img width="500" alt="breadcrumbs" src="https://github.com/harbor-xyz/frontend-take-home/assets/4207591/79c7617e-95c6-49fe-84a2-025696e1842f">
-
-**5. Steps**
-> <img width="500" alt="steps" src="https://github.com/harbor-xyz/frontend-take-home/assets/4207591/f5568f50-6d89-4cf7-922d-a47bde47bba3">
 
 
 # Resources
