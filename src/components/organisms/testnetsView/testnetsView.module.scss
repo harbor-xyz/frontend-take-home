@@ -1,0 +1,50 @@
+@import '@/styles/_variables.module.scss';
+
+.viewHeader {
+  padding: 4rem 6rem 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2rem;
+}
+
+.headerText {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+  color: $primary-text-color;
+  font-weight: 700;
+}
+
+.linkBtn {
+  color: $active-text-color;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+  font-weight: 600;
+  margin-left: 0.8rem;
+}
+
+.viewContent {
+  padding: 0 6rem;
+  height: calc(100% - 6.8rem);
+  overflow-y: auto;
+}
+
+.rightSection {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.btnWithIconWrapper {
+  padding: 0;
+}

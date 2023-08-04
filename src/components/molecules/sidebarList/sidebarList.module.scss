@@ -1,0 +1,28 @@
+@import '@/styles/_variables.module.scss';
+
+.listTitleWrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1.2rem;
+}
+
+.listTitle {
+  display: flex;
+  justify-content: flex-start;
+  padding: 0.6rem 0.8rem;
+}
+
+.listTitleContent {
+  color: $primary-text-color;
+  font-size: 1.6rem;
+  margin-left: 1.2rem;
+  font-family: inherit;
+  font-weight: 600;
+  line-height: 2.4rem;
+}
+
+.listItemsWrap {
+  display: flex;
+  flex-direction: column;
+}
