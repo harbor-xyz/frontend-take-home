@@ -1,0 +1,24 @@
+@import '@/styles/_variables.scss';
+
+.mainNavContainer {
+  background-color: $nav-background;
+  padding: 16px 20px;
+  width: 100%;
+  display: flex;
+  gap: 12px;
+  height: 60px;
+  align-items: center;
+}
+
+.brand {
+  width: 97px;
+  margin-right: 40px;
+}
+
+.rightSubMenu {
+  margin-left: auto;
+}
+
+.menuIcon {
+  width: 14px;
+}
