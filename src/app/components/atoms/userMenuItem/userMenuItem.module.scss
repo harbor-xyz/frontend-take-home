@@ -2,19 +2,19 @@
 
 .userMenuItem {
   display: flex;
-  gap: 8px;
+  gap: 0.8rem;
   flex-direction: row;
-  padding: 6px 16px;
-  letter-spacing: -0.2px;
+  padding: 0.6rem 1.6rem;
+  letter-spacing: -0.02rem;
   cursor: pointer;
 }
 
 .userIcon {
-  width: 32px;
+  width: 3.2rem;
   fill: $menu-item;
 }
 
 .arrowIcon {
-  width: 12px;
+  width: 1.2rem;
   fill: $menu-item;
 }

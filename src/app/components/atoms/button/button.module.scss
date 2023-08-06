@@ -1,0 +1,109 @@
+@import '@/styles/_variables.scss';
+
+.button {
+  outline: 0;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+  font-family: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.8rem;
+  gap: 0.8rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  --font-color: #{$white};
+  --background-color: #{$transparent};
+  --icon-size: 1.4rem;
+  color: var(--font-color);
+  background-color: var(--background-color);
+
+  &.small {
+    gap: 0.6rem;
+    font-size: 1.4rem;
+    padding: 0.2rem;
+  }
+
+  &.medium {
+    gap: 0.8rem;
+    font-size: 1.6rem;
+    padding: 0.8rem;
+  }
+
+  &.large {
+    gap: 0.6rem;
+    font-size: 1.8rem;
+    padding: 1.2rem;
+  }
+
+  &.disabled {
+    cursor: default;
+    --font-color: #{$grey-aaa};
+  }
+
+  &.filled {
+    --font-color: #{$white};
+
+    &.blue {
+      --background-color: #{$text-blue};
+    }
+
+    &.green {
+      --background-color: #{$green};
+    }
+
+    &.orange {
+      --background-color: #{$orange};
+    }
+
+    &.purple {
+      --background-color: #{$purple};
+    }
+
+    &.red {
+      --background-color: #{$red};
+    }
+
+    &.grey {
+      --background-color: #{$grey-aaa};
+    }
+  }
+
+  &.text {
+    --background-color: #{$transparent};
+
+    &.blue {
+      --font-color: #{$text-blue};
+    }
+
+    &.green {
+      --font-color: #{$green};
+    }
+
+    &.orange {
+      --font-color: #{$orange};
+    }
+
+    &.purple {
+      --font-color: #{$purple};
+    }
+
+    &.red {
+      --font-color: #{$red};
+    }
+
+    &.grey {
+      --font-color: #{$grey-aaa};
+    }
+  }
+
+  .icon {
+    fill: var(--font-color);
+    width: var(--icon-size);
+  }
+
+  &.disabled {
+    color: $grey-aaa;
+  }
+}

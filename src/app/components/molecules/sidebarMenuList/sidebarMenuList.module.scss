@@ -1,0 +1,81 @@
+@import '@/styles/_variables.scss';
+
+.sidebarMenuList {
+  padding: 1.2rem;
+}
+
+.mainTitleSection{
+  color: $black;
+  font-size: 1.6rem;
+  font-weight: 600;
+  display: flex;
+  gap: 1.2rem;
+  padding-bottom: 0.4rem;
+}
+
+.mainIcon {
+  fill: $grey-ddd;
+  width: 1.6rem;
+}
+
+.list {
+  list-style: none;
+  padding-top: 0.4rem;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  border-radius: 0.8rem;
+  margin-bottom: 0.4rem;
+  padding: 0.6rem 1.2rem 0.6rem 3.6rem;
+  --default-color: #{$black};
+
+  .leftIcon {
+    fill: var(--default-color);
+    margin-right: 1.2rem;
+    width: 1.6rem;
+  }
+
+  .rightIcon {
+    margin-left: auto;
+  }
+
+  .label {
+    color: var(--default-color);
+    font-size: 1.4rem;
+    font-weight: 500;
+    line-height: 2.4rem;
+  }
+
+  .count {
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 1.2rem;
+    border-radius: 4rem;
+    border: 0.1rem solid $grey-f-6;
+    padding: 0.8rem 1rem;
+    margin-left: 0.6rem;
+    background-color: $grey-f-6;
+    color: $grey-999;
+  }
+
+  &.active {
+    --default-color: #{$text-blue};
+    background-color: $highlight-white-background;
+
+    .count {
+      border-color: $grey-f-0;
+      background-color: $white;
+      color: $grey-666;
+    }
+  }
+
+  &:hover {
+    background-color: $highlight-white-background;
+
+    .count {
+      background-color: $white;
+    }
+  }
+}
