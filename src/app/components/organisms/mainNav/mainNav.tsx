@@ -9,7 +9,7 @@ import {LEFT_MENU_ITEMS, RIGHT_MENU_ITEMS} from './mainNav.contants';
 import styles from './mainNav.module.scss';
 
 export default function MainNav () {
-  return <div className={styles.mainNavContainer}>
+  return <nav className={styles.mainNavContainer}>
     <HarborLogo className={styles.brand}/>
     {
       LEFT_MENU_ITEMS.map((item: MainMenuItemProps) => {
@@ -22,5 +22,5 @@ export default function MainNav () {
       })
     }
     <UserMenuItem />
-  </div>
+  </nav>
 }

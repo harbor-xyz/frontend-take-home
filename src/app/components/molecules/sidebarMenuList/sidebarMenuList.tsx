@@ -1,4 +1,8 @@
+'use client'
+
 import cx from 'classnames';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation'
 
 import type {SidebarMenuListProps} from '@/types';
 
@@ -13,21 +17,25 @@ export default function SidebarMenuList (props: SidebarMenuListProps) {
     items,
   }} = props;
 
+  const pathname = usePathname()
+
   return (
-    <div className={styles.sidebarMenuList}>
+    <section className={styles.sidebarMenuList}>
         <div className={styles.mainTitleSection}>
           <Icon className={styles.mainIcon}/>
-          Acme Frontend
+          {title}
         </div>
         {
           items && <ul className={styles.list}>
             {
               items.map((item, index) => (
                 <li key={item.label} className={cx(styles.listItem, {
-                  [styles.active]: !index
+                  [styles.active]: pathname === item.route
                 })}>
-                  <item.LeftIcon className={styles.leftIcon}/>
-                  <span className={styles.label}>{item.label}</span>
+                  <Link href={item.route}>
+                    <item.LeftIcon className={styles.leftIcon}/>
+                    <span className={styles.label}>{item.label}</span>
+                  </Link>
                   { item.count && <span className={styles.count}>{item.count}</span>}
                   <Button
                     type={BUTTON_TYPE.TEXT}
@@ -41,6 +49,6 @@ export default function SidebarMenuList (props: SidebarMenuListProps) {
             }
           </ul>
         }
-      </div>
+      </section>
   );
 }

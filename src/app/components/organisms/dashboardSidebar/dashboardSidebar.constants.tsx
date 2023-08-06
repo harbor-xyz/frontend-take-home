@@ -16,17 +16,20 @@ export const SIDEBAR_CONFIG: SidebarMenuListConfigType = {
       label: 'Testnets',
       RightIcon: AddIcon,
       count: 8,
+      route: '/dashboard/testnets',
     },
     {
       LeftIcon: MembersIcon,
       label: 'Members',
       RightIcon: AddIcon,
       count: 1,
+      route: '/dashboard/members',
     },
     {
       LeftIcon: ProjectKeyIcon,
       label: 'Project Key',
       RightIcon: CopyToClipboardIcon,
+      route: '/dashboard/projectKey',
     }
   ]
 }

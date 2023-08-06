@@ -7,6 +7,7 @@ interface SidebarMenuListItem {
   label: string,
   RightIcon: ComponentType<IconProps>,
   count?: number,
+  route: string,
 }
 
 export interface SidebarMenuListConfigType {

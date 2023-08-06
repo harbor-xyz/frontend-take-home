@@ -1,3 +1,5 @@
+'use client'
+
 import ArrowLeftLong from '@/components/icons/arrowLeftLong';
 import SidebarMenuList from '@/components/molecules/sidebarMenuList';
 
