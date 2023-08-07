@@ -2,17 +2,17 @@
 
 .mainNavContainer {
   background-color: $nav-background;
-  padding: 16px 20px;
+  padding: 1.6rem 2rem;
   width: 100%;
   display: flex;
-  gap: 12px;
-  height: 60px;
+  gap: 1.2rem;
+  height: 6rem;
   align-items: center;
 }
 
 .brand {
-  width: 97px;
-  margin-right: 40px;
+  width: 9.7rem;
+  margin-right: 4rem;
 }
 
 .rightSubMenu {
@@ -20,5 +20,5 @@
 }
 
 .menuIcon {
-  width: 14px;
+  width: 1.4rem;
 }

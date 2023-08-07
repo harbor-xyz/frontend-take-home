@@ -2,12 +2,11 @@
 
 .select {
   position: relative;
+  font-size: 1.4rem;
 
   .labelContainer {
     display: flex;
     gap: 0.6rem;
-    font-size: 14px;
-    font-style: normal;
     font-weight: 500;
     cursor: pointer;
     margin-right: 0.8rem;
@@ -55,7 +54,6 @@
 
       .option {
         padding: 0.8rem;
-        font-size: 14px;
         color: $grey-555;
         font-weight: 600;
         cursor: pointer;

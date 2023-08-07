@@ -9,7 +9,7 @@ import {SORT_TYPE} from './testnets.contants';
 export const getFilterOptions = (list: any[]) => {
   const countMap = new Map();
   const options = [];
-console.log({list})
+
   list.forEach((item:any) => {
     const {status} = item;
     const currentCount = countMap.get(status) || 0;
@@ -36,11 +36,13 @@ export const getResults = (data: any, selectedFilter: string, selectedSort:strin
   const filteredAndSorted = filtered.sort((a: any, b: any) => {
     switch (selectedSort) {
       case SORT_TYPE.ASC:
-        return a.name - b.name ? 1 : a.name > b.name ? 0 : -1;
+        return a.name.localeCompare(b.name);
       case SORT_TYPE.DESC:
-        return b.name - a.name ? 1 : b.name > a.name ? 0 : -1;
+        return b.name.localeCompare(a.name);
       case SORT_TYPE.STATUS:
-        return a.status - b.status ? 1 : a.status > b.status ? 0 : -1;
+        const aStatusText = TESTNET_STATUS_TEXT_MAPPING[a.status];
+        const bStatusText = TESTNET_STATUS_TEXT_MAPPING[b.status]
+        return aStatusText.localeCompare(bStatusText);
       case SORT_TYPE.CREATED:
         return (new Date(a.created_at)).getTime() - (new Date(b.created_at)).getTime();
       case SORT_TYPE.UPDATED:

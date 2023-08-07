@@ -56,40 +56,4 @@ export const getTimeSince = (pastTimeStamp: any) =>{
     default:
       return 'a few seconds ago';
   }
-
-  // if (days > 581) {
-  //   return `${years} years ago`;
-  // }
-  // if (days >= 331 && days <= 580) {
-  //   return 'a year ago';
-  // }
-  // if (days >= 59 && days <= 330) {
-  //   return `${months} months ago`;
-  // }
-  // if (days >= 28 && days <= 58) {
-  //   return 'a month ago';
-  // }
-
-  // if (hours >= 43 && days <= 25) {
-  //   return `${days} days ago`;
-  // }
-  // if (hours >= 24 && hours <= 42) {
-  //   return 'a day ago';
-  // }
-
-  // if (minutes >= 90 && hours <= 23) {
-  //   return `${hours} hours ago`;
-  // }
-  // if (minutes >= 60 && minutes <= 89) {
-  //   return 'an hour ago';
-  // }
-  // if (seconds >= 120 && minutes <= 59) {
-  //   return `${minutes} minutes ago`;
-  // }
-  // if (seconds >= 60 && seconds <= 119) {
-  //   return 'a minute ago';
-  // }
-  // if (seconds >= 0 && seconds <= 59) {
-  //   return 'a few seconds ago';
-  // }
 }
