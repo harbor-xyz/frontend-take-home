@@ -3,6 +3,6 @@
 .dashboardLayout {
   display: grid;
   grid-template-columns: 300px 1fr;
-  height: 100%;
+  height: calc(100% - 6rem);
   background-color: $white;
 }

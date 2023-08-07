@@ -39,7 +39,7 @@
 
   &.disabled {
     cursor: default;
-    --font-color: #{$grey-aaa};
+    --font-color: #{$grey-aaa} !important;
   }
 
   &.filled {

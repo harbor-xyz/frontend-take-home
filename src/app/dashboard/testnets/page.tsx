@@ -1,5 +1,16 @@
-import styles from './testnets.module.scss';
+import Testnets from './testnets';
 
-export default function Page() {
-  return <h1>Hello, dashboard here!</h1>
+// fetch data from testnets api
+async function getTestnetsData() {
+  const response = await fetch(`${process.env.BASE_URL}/dashboard/testnets/api`);
+  return response.json();
+}
+
+export default async function Page() {
+
+  const data = await getTestnetsData();
+
+  return (
+    <Testnets data={data} />
+  )
 }

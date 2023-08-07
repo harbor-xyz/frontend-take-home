@@ -17,6 +17,7 @@ export default function Button (props: ButtonProps) {
     AeforeIcon,
     afterIconClassName,
     className,
+    ...rest
   } = props;
   return (
     <button className={`${cx(
@@ -35,7 +36,7 @@ export default function Button (props: ButtonProps) {
         [styles.red]: color === BUTTON_COLOR.RED,
         [styles.grey]: color === BUTTON_COLOR.GREY,
       }
-    )} ${className}`}>
+    )} ${className}`} {...rest}>
       {BeforeIcon && <BeforeIcon className={cx(styles.icon, beforeIconClassName)} />}
       {children}
       {AeforeIcon && <AeforeIcon className={cx(styles.icon, afterIconClassName)} />}

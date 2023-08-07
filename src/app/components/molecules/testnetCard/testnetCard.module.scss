@@ -1,0 +1,58 @@
+@import '@/styles/_variables.scss';
+
+.testnetCard {
+  margin-bottom: 2.4rem;
+  padding: 2.4rem 3.2rem;
+  background-color: $white;
+  border-radius: 2rem;
+  border: 0.1rem solid $grey-e-5;
+  background: $white;
+  box-shadow: 0 0.4rem 0.6rem 0 rgba(0, 0, 0, 0.06);
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .leftAuto {
+      margin-left: auto;
+    }
+  }
+
+  .title {
+    color: $black;
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+  .count {
+    padding: 0.2rem 1.2rem;
+    border-radius: 4rem;
+    background-color: $grey-f-6;
+    color: $grey-999;
+    font-size: 1.4rem;
+    font-weight: 600;
+    line-height: 2.4rem;
+  }
+
+  .timeStamp {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    color: $grey-aaa;
+    font-size: 1.3rem;
+  }
+
+  .clockIcon {
+    width: 1.4rem;
+    margin-right: 0.8rem;
+    fill: $grey-aaa;
+  }
+}

@@ -13,12 +13,12 @@ export default function MainNav () {
     <HarborLogo className={styles.brand}/>
     {
       LEFT_MENU_ITEMS.map((item: MainMenuItemProps) => {
-        return <MainMenuItem {...item} />
+        return <MainMenuItem key={item.label} {...item} />
       })
     }
     {
       RIGHT_MENU_ITEMS.map((item: MainMenuItemProps, index: number) => {
-        return <MainMenuItem {...item} className={index === 0 && styles.rightSubMenu}/>
+        return <MainMenuItem key={item.label} {...item} className={index === 0 && styles.rightSubMenu}/>
       })
     }
     <UserMenuItem />
