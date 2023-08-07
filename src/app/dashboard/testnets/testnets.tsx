@@ -49,7 +49,7 @@ export default function Testnets({data}: any) {
 
       return <Button BeforeIcon={Icon} color={color} size={BUTTON_SIZE.Small}>{label}</Button>
     }
-  }, [selectedFilter, filterOptions]);
+  }, []);
 
   const renderFilterOption = useCallback((option: any, _: any, onChange: any, classNames: any)=>{
     
