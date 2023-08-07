@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 import styles from './blockchainList.module.scss';
 
 export default function blockchainList ({list}: any) {
@@ -5,7 +7,7 @@ export default function blockchainList ({list}: any) {
     {
       list.map((blockchain: string) => {
         return <div key={blockchain} className={styles.badge}>
-          <img src={`/blockchains/${blockchain}.png`} className={styles.logo} />
+          <Image src={`/blockchains/${blockchain}.png`} width={16} height={16} alt={blockchain}/>
         </div>
       })
     }
