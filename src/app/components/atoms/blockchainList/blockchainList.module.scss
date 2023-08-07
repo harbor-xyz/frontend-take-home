@@ -1,0 +1,21 @@
+@import '@/styles/_variables.scss';
+
+.badgeList {
+  display: flex;
+}
+
+.badge{
+  background-color: $white;
+  padding: 0.6rem;
+  border: 0.1rem solid $grey-ddd;
+  border-radius: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: -0.5rem;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+}

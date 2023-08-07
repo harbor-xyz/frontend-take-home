@@ -1,0 +1,8 @@
+@import '@/styles/_variables.scss';
+
+.dashboardLayout {
+  display: grid;
+  grid-template-columns: 30rem 1fr;
+  height: calc(100% - 6rem);
+  background-color: $white;
+}

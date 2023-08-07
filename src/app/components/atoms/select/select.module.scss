@@ -1,0 +1,73 @@
+@import '@/styles/_variables.scss';
+
+.select {
+  position: relative;
+  font-size: 1.4rem;
+
+  .labelContainer {
+    display: flex;
+    gap: 0.6rem;
+    font-weight: 500;
+    cursor: pointer;
+    margin-right: 0.8rem;
+
+    .label{ 
+      color: $grey-999;
+    }
+
+    .selectedValue{
+      color: $grey-555;
+    }
+
+    .downArrow {
+      fill: $grey-555;
+      width: 0.8rem;
+    }
+  }
+
+  .transparentBG {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: none;
+  }
+
+  .optionsContainer {
+    display: none;
+    z-index: 12;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 20rem;
+    border: 0.1rem solid $grey-ddd;
+    border-radius: 0.8rem;
+    background: $white;
+    padding: 0.8rem;
+
+    .optionsList {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      .option {
+        padding: 0.8rem;
+        color: $grey-555;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+
+        &.selected, &:hover{
+          background-color: $grey-f-6;
+        }
+      }
+    }
+  }
+
+  .show {
+    display: block;
+  }
+}

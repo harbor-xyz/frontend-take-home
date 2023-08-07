@@ -1,0 +1,4 @@
+import type {IconProps} from '@/types';
+export default function HourGlass (props: IconProps) {
+  return <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" {...props}><g clipPath="url(#hga)"><path d="M20.4 24h1.2v-2.4h-1.2v-1.2a8.416 8.416 0 0 0-4.12-7.224c-.426-.252-.68-.656-.68-1.081v-.19c0-.425.254-.829.68-1.08A8.42 8.42 0 0 0 20.4 3.6V2.4h1.2V0H2.4v2.4h1.2v1.2a8.42 8.42 0 0 0 4.12 7.225c.426.251.68.654.68 1.08v.19c0 .425-.255.829-.68 1.08A8.419 8.419 0 0 0 3.6 20.4v1.2H2.4V24h18ZM18 2.4v1.2a6.006 6.006 0 0 1-1.205 3.6h-9.59A6.006 6.006 0 0 1 6 3.6V2.4h12ZM8.94 15.242c1.165-.688 1.86-1.864 1.86-3.147V12h2.4v.095c0 1.281.695 2.459 1.861 3.147A5.976 5.976 0 0 1 17.488 18H6.511a5.973 5.973 0 0 1 2.428-2.758Z"/></g><defs><clipPath id="hga"><path fill="#fff" d="M0 0h24v24H0z"/></clipPath></defs></svg>;
+}
