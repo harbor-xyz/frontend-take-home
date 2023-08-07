@@ -9,7 +9,7 @@ import {SORT_TYPE} from './testnets.contants';
 export const getFilterOptions = (list: any[]) => {
   const countMap = new Map();
   const options = [];
-
+console.log({list})
   list.forEach((item:any) => {
     const {status} = item;
     const currentCount = countMap.get(status) || 0;

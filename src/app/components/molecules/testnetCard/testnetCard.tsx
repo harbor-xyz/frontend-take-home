@@ -1,3 +1,4 @@
+import cx from 'classnames';
 import styles from './testnetCard.module.scss';
 
 import Button, {BUTTON_COLOR, BUTTON_SIZE} from '@/components/atoms/button';
@@ -21,7 +22,6 @@ import {
   getTimeSince,
 } from './testnetCard.helpers';
 
-
 export default function TestnetCard ({data}: any) {
   const {
     name,
@@ -37,7 +37,10 @@ export default function TestnetCard ({data}: any) {
   const updatingCount = getUpdatingOffChainCount(testnet_off_chain_actors);
   
   return (
-    <div className={styles.testnetCard}>
+    <div className={cx(styles.testnetCard, {
+      [styles.failed]: status === TESTNET_STATUSES.FAILED,
+      [styles.stopped]: status === TESTNET_STATUSES.STOPPED
+    })}>
       <div className={styles.row}>
         <h3 className={styles.title}>{name}</h3>
         <span className={styles.count}>5321</span>
