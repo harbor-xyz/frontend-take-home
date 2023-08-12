@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8000;
+const cors = require('cors');
 
 const data = {
   testnet: [
@@ -29,6 +30,16 @@ const data = {
         },
       ],
       testnet_chains: [
+        {
+          chain: "alchemy",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "arbitrum",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
         {
           chain: "ethereum",
           status: "RUNNING",
@@ -1109,7 +1120,10 @@ const data = {
   ],
 };
 
+app.use(cors());
+
 app.get("/testnets", (req, res) => {
+  console.log('Requested', new Date());
   res.send({
     code: 200,
     data: data,
