@@ -1,0 +1,51 @@
+.app {
+    display: flex;
+    height: 100%;
+    overflow: hidden;
+    line-height: 24px;
+}
+
+.app__sidebar_container {
+    width: 300px;
+    min-width: 200px;
+    border-right: 1px solid $color-border;
+}
+
+.app__mainview_container {
+    flex-grow: 1;
+    background-color: $color-light-gray;
+    overflow-x: auto;
+    height: 100%;
+}
+
+/** Making the layout fit in smaller screens */
+@media screen and (max-width: 768px) {
+    .app {
+        flex-direction: column;
+        overflow: scroll;
+        height: auto;
+    }
+
+    .app__mainview_container {
+        order: 2;
+        flex: 1 1 100%;
+        width: 100%;
+    }
+
+    .app__sidebar_container {
+        order: 1;
+        flex: 1 2 100%;
+        width: 100%;
+    }
+}
+
+/** Making the layout fit in ultra smaller screens */
+@media screen and (max-width: 600px) {
+    .mainview {
+        padding: 1em;
+    }
+
+    .testnet_card {
+        min-width: 200px;
+    }
+}

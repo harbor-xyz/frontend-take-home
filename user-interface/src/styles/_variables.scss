@@ -1,0 +1,25 @@
+/** Declare commonly used values here.
+If there is a change in design (related colors and font-sizes etc.) then this is the 
+only place we'd have to modify code
+*/
+
+// colors
+
+$color-gray: #999999;
+$color-border: #DDDDDD;
+$color-light-gray: #F5F5F5;
+$color-lighter-gray: #E5E5E5;
+$color-blue: #2F80ED;
+$color-white-smoke: #F6F6F6;
+$color-ghost-white: #F6F8FA;
+$color-white: #FFFFFF;
+$color-gray-lightest: #F0F0F0;
+$color-orange: #DB9000;
+$color-lavendar: #FDF7F8;
+
+
+// font sizes
+
+$font-size-regular: 14px;
+$font-size-small: 12px;
+$font-size-large: 24px;

@@ -1,6 +1,9 @@
 const express = require("express");
+const cors = require('cors');
 const app = express();
 const port = 3000;
+
+app.use(cors());
 
 const data = {
   testnet: [
@@ -14,7 +17,7 @@ const data = {
       testnet_off_chain_actors: [
         {
           name: "routerCache",
-          status: "RUNNING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
         {
@@ -31,6 +34,21 @@ const data = {
       testnet_chains: [
         {
           chain: "ethereum",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "polygon",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "fantom",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "avalance",
           status: "RUNNING",
           __typename: "testnet_chain",
         },
@@ -52,14 +70,14 @@ const data = {
       testnet_off_chain_actors: [
         {
           name: "routerCache",
-          status: "RUNNING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
       ],
       testnet_chains: [
         {
           chain: "polygon",
-          status: "RUNNING",
+          status: "UPDATING",
           __typename: "testnet_chain",
         },
       ],
@@ -100,6 +118,16 @@ const data = {
           status: "RUNNING",
           __typename: "testnet_chain",
         },
+        {
+          chain: "polygon",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "fantom",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
       ],
       testnet_image: {
         project_id: "763db951-01d2-455e-8c45-08b839f2248b",
@@ -133,31 +161,31 @@ const data = {
     {
       name: "law-sky",
       id: "9254c708-493d-44c0-867d-4d5b6942ee83",
-      status: "STOPPED",
+      status: "FAILED",
       endpoint: "13.126.17.254",
       created_at: "2022-10-27T09:10:26.589076+00:00",
       updated_at: "2022-10-27T09:27:10.180768+00:00",
       testnet_off_chain_actors: [
         {
           name: "routerCache",
-          status: "STOPPED",
+          status: "FAILED",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "ipfs",
-          status: "STOPPED",
+          status: "FAILED",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "sequencerCache",
-          status: "STOPPED",
+          status: "FAILED",
           __typename: "testnet_off_chain_actor",
         },
       ],
       testnet_chains: [
         {
           chain: "ethereum",
-          status: "STOPPED",
+          status: "FAILED",
           __typename: "testnet_chain",
         },
       ],
@@ -171,31 +199,31 @@ const data = {
     {
       name: "wheat-height",
       id: "80942ccf-1e6b-4874-9a64-69d2ac826c87",
-      status: "STOPPED",
+      status: "KILLED",
       endpoint: "35.154.227.230",
       created_at: "2022-10-27T09:10:00.379698+00:00",
       updated_at: "2022-10-27T09:31:20.021792+00:00",
       testnet_off_chain_actors: [
         {
           name: "sequencerCache",
-          status: "STOPPED",
+          status: "KILLED",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "routerCache",
-          status: "STOPPED",
+          status: "KILLED",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "ipfs",
-          status: "STOPPED",
+          status: "KILLED",
           __typename: "testnet_off_chain_actor",
         },
       ],
       testnet_chains: [
         {
           chain: "ethereum",
-          status: "STOPPED",
+          status: "KILLED",
           __typename: "testnet_chain",
         },
       ],
@@ -794,24 +822,24 @@ const data = {
       testnet_off_chain_actors: [
         {
           name: "routerCache",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "messageQueue",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
         {
           name: "ipfs",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_off_chain_actor",
         },
       ],
       testnet_chains: [
         {
           chain: "ethereum",
-          status: "PENDING",
+          status: "UPDATING",
           __typename: "testnet_chain",
         },
       ],

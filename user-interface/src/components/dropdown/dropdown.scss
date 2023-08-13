@@ -1,0 +1,66 @@
+@import "../../styles/variables";
+
+.dropdown {
+    text-align: left;
+    position: relative;
+    cursor: pointer;
+    line-height: 18px;
+
+    &__input {
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        user-select: none;
+    }
+
+    &__menu {
+        position: absolute;
+        transform: translateY(4px);
+        width: max-content;
+        overflow: auto;
+        background: $color-white;
+        padding: 8px 8px 4px 8px;
+        border: 1px solid $color-border;
+        box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        z-index: 99;
+    }
+
+    &__item {
+        padding: 6px 8px;
+        cursor: pointer;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 4px;
+        height: 20px;
+        font-weight: 600;
+        font-size: $font-size-regular;
+
+        &:hover {
+            background-color: $color-white-smoke;
+        }
+
+        &--selected {
+            background-color: $color-white-smoke;
+        }
+    }
+
+    &__selected_option {
+        display: flex;
+
+        &_prefix {
+            color: $color-gray;
+            size: 14px;
+            font-weight: 500;
+        }
+
+        &_label {
+            margin-left: 5px;
+        }
+    }
+
+    &__trigger_icon {
+        margin-left: 5px;
+    }
+}

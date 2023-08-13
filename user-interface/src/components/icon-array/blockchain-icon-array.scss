@@ -1,0 +1,15 @@
+@import "../../styles/variables";
+
+.icon_array {
+
+    &__item {
+        background: $color-white;
+        border: 1px solid $color-border;
+        border-radius: 8px;
+        padding: 4px;
+    }
+
+    &__item:not(:first-child) {
+        margin-left: -5px;
+    }
+}
