@@ -1,5 +1,6 @@
 import React, { FC, useState } from 'react';
 import classnames from 'classnames';
+import { ArrowDownIcon } from '../components/Icon';
 
 export type Option = {
     label: string;
@@ -26,8 +27,9 @@ const Dropdown: FC<DropdownProps> = ({ title, options, className, onChange }) =>
     return (
         <div className={classnames('dropdown', { [`${className}`]: className })} >
             {title && <button className="btn btn-link text-decoration-none text-secondary px-0 mx-0">{title}</button>}
-            <button className={classnames('btn dropdown-toggle btn-link text-decoration-none', { [`text-${selectedOption?.color}`]: true, 'text-dark': !selectedOption?.color })} type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <button className={classnames('btn btn-link text-decoration-none', { [`text-${selectedOption?.color}`]: true, 'text-dark': !selectedOption?.color })} type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 {selectedOption?.OptionIcon && <selectedOption.OptionIcon color={selectedOption.color} />} <span className='ms-2'>{selectedOption?.label || 'Select Option'}</span>
+                <ArrowDownIcon color="secondary" className="ms-1" />
             </button>
             <ul className="dropdown-menu p-2">
                 {options?.map((option) => {

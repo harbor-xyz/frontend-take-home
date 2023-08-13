@@ -23,6 +23,7 @@ import { ReactComponent as ArrowLeft } from '../icons/Arrow left long.svg';
 import { ReactComponent as ArrowDown } from '../icons/Arrow down short.svg';
 import { ReactComponent as HarborLogo } from '../icons/Harbor logo.svg';
 import { ReactComponent as UserCircle } from '../icons/User circle.svg';
+import { ReactComponent as Copy } from '../icons/Copy to clipboard.svg';
 
 import Alchemy from '../icons/Blockchains/Alchemy.png';
 import Arbitrum from '../icons/Blockchains/Arbitrum.png';
@@ -77,6 +78,7 @@ export const ArrowLeftIcon: React.FC<BaseProps> = (props) => <Icon Src={ArrowLef
 export const ArrowDownIcon: React.FC<BaseProps> = (props) => <Icon Src={ArrowDown} {...props} />;
 export const ClockIcon: React.FC<BaseProps> = (props) => <Icon Src={Clock} {...props} />;
 export const CommandSheetIcon: React.FC<BaseProps> = (props) => <Icon Src={CommandSheet} {...props} />;
+export const CopyIcon: React.FC<BaseProps> = (props) => <Icon Src={Copy} {...props} />;
 export const DocsIcon: React.FC<BaseProps> = (props) => <Icon Src={Docs} {...props} />;
 export const DotIcon: React.FC<BaseProps> = (props) => <Icon Src={Dot} {...props} />;
 export const KilledIcon: React.FC<BaseProps> = (props) => <Icon Src={Killed} {...props} />;

@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback } from 'react';
+import Card from '../components/Card';
 import Dropdown, { Option } from '../components/Dropdown';
 import { AddIcon, DotIcon } from '../components/Icon';
 import TestnetCard, { TTestnet } from '../components/TestnetCard';
@@ -29,7 +30,7 @@ const Testnets: React.FC = () => {
         }
         setStatusWithCount(statusOptions.map(option => {
             if (option.value === '') {
-                return { ...option, label: `${option.label} (${allTestnet.length})` };
+                return { ...option, label: `${option.label}` };
             } else {
                 return { ...option, label: `${option.label} (${statusCount.get(option.value) || 0})` };
             }
@@ -68,10 +69,10 @@ const Testnets: React.FC = () => {
     }, [testnet, sortTestnets]);
 
     return (
-        <div className='mt-5'>
+        <div className='m-5'>
             <div className="d-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center">
-                    <div className="h3 pe-4">Testnets({allTestnet.length})</div>
+                    <div className="h4 fw-bold pe-4">Testnets({allTestnet.length})</div>
                     <a className="text-primary text-decoration-none">
                         <AddIcon color='primary' /> New Testnet</a>
                 </div>
@@ -81,7 +82,8 @@ const Testnets: React.FC = () => {
                     <Dropdown title='Sort by:' options={sortOptions} onChange={handleSort} />
                 </div>
             </div>
-            {testnet.map(t => <TestnetCard data={t} key={t.id} />)}
+            {testnet.length > 0 && testnet.map(t => <TestnetCard data={t} key={t.id} />)}
+            {testnet.length === 0 && <Card className="p-2 my-4 shadow border-0 rounded-4" title="No Testnet found." />}
         </div>
     );
 }
