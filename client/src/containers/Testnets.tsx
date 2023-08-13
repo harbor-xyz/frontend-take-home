@@ -78,7 +78,7 @@ const Testnets: React.FC = () => {
                 </div>
                 <div className="d-flex align-items-center">
                     <Dropdown title='Filter by:' options={statusWithCount} onChange={handleFilter} />
-                    <DotIcon width="5px" className="ms-1 me-2" />
+                    <DotIcon width="0.4em" className="ms-1 me-2" />
                     <Dropdown title='Sort by:' options={sortOptions} onChange={handleSort} />
                 </div>
             </div>

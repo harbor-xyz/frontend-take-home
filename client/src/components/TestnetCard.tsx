@@ -29,10 +29,10 @@ const TestnetCard: React.FC<TestnetCardProps> = ({ data }) => {
         <Card className="p-2 my-4 shadow border-0 rounded-4"
             title={<div className="d-flex justify-content-between">
                 <h4>{name} <span className="badge text-bg-light rounded-pill">5321</span></h4>
-                <span><TestnetStatus status={status} /> <span className={classnames({ 'text-primary': status === 'RUNNING', 'text-secondary': status !== 'RUNNING' })}><DotIcon width="5px" className="mx-2" /> <SettingIcon color={status === 'RUNNING' ? "primary" : 'secondary'} /> Settings</span></span>
+                <span><TestnetStatus status={status} /> <span className={classnames({ 'text-primary': status === 'RUNNING', 'text-secondary': status !== 'RUNNING' })}><DotIcon width="0.4em" className="mx-2" /> <SettingIcon color={status === 'RUNNING' ? "primary" : 'secondary'} /> Settings</span></span>
             </div>}
             content={<div className="d-flex justify-content-between">
-                <span className="mx-2">{testnet_off_chain_actors?.length} off-chain actors <DotIcon width="5px" className="mx-2" /> <Chains chains={testnet_chains} /></span>
+                <span className="mx-2">{testnet_off_chain_actors?.length} off-chain actors <DotIcon width="0.4em" className="mx-2" /> <Chains chains={testnet_chains} /></span>
                 <span className="text-secondary"><ClockIcon color="secondary" /> <span className='ms-1 fw-lighter'>Modified {getTimeAgo(new Date(updated_at).getTime())}</span></span>
             </div>}
         />

@@ -1,6 +1,4 @@
 import React, { FC, CSSProperties } from 'react';
-import classnames from 'classnames';
-
 
 import { ReactComponent as Add } from '../icons/Add.svg';
 import { ReactComponent as Clock } from '../icons/Clock.svg';
@@ -59,15 +57,16 @@ const colorMap: Record<string, string> = {
     dark: "#212529",
 }
 
+const DEFAULT_ICON_SIZE = '0.8em'
+
 const Icon: FC<IconProps> = ({ Src, width, height, color, className }) => {
-    return <Src fill={colorMap[color!]} width={width || '0.8em'} height={height || '0.8em'} className={className} />;
+    return <Src fill={colorMap[color!]} width={width || DEFAULT_ICON_SIZE} height={height || DEFAULT_ICON_SIZE} className={className} />;
 };
 
-const PngIcon: FC<PngIconProps> = ({ src, alt, width, height, color, className }) => {
+const PngIcon: FC<PngIconProps> = ({ src, alt, width, height, className }) => {
     const iconStyle: CSSProperties = {
-        fill: color || 'currentColor',
-        width: width || '0.8em',
-        height: height || '0.8em',
+        width: width || DEFAULT_ICON_SIZE,
+        height: height || DEFAULT_ICON_SIZE,
     };
     return <img src={src} alt={alt || 'icon'} style={iconStyle} className={className} />;
 };
