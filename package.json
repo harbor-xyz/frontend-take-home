@@ -11,6 +11,11 @@
     "express": "^4.18.2"
   },
   "scripts": {
+    "start": "concurrently \"yarn start:server\" \"yarn start:client\"",
+    "start:client": "cd client && npm start",
     "start:server": "node index.js"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.0"
   }
 }

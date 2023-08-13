@@ -1123,7 +1123,6 @@ const data = {
 app.use(cors());
 
 app.get("/testnets", (req, res) => {
-  console.log('Requested', new Date());
   res.send({
     code: 200,
     data: data,
