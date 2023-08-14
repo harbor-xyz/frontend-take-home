@@ -21,15 +21,21 @@ export type TTestnet = {
     [key: string]: any;
 }
 
+const ThemeClassMap: Record<string, string> = {
+    FAILED: "border border-danger bg-danger-subtle",
+    KILLED: "border border-secondary bg-secondary-subtle"
+}
+
 
 const TestnetCard: React.FC<TestnetCardProps> = ({ data }) => {
     const { name, status, testnet_off_chain_actors, testnet_chains, updated_at } = data;
+    const themeClass = ThemeClassMap[status] || 'border-0';
 
     return (
-        <Card className="p-2 my-4 shadow border-0 rounded-4"
+        <Card className={classnames('p-2 my-4 shadow rounded-4', themeClass)}
             title={<div className="d-flex justify-content-between">
                 <h4>{name} <span className="badge text-bg-light rounded-pill">5321</span></h4>
-                <span><TestnetStatus status={status} /> <span className={classnames({ 'text-primary': status === 'RUNNING', 'text-secondary': status !== 'RUNNING' })}><DotIcon width="0.4em" className="mx-2" /> <SettingIcon color={status === 'RUNNING' ? "primary" : 'secondary'} /> Settings</span></span>
+                <span><TestnetStatus status={status} /> <span className={classnames({ 'text-primary': ['RUNNING', 'FAILED', 'KILLED'].includes(status), 'text-secondary': !['RUNNING', 'FAILED', 'KILLED'].includes(status) })}><DotIcon width="0.4em" className="mx-2" /> <SettingIcon color={['RUNNING', 'FAILED', 'KILLED'].includes(status) ? "primary" : 'secondary'} /> Settings</span></span>
             </div>}
             content={<div className="d-flex justify-content-between">
                 <span className="mx-2">{testnet_off_chain_actors?.length} off-chain actors <DotIcon width="0.4em" className="mx-2" /> <Chains chains={testnet_chains} /></span>

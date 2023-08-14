@@ -15,7 +15,7 @@ const sortOptions: Option[] = [
 ]
 
 const Testnets: React.FC = () => {
-    const allTestnet: TTestnet[] = useTestnets('http://localhost:8000/testnets');
+    const allTestnet: TTestnet[] = useTestnets('https://json.extendsclass.com/bin/7f1a1b88fa8a');
     const [testnet, setTestnet] = useState<TTestnet[]>([]);
     const [statusWithCount, setStatusWithCount] = useState<Option[]>([]);
     const [sortBy, setSortBy] = useState<Option>();
