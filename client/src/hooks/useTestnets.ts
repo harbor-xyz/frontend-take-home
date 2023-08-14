@@ -7,11 +7,13 @@ export const useTestnets = (url: string) => {
 
     useEffect(() => {
         fetch(url, { headers: { "Security-key": "akm" } })
-            .then(r => r.json())
-            .then(({ data: { testnet } }) => {
-                console.log(testnet);
-                setTestnets(testnet);
-            }).catch(console.error);
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(({ testnet }) => setTestnets(testnet)).catch(console.error);
     }, [url]);
 
     return testnets;
