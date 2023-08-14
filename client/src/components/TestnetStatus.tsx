@@ -4,7 +4,7 @@ import { Option } from './Dropdown';
 import { AllIcon, PendingIcon, RunningTickIcon, FailedIcon, KilledIcon } from './Icon';
 
 export const statusOptions: Option[] = [
-    { label: 'All', value: '', color: 'primary', OptionIcon: AllIcon },
+    { label: 'All', value: '', color: 'primary', OptionIcon: AllIcon, selected: true },
     { label: 'Pending', value: 'PENDING', color: 'warning', OptionIcon: PendingIcon },
     { label: 'Running', value: 'RUNNING', color: 'success', OptionIcon: RunningTickIcon },
     { label: 'Failed', value: 'FAILED', color: 'danger', OptionIcon: FailedIcon },

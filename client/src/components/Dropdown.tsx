@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import classnames from 'classnames';
 import { ArrowDownIcon } from '../components/Icon';
 
@@ -26,6 +26,13 @@ const Dropdown: FC<DropdownProps> = ({ title, placeholder = "Select Option", opt
         onChange?.(option);
     };
 
+    useEffect(() => {
+        const selected = options.find(option => option.selected);
+        if (selected) {
+            setSelectedOption(selected);
+        }
+    }, [options]);
+
     return (
         <div className={classnames('dropdown', className)} >
             {title && <button className="btn btn-link text-decoration-none text-secondary px-0 mx-0">{title}</button>}
@@ -33,7 +40,7 @@ const Dropdown: FC<DropdownProps> = ({ title, placeholder = "Select Option", opt
                 {selectedOption?.OptionIcon && <selectedOption.OptionIcon color={selectedOption.color} />} <span className='ms-2'>{selectedOption?.label || placeholder}</span>
                 <ArrowDownIcon color="secondary" className="ms-1" />
             </button>
-            <ul className="dropdown-menu p-2">
+            <ul className="dropdown-menu p-2 shadow border-0">
                 {options?.map((option) => {
                     const { value, OptionIcon, label, color, disabled } = option;
                     return (

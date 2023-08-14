@@ -61,7 +61,7 @@ const Testnets: React.FC = () => {
         } else {
             setTestnet([...sortTestnets(sortBy, allTestnet.filter(t => t.status === selectedOption.value))]);
         }
-    }, [allTestnet, sortBy]);
+    }, [allTestnet, sortBy, sortTestnets]);
 
     const handleSort = useCallback((selectedOption: Option) => {
         setSortBy(selectedOption);
