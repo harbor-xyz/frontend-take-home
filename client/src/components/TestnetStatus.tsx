@@ -8,7 +8,8 @@ export const statusOptions: Option[] = [
     { label: 'Pending', value: 'PENDING', color: 'warning', OptionIcon: PendingIcon },
     { label: 'Running', value: 'RUNNING', color: 'success', OptionIcon: RunningTickIcon },
     { label: 'Failed', value: 'FAILED', color: 'danger', OptionIcon: FailedIcon },
-    { label: 'Stopped', value: 'STOPPED', color: 'dark', OptionIcon: FailedIcon }
+    { label: 'Stopped', value: 'STOPPED', color: 'dark', OptionIcon: FailedIcon },
+    { label: 'Stopped2', value: 'STOPPED2', color: 'dark', OptionIcon: FailedIcon, disabled: true }
 ];
 
 interface TestnetStatusProps {

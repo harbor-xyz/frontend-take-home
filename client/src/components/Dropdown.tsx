@@ -8,15 +8,17 @@ export type Option = {
     selected?: boolean;
     OptionIcon?: React.FC<any>;
     color?: string;
+    disabled?: boolean;
 }
 interface DropdownProps {
     title?: string;
+    placeholder?: string;
     options: Option[];
     className?: string;
     onChange?: (option: Option) => void;
 }
 
-const Dropdown: FC<DropdownProps> = ({ title, options, className, onChange }) => {
+const Dropdown: FC<DropdownProps> = ({ title, placeholder = "Select Option", options, className, onChange }) => {
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
     const handleOptionClick = (option: Option) => {
@@ -25,17 +27,17 @@ const Dropdown: FC<DropdownProps> = ({ title, options, className, onChange }) =>
     };
 
     return (
-        <div className={classnames('dropdown', { [`${className}`]: className })} >
+        <div className={classnames('dropdown', className)} >
             {title && <button className="btn btn-link text-decoration-none text-secondary px-0 mx-0">{title}</button>}
             <button className={classnames('btn btn-link text-decoration-none', { [`text-${selectedOption?.color}`]: true, 'text-dark': !selectedOption?.color })} type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                {selectedOption?.OptionIcon && <selectedOption.OptionIcon color={selectedOption.color} />} <span className='ms-2'>{selectedOption?.label || 'Select Option'}</span>
+                {selectedOption?.OptionIcon && <selectedOption.OptionIcon color={selectedOption.color} />} <span className='ms-2'>{selectedOption?.label || placeholder}</span>
                 <ArrowDownIcon color="secondary" className="ms-1" />
             </button>
             <ul className="dropdown-menu p-2">
                 {options?.map((option) => {
-                    const { value, OptionIcon, label, color } = option;
+                    const { value, OptionIcon, label, color, disabled } = option;
                     return (
-                        <li key={value} className={classnames('dropdown-item text-center rounded', { [`text-${color}`]: color, 'bg-light': value === selectedOption?.value })} onClick={() => handleOptionClick(option)}>
+                        <li key={value} className={classnames('dropdown-item text-center rounded', { [`text-${color}`]: color, 'bg-light': value === selectedOption?.value, 'disabled': disabled })} onClick={() => handleOptionClick(option)}>
                             {OptionIcon && <OptionIcon color={color} />} <span className="ms-2">{label}</span>
                         </li>
                     )

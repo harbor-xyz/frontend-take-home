@@ -9,7 +9,7 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ title, content, className }) => {
     return (
-        <div className={classnames("card", { [`${className}`]: className })}>
+        <div className={classnames("card", className)}>
             <div className="card-body">
                 {title && <div className="card-title">{title}</div>}
                 {content && <div className="card-content">{content}</div>}
