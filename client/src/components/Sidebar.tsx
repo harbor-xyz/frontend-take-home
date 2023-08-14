@@ -4,7 +4,7 @@ import { useTestnets } from '../hooks/useTestnets';
 import { StarIcon, MembersIcon, ProjectKeyIcon, TestnetsIcon, ArrowLeftIcon, AddIcon, CopyIcon } from './Icon';
 
 const Sidebar: React.FC = () => {
-    const allTestnet: TTestnet[] = useTestnets('http://localhost:8000/testnets');
+    const allTestnet: TTestnet[] = useTestnets('https://json.extendsclass.com/bin/7f1a1b88fa8a');
     return (
         <div>
             <ul className="list-group list-group-flush">
