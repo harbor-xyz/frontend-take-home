@@ -1,13 +1,14 @@
 const express = require("express");
 const app = express();
-const port = 3000;
+const port = 8000;
+const cors = require('cors');
 
 const data = {
   testnet: [
     {
       name: "sky-combine",
       id: "e50bd5fb-d423-4bbe-9ad3-6c01d10b5e7b",
-      status: "RUNNING",
+      status: "FAILED",
       endpoint: "3.110.142.253",
       created_at: "2022-10-27T09:38:25.870847+00:00",
       updated_at: "2022-10-27T09:40:45.834821+00:00",
@@ -30,6 +31,16 @@ const data = {
       ],
       testnet_chains: [
         {
+          chain: "alchemy",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
+          chain: "arbitrum",
+          status: "RUNNING",
+          __typename: "testnet_chain",
+        },
+        {
           chain: "ethereum",
           status: "RUNNING",
           __typename: "testnet_chain",
@@ -45,7 +56,7 @@ const data = {
     {
       name: "into-ordinary",
       id: "b9e1a987-d4a3-47a4-a019-19844d02f84e",
-      status: "RUNNING",
+      status: "KILLED",
       endpoint: "3.110.193.51",
       created_at: "2022-10-27T09:37:59.060386+00:00",
       updated_at: "2022-10-27T09:40:20.534066+00:00",
@@ -1108,6 +1119,8 @@ const data = {
     },
   ],
 };
+
+app.use(cors());
 
 app.get("/testnets", (req, res) => {
   res.send({
