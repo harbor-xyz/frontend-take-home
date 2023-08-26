@@ -92,7 +92,7 @@ const TestnetStatus = ({ status, disabled = false }: TestnetStatusProps) => {
     <Status>
       {statusInfo[status]?.icon || <HourglassTimerIcon />}
       <StatusText status={status} disabled={disabled}>
-        {status.toLowerCase()}
+        {statusInfo[status]?.text.toLowerCase()}
       </StatusText>
     </Status>
   );

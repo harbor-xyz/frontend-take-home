@@ -69,10 +69,6 @@ const Heading = styled.div`
   align-self: stretch;
 `;
 
-const StyledButton = styled(Button)`
-  padding: 6px 12px 6px 36px;
-`;
-
 const sideBarItems = [
   {
     name: "Testnets",

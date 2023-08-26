@@ -24,7 +24,7 @@ export const MenuItem = ({
   };
 
   return (
-    <li {...props} onClick={handleOnClick}>
+    <li {...props} onClick={handleOnClick} style={{ width: "100%" }}>
       {children}
     </li>
   );

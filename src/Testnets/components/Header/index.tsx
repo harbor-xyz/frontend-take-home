@@ -3,9 +3,10 @@ import Text from "../../../ui/Text";
 import Button from "../../../ui/Button";
 import PlusIcon from "../../../icons/PlusIcon";
 import { useTheme } from "@emotion/react";
-import { MouseEvent } from "react";
-import Status from "../Card/Status";
 import Dot from "../../../components/Dot";
+import Dropdown, { Option } from "../../../ui/Dropdown";
+import { sortByOptions } from "../../utils/sortBy";
+import { filterByOptions } from "../../utils/filterByStatus";
 
 const Container = styled.div`
   display: flex;
@@ -27,32 +28,48 @@ const RightPanel = styled.div`
   gap: 12px;
 `;
 
-const Header = ({ count }: { count: number }) => {
+interface HeaderProps {
+  count: number;
+  filterDataByStatus: (status: string) => void;
+  sortData: (sortType: string) => void;
+}
+
+const Header = ({ count, filterDataByStatus, sortData }: HeaderProps) => {
   const theme = useTheme();
-
-  const handleCreateTestNet = (event: MouseEvent<HTMLButtonElement>) => {};
-
-  const title = `Testnets (${count})`;
+  const handleOnClickFilterByOption = (option: Option) => {
+    filterDataByStatus(option.id);
+  };
+  const handleOnClickSortByOption = (option: Option) => {
+    sortData(option.id);
+  };
 
   return (
     <Container>
       <LeftPanel>
-        <Text variant="bold">{title}</Text>
+        <Text variant="bold">{`Testnets (${count})`}</Text>
         <Button
           variant="text"
           bold="semiBold"
           color={theme.color.blue}
           startIcon={<PlusIcon />}
-          handleOnClick={handleCreateTestNet}
         >
           New Testnet
         </Button>
       </LeftPanel>
       <RightPanel>
-        <Text color={theme.color.grey999}>Filter by:</Text>
-        <Status status={"ALL"} />
+        <Dropdown
+          options={filterByOptions}
+          label="Filter by:"
+          selectedOption={filterByOptions[0]}
+          onClickOption={handleOnClickFilterByOption}
+        />
         <Dot />
-        <Text color={theme.color.grey999}>Sort by:</Text>
+        <Dropdown
+          options={sortByOptions}
+          label="Sort by:"
+          selectedOption={sortByOptions[2]}
+          onClickOption={handleOnClickSortByOption}
+        />
       </RightPanel>
     </Container>
   );

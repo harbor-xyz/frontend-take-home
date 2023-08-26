@@ -13,7 +13,7 @@ const ButtonIcon = styled.span`
 `;
 
 const BUTTON_PADDING = {
-  small: "2px 8px",
+  small: "6px 8px",
   medium: "8px 16px",
   large: "6px 12px",
 };

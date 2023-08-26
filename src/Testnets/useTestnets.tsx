@@ -1,22 +1,29 @@
-import { useEffect, useState } from 'react';
-import fetchTestnetsData, { testnetsType } from './fetchTestnetsData';
+import { useEffect, useState } from "react";
+import fetchTestnetsData, { testnetsType } from "./fetchTestnetsData";
 
-const useTestnets = (): { testnetsData: testnetsType[] | null; count: number } => {
+type useTestnetsReturn = {
+  testnetsData: testnetsType[] | null;
+  count: number;
+};
+
+const useTestnets = (): useTestnetsReturn => {
   const [testnetsData, setTestnetsData] = useState<testnetsType[] | null>(null);
 
   useEffect(() => {
-    fetchTestnetsData()
-      .then((result) => {
-        setTestnetsData(result.testnet);
-      })
-      .catch((error) => {
-        throw new Error(error);
-      });
-  }, []);
+    if (!testnetsData) {
+      fetchTestnetsData()
+        .then((result) => {
+          setTestnetsData(result.testnet);
+        })
+        .catch((error) => {
+          throw new Error(error);
+        });
+    }
+  }, [testnetsData]);
 
   return {
     testnetsData,
-    count: testnetsData?.length || 0
+    count: testnetsData?.length || 0,
   };
 };
 

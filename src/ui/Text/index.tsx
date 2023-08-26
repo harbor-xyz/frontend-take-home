@@ -1,20 +1,20 @@
-import { css } from '@emotion/react';
-import styled from '@emotion/styled';
-import { forwardRef } from 'react';
+import { css } from "@emotion/react";
+import styled from "@emotion/styled";
+import { forwardRef } from "react";
 
 export const textVariants = {
-  MEDIUM: 'medium',
-  SEMI_BOLD: 'semiBold',
-  BOLD: 'bold'
+  MEDIUM: "medium",
+  SEMI_BOLD: "semiBold",
+  BOLD: "bold",
 } as const;
 
 interface Props {
   children: string;
   color?: string;
-  variant?: 'medium' | 'semiBold' | 'bold';
+  variant?: "medium" | "semiBold" | "bold";
 }
 
-const Div = styled.div<Props>`
+const Container = styled.div<Props>`
   ${({ theme, color, variant }) => {
     return css`
       width: fit-content;
@@ -32,9 +32,9 @@ const Div = styled.div<Props>`
 const Text = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { children, color, variant = textVariants.MEDIUM, ...others } = props;
   return (
-    <Div ref={ref} color={color} variant={variant} {...others}>
+    <Container ref={ref} color={color} variant={variant} {...others}>
       {children}
-    </Div>
+    </Container>
   );
 });
 
