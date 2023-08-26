@@ -4,6 +4,8 @@ import Button from "../../../ui/Button";
 import PlusIcon from "../../../icons/PlusIcon";
 import { useTheme } from "@emotion/react";
 import { MouseEvent } from "react";
+import Status from "../Card/Status";
+import Dot from "../../../components/Dot";
 
 const Container = styled.div`
   display: flex;
@@ -46,7 +48,12 @@ const Header = ({ count }: { count: number }) => {
           New Testnet
         </Button>
       </LeftPanel>
-      <RightPanel></RightPanel>
+      <RightPanel>
+        <Text color={theme.color.grey999}>Filter by:</Text>
+        <Status status={"ALL"} />
+        <Dot />
+        <Text color={theme.color.grey999}>Sort by:</Text>
+      </RightPanel>
     </Container>
   );
 };

@@ -8,6 +8,7 @@ import React, { ReactElement } from "react";
 import FailedIcon from "../../../icons/FailedIcon";
 import CopyIconFilled from "../../../icons/CopyIconFilled";
 import DisabledIcon from "../../../icons/DisabledIcon";
+import CheckboxIcon from "../../../icons/CheckboxIcon";
 
 type statusInfoType = {
   icon: ReactElement;
@@ -55,6 +56,11 @@ const statusInfo: Record<string, statusInfoType> = {
     icon: <FailedIcon />,
     color: theme.color.red,
     text: "Failed",
+  },
+  ALL: {
+    icon: <CheckboxIcon />,
+    color: theme.color.blue,
+    text: "All",
   },
 };
 
