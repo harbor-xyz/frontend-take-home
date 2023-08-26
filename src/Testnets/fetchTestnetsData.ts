@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-type testnetOffChainActorsType = {
+export type testnetOffChainActorsType = {
   name: string;
   status: string;
 };

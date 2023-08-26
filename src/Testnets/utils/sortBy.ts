@@ -1,18 +1,18 @@
-import { testnetsType } from "../fetchTestnetsData";
+import { testnetsType } from '../fetchTestnetsData';
 
-const sortType = {
-  ALPHABETICALLY: "ALPHABETICALLY",
-  REVERSE_ALPHABETICALLY: "REVERSE_ALPHABETICALLY",
-  STATUS: "STATUS",
-  DATE_CREATED: "DATE_CREATED",
-  DATE_MODIFIED: "DATE_MODIFIED",
+export const sortType = {
+  ALPHABETICALLY: 'ALPHABETICALLY',
+  REVERSE_ALPHABETICALLY: 'REVERSE_ALPHABETICALLY',
+  STATUS: 'STATUS',
+  DATE_CREATED: 'DATE_CREATED',
+  DATE_MODIFIED: 'DATE_MODIFIED'
 };
 export const sortByOptions = [
-  { label: "Name A-Z", id: sortType.ALPHABETICALLY },
-  { label: "Name Z-A", id: sortType.REVERSE_ALPHABETICALLY },
-  { label: "Status", id: sortType.STATUS },
-  { label: "Date created", id: sortType.DATE_CREATED },
-  { label: "Last modified", id: sortType.DATE_MODIFIED },
+  { label: 'Name A-Z', id: sortType.ALPHABETICALLY },
+  { label: 'Name Z-A', id: sortType.REVERSE_ALPHABETICALLY },
+  { label: 'Status', id: sortType.STATUS },
+  { label: 'Date created', id: sortType.DATE_CREATED },
+  { label: 'Last modified', id: sortType.DATE_MODIFIED }
 ];
 
 type SortBy = {
@@ -21,7 +21,6 @@ type SortBy = {
 };
 
 const sortBy = ({ data, type }: SortBy): testnetsType[] | null => {
-  console.log("type", type);
   if (data) {
     if (type === sortType.ALPHABETICALLY) {
       return [...data].sort((a, b) => {

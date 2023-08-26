@@ -1,9 +1,9 @@
-import Text from "../Text";
-import ArrowDownIcon from "../../icons/ArrowDownIcon";
-import Button from "../Button";
-import { useTheme } from "@emotion/react";
-import styled from "@emotion/styled";
-import { Option } from "./index";
+import Text from '../Text';
+import ArrowDownIcon from '../../icons/ArrowDownIcon';
+import Button from '../Button';
+import { useTheme } from '@emotion/react';
+import styled from '@emotion/styled';
+import { Option } from './index';
 
 const Placeholder = styled.span`
   cursor: pointer;
@@ -24,16 +24,16 @@ const Label = ({
   handleOnClick,
   label,
   selectedOption,
-  placeholder = "Select options",
+  placeholder = 'Select options'
 }: LabelProps) => {
   const theme = useTheme();
   return (
-    <Button variant="text" handleOnClick={handleOnClick}>
+    <Button variant="text" onClick={handleOnClick}>
       {label && <Text color={theme.color.grey999}>{label}</Text>}
 
       <Placeholder>
         {selectedOption ? (
-          typeof selectedOption?.label === "string" ? (
+          typeof selectedOption?.label === 'string' ? (
             <Text color={theme.color.grey555}>{selectedOption?.label}</Text>
           ) : (
             selectedOption.label

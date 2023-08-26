@@ -1,9 +1,9 @@
-import PolygonIcon from "../../../icons/Polygon.svg";
-import AlchemyIcon from "../../../icons/Alchemy.svg";
-import FantomIcon from "../../../icons/Fantom.svg";
-import EthereumIcon from "../../../icons/Ethereum.svg";
-import OptimismIcon from "../../../icons/Optimism.svg";
-import { testnetChainsType, testnetChainValues } from "../../fetchTestnetsData";
+import PolygonIcon from '../../../../icons/Polygon.svg';
+import AlchemyIcon from '../../../../icons/Alchemy.svg';
+import FantomIcon from '../../../../icons/Fantom.svg';
+import EthereumIcon from '../../../../icons/Ethereum.svg';
+import OptimismIcon from '../../../../icons/Optimism.svg';
+import { testnetChainsType, testnetChainValues } from '../../../fetchTestnetsData';
 
 export type IconData = {
   icon: string;

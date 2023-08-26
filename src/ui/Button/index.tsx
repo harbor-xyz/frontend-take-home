@@ -1,47 +1,44 @@
-import {
-  forwardRef,
-  MouseEvent,
-  ReactElement,
-  ReactNode,
-  useCallback,
-} from "react";
-import styled from "@emotion/styled";
-import { css } from "@emotion/react";
+import { forwardRef, MouseEvent, ReactElement, ReactNode, useCallback } from 'react';
+import styled from '@emotion/styled';
+import { css } from '@emotion/react';
 
 const ButtonIcon = styled.span`
   display: inherit;
 `;
 
 const BUTTON_PADDING = {
-  small: "6px 8px",
-  medium: "8px 16px",
-  large: "6px 12px",
+  small: '6px 8px',
+  medium: '8px 16px',
+  large: '6px 12px'
 };
 
 const StyledButton = styled.button<ButtonProps>`
   ${({
     theme,
-    variant = "primary",
-    size = "medium",
+    variant = 'primary',
+    size = 'medium',
     fullWidth,
     disabled,
     bold,
     color,
-    active,
+    active
   }) => css`
-    ${bold === "semiBold" && theme.text.body2};
-    ${size === "medium" && theme.text.body1};
+    ${bold === 'semiBold' && theme.text.body2};
+    ${size === 'medium' || (size === 'large' && theme.text.body1)};
     display: flex;
     align-items: center;
-    justify-content: ${fullWidth ? "flex-start" : "center"};
-    width: ${fullWidth ? "100%" : "auto"};
+    justify-content: ${fullWidth ? 'flex-start' : 'center'};
+    width: ${fullWidth ? '100%' : 'auto'};
     padding: ${BUTTON_PADDING[size]};
-    cursor: ${disabled ? "not-allowed" : "pointer"};
+    cursor: ${disabled ? 'not-allowed' : 'pointer'};
     border-radius: 8px;
     border: 1px solid transparent;
     gap: 8px;
+    span:last-of-type {
+      margin-left: auto;
+    }
 
-    ${variant === "primary" &&
+    ${variant === 'primary' &&
     css`
       background: ${theme.color.grey222};
       color: ${theme.color.greyAAA};
@@ -66,7 +63,7 @@ const StyledButton = styled.button<ButtonProps>`
       `}
     `}
 
-    ${variant === "secondary" &&
+    ${variant === 'secondary' &&
     css`
       background-color: ${theme.color.white};
       color: ${theme.color.black};
@@ -93,13 +90,13 @@ const StyledButton = styled.button<ButtonProps>`
       `}
     `}
 
-    ${variant === "text" &&
+    ${variant === 'text' &&
     css`
       background-color: transparent;
       color: ${color ?? theme.color.grey999};
       border: none;
       padding: 0;
-      ${bold === "semiBold" && theme.text.body2};
+      ${bold === 'semiBold' && theme.text.body2};
       svg {
         fill: ${color};
         path {
@@ -112,12 +109,12 @@ const StyledButton = styled.button<ButtonProps>`
 
 export interface ButtonProps {
   children?: ReactNode;
-  handleOnClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
   startIcon?: ReactElement;
   endIcon?: ReactElement;
-  variant?: "primary" | "secondary" | "text";
-  size?: "small" | "medium" | "large";
-  bold?: "semiBold";
+  variant?: 'primary' | 'secondary' | 'text';
+  size?: 'small' | 'medium' | 'large';
+  bold?: 'semiBold';
   id?: string;
   disabled?: boolean;
   fullWidth?: boolean;
@@ -129,7 +126,7 @@ export interface ButtonProps {
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     children,
-    handleOnClick,
+    onClick,
     startIcon,
     endIcon,
     color,
@@ -142,11 +139,11 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
 
   const handleButtonOnClick = useCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
-      if (handleOnClick) {
-        handleOnClick(event);
+      if (onClick) {
+        onClick(event);
       }
     },
-    [handleOnClick],
+    [onClick]
   );
 
   return (

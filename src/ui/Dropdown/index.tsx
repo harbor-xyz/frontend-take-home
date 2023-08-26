@@ -1,10 +1,10 @@
-import Paper from "../Paper";
-import { Menu, MenuItem, MenuList } from "../Menu";
-import { forwardRef, ReactNode, useRef, useState } from "react";
-import { createPortal } from "react-dom";
-import styled from "@emotion/styled";
-import Label from "./Label";
-import Item from "./Item";
+import Paper from '../Paper';
+import { Menu, MenuItem, MenuList } from '../Menu';
+import { forwardRef, ReactNode, useEffect, useRef, useState } from 'react';
+import { createPortal } from 'react-dom';
+import styled from '@emotion/styled';
+import Label from './Label';
+import Item from './Item';
 
 const Container = styled.div`
   display: flex;
@@ -38,18 +38,23 @@ interface DropdownProps {
 }
 
 const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
-  const {
-    options,
-    label,
-    selectedOption: _selectedOption = null,
-    onClickOption,
-  } = props;
+  const { options, label, selectedOption: _selectedOption = null, onClickOption } = props;
 
-  const dropdownRef = useRef(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<Option | null>(
-    _selectedOption,
-  );
+  const [selectedOption, setSelectedOption] = useState<Option | null>(_selectedOption);
+
+  useEffect(() => {
+    const captureWindowClick = (event: MouseEvent) => {
+      if (dropdownRef?.current && !dropdownRef?.current?.contains(event?.target as Node)) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener('click', captureWindowClick);
+    return () => {
+      window.removeEventListener('click', captureWindowClick);
+    };
+  });
 
   const handleOnClick = () => {
     setOpen((prevState) => !prevState);
@@ -66,11 +71,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
   return (
     <>
       <Container ref={dropdownRef}>
-        <Label
-          label={label}
-          selectedOption={selectedOption}
-          handleOnClick={handleOnClick}
-        />
+        <Label label={label} selectedOption={selectedOption} handleOnClick={handleOnClick} />
         {open &&
           createPortal(
             <StyledPaper raised>
@@ -78,10 +79,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
                 <MenuList>
                   {options.map((item) => {
                     return (
-                      <MenuItem
-                        key={item.id}
-                        onClick={() => handleItemOnClick(item)}
-                      >
+                      <MenuItem key={item.id} onClick={() => handleItemOnClick(item)}>
                         <Item label={item.label} />
                       </MenuItem>
                     );
@@ -89,7 +87,7 @@ const Dropdown = forwardRef<HTMLDivElement, DropdownProps>((props, ref) => {
                 </MenuList>
               </Menu>
             </StyledPaper>,
-            dropdownRef?.current || document.body,
+            dropdownRef?.current || document.body
           )}
       </Container>
     </>

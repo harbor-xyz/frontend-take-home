@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
-import Text from "../../../ui/Text";
-import Button from "../../../ui/Button";
-import PlusIcon from "../../../icons/PlusIcon";
-import { useTheme } from "@emotion/react";
-import Dot from "../../../components/Dot";
-import Dropdown, { Option } from "../../../ui/Dropdown";
-import { sortByOptions } from "../../utils/sortBy";
-import { filterByOptions } from "../../utils/filterByStatus";
+import styled from '@emotion/styled';
+import Text from '../../../ui/Text';
+import Button from '../../../ui/Button';
+import PlusIcon from '../../../icons/PlusIcon';
+import { useTheme } from '@emotion/react';
+import Dot from '../../../components/Dot';
+import Dropdown, { Option } from '../../../ui/Dropdown';
+import { sortByOptions } from '../../utils/sortBy';
+import { filterByOptions } from '../../utils/filterByStatus';
 
 const Container = styled.div`
   display: flex;
@@ -47,12 +47,7 @@ const Header = ({ count, filterDataByStatus, sortData }: HeaderProps) => {
     <Container>
       <LeftPanel>
         <Text variant="bold">{`Testnets (${count})`}</Text>
-        <Button
-          variant="text"
-          bold="semiBold"
-          color={theme.color.blue}
-          startIcon={<PlusIcon />}
-        >
+        <Button variant="text" bold="semiBold" color={theme.color.blue} startIcon={<PlusIcon />}>
           New Testnet
         </Button>
       </LeftPanel>

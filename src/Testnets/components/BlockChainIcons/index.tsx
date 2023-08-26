@@ -1,6 +1,6 @@
-import styled from "@emotion/styled";
-import { theme } from "../../../styles/theme";
-import { IconData } from "../Card/getBlockChainIcons";
+import styled from '@emotion/styled';
+import { theme } from '../../../styles/theme';
+import { IconData } from '../Card/utils/getBlockChainIcons';
 
 const Container = styled.div`
   display: flex;

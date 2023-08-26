@@ -1,5 +1,5 @@
-import React, { ReactElement, ReactNode } from "react";
-import "./Menu.css";
+import React, { ReactElement, ReactNode } from 'react';
+import './Menu.css';
 
 interface MenuProps {
   children: ReactNode;

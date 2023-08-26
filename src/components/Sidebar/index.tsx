@@ -1,16 +1,18 @@
-import { MouseEvent, ReactElement, useState } from "react";
-import styled from "@emotion/styled";
-import { theme } from "../../styles/theme";
-import ArrowBackIcon from "../../icons/ArrowBackIcon";
-import Button from "../../ui/Button";
-import Text from "../../ui/Text";
-import StarIcon from "../../icons/StarIcon";
-import TestnetsIcon from "../../icons/TestnetsIcon";
-import MembersIcon from "../../icons/MembersIcon";
-import ProjectsKeyIcon from "../../icons/ProjectsKeyIcon";
-import PlusIcon from "../../icons/PlusIcon";
-import CopyIcon from "../../icons/CopyIcon";
-import { NavLink } from "react-router-dom";
+import { MouseEvent, ReactElement, ReactNode, useContext, useState } from 'react';
+import styled from '@emotion/styled';
+import { theme } from '../../styles/theme';
+import ArrowBackIcon from '../../icons/ArrowBackIcon';
+import Button from '../../ui/Button';
+import Text from '../../ui/Text';
+import StarIcon from '../../icons/StarIcon';
+import TestnetsIcon from '../../icons/TestnetsIcon';
+import MembersIcon from '../../icons/MembersIcon';
+import ProjectsKeyIcon from '../../icons/ProjectsKeyIcon';
+import PlusIcon from '../../icons/PlusIcon';
+import CopyIcon from '../../icons/CopyIcon';
+import { NavLink } from 'react-router-dom';
+import Chip from '../../ui/Chip';
+import { TestnetsContext } from '../../TestnetsProvider';
 
 const Container = styled.div`
   display: flex;
@@ -49,6 +51,9 @@ const Li = styled.li`
   a {
     text-decoration: none;
   }
+  button {
+    padding-left: 36px;
+  }
 `;
 
 const ItemsContainer = styled.div`
@@ -71,31 +76,48 @@ const Heading = styled.div`
 
 const sideBarItems = [
   {
-    name: "Testnets",
+    name: 'Testnets',
     componentId: 8,
     startIcon: <TestnetsIcon />,
     endIcon: <PlusIcon />,
-    id: "testnet",
-    link: "/testnets",
+    id: 'testnet',
+    link: '/testnets'
   },
   {
-    name: "Members",
+    name: 'Members',
     componentId: 1,
     startIcon: <MembersIcon />,
     endIcon: <PlusIcon />,
-    id: "members",
-    link: "/",
+    id: 'members',
+    link: '/'
   },
   {
-    name: "Project Key",
+    name: 'Project Key',
     componentId: 0,
     startIcon: <ProjectsKeyIcon />,
     endIcon: <CopyIcon />,
-    id: "project-key",
-  },
+    id: 'project-key'
+  }
 ];
+
+const Item = ({
+  id,
+  link,
+  children
+}: {
+  id: string;
+  link: string;
+  children: ReactNode;
+}): ReactElement => {
+  if (id === 'testnet') {
+    return <NavLink to={link || '/'}>{children}</NavLink>;
+  }
+  return <>{children}</>;
+};
+
 const Sidebar = (): ReactElement => {
-  const [activeElement, setActiveElement] = useState("testnet");
+  const [activeElement, setActiveElement] = useState('testnet');
+  const { count } = useContext(TestnetsContext);
   const handleSideBarItemOnClick = (event: MouseEvent<HTMLButtonElement>) => {
     // setActiveElement(with_the_id);
   };
@@ -116,21 +138,21 @@ const Sidebar = (): ReactElement => {
           {sideBarItems.map((item) => {
             return (
               <Li key={item.id}>
-                <NavLink to={item?.link || "/"}>
+                <Item link={item?.link || '/'} id={item.id}>
                   <Button
-                    style={{
-                      padding: "6px 12px 6px 36px",
-                    }}
+                    size="large"
                     active={activeElement === item.id}
                     variant="secondary"
                     fullWidth
                     startIcon={item.startIcon}
                     endIcon={item.endIcon}
-                    handleOnClick={handleSideBarItemOnClick}
+                    onClick={handleSideBarItemOnClick}
                   >
                     {item.name}
+                    {item.id === 'testnet' && <Chip>{`${count}`}</Chip>}
+                    {item.id === 'members' && <Chip>{'1'}</Chip>}
                   </Button>
-                </NavLink>
+                </Item>
               </Li>
             );
           })}

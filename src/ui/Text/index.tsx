@@ -1,17 +1,17 @@
-import { css } from "@emotion/react";
-import styled from "@emotion/styled";
-import { forwardRef } from "react";
+import { css } from '@emotion/react';
+import styled from '@emotion/styled';
+import { forwardRef } from 'react';
 
 export const textVariants = {
-  MEDIUM: "medium",
-  SEMI_BOLD: "semiBold",
-  BOLD: "bold",
+  MEDIUM: 'medium',
+  SEMI_BOLD: 'semiBold',
+  BOLD: 'bold'
 } as const;
 
 interface Props {
   children: string;
   color?: string;
-  variant?: "medium" | "semiBold" | "bold";
+  variant?: 'medium' | 'semiBold' | 'bold';
 }
 
 const Container = styled.div<Props>`

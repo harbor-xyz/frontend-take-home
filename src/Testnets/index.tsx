@@ -1,12 +1,12 @@
-import styled from "@emotion/styled";
-import Header from "./components/Header";
-import { theme } from "../styles/theme";
-import Card from "./components/Card";
-import useTestnets from "./useTestnets";
-import { useEffect, useState } from "react";
-import filterByStatus from "./utils/filterByStatus";
-import sortBy from "./utils/sortBy";
-import { testnetsType } from "./fetchTestnetsData";
+import styled from '@emotion/styled';
+import Header from './components/Header';
+import { theme } from '../styles/theme';
+import Card from './components/Card';
+import { useContext, useEffect, useState } from 'react';
+import filterByStatus from './utils/filterByStatus';
+import sortBy, { sortType } from './utils/sortBy';
+import { testnetsType } from './fetchTestnetsData';
+import { TestnetsContext } from '../TestnetsProvider';
 
 const Container = styled.div`
   display: flex;
@@ -18,12 +18,13 @@ const Container = styled.div`
 `;
 
 const Testnets = () => {
-  const { testnetsData, count } = useTestnets();
+  const { testnetsData, count } = useContext(TestnetsContext);
   const [data, setData] = useState<testnetsType[] | null>(testnetsData);
 
   useEffect(() => {
     if (testnetsData) {
-      setData(testnetsData);
+      // by default sort the data based on status (as per designs)
+      setData(sortBy({ data: testnetsData, type: sortType.STATUS }));
     }
   }, [testnetsData]);
 

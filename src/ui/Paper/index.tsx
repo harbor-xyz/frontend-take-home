@@ -1,17 +1,18 @@
-import styled from "@emotion/styled";
-import { theme } from "../../styles/theme";
-import { forwardRef, ReactElement } from "react";
-import { css } from "@emotion/react";
+import styled from '@emotion/styled';
+import { theme } from '../../styles/theme';
+import { forwardRef, ReactElement } from 'react';
+import { css } from '@emotion/react';
 
 interface PaperProps {
   raised?: boolean;
   fullWidth?: boolean;
   children: ReactElement;
   disabled?: boolean;
+  error?: boolean;
 }
 
 const Container = styled.div<PaperProps>`
-  ${({ raised, fullWidth, disabled }) => css`
+  ${({ raised, fullWidth, disabled, error }) => css`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -38,17 +39,24 @@ const Container = styled.div<PaperProps>`
       background-color: transparent;
       cursor: not-allowed;
     `}
+
+    ${error &&
+    css`
+      background-color: ${theme.color.redLight};
+      border: 1px solid ${theme.color.red};
+    `}
   `}
 `;
 
 const Paper = forwardRef<HTMLDivElement, PaperProps>((props, ref) => {
-  const { children, raised, fullWidth, disabled, ...others } = props;
+  const { children, raised, fullWidth, disabled, error, ...others } = props;
   return (
     <Container
       ref={ref}
       raised={raised}
       fullWidth={fullWidth}
       disabled={disabled}
+      error={error}
       {...others}
     >
       {children}

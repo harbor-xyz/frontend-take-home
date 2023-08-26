@@ -1,4 +1,4 @@
-import { createMemoryRouter } from 'react-router-dom';
+import { createMemoryRouter, Navigate } from 'react-router-dom';
 import App from '../App';
 import Testnets from '../Testnets';
 
@@ -8,12 +8,13 @@ export const router = createMemoryRouter([
     element: <App />,
     children: [
       {
-        path: 'testnets',
-        element: <Testnets />
+        path: '/',
+        element: <Navigate to="/testnets" replace />
       },
       {
-        path: 'members',
-        element: <App />
+        path: 'testnets',
+        element: <Testnets />,
+        index: true
       }
     ]
   }

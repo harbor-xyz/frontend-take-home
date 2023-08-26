@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import fetchTestnetsData, { testnetsType } from "./fetchTestnetsData";
+import { useEffect, useState } from 'react';
+import fetchTestnetsData, { testnetsType } from '../Testnets/fetchTestnetsData';
 
 type useTestnetsReturn = {
   testnetsData: testnetsType[] | null;
@@ -23,7 +23,7 @@ const useTestnets = (): useTestnetsReturn => {
 
   return {
     testnetsData,
-    count: testnetsData?.length || 0,
+    count: testnetsData?.length || 0
   };
 };
 

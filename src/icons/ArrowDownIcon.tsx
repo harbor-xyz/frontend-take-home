@@ -1,4 +1,4 @@
-const ArrowDownIcon = ({ height = 12, width = 12, fill = "#AAAAAA" }) => {
+const ArrowDownIcon = ({ height = 12, width = 12, fill = '#AAAAAA' }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

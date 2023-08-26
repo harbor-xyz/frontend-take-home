@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
 import { Outlet } from 'react-router-dom';
 import styled from '@emotion/styled';
+import TestnetsProvider from './TestnetsProvider';
 
 const MainContainer = styled.div`
   display: flex;
@@ -13,8 +14,10 @@ const App = () => {
     <>
       <Navbar />
       <MainContainer>
-        <Sidebar />
-        <Outlet />
+        <TestnetsProvider>
+          <Sidebar />
+          <Outlet />
+        </TestnetsProvider>
       </MainContainer>
     </>
   );
