@@ -118,7 +118,7 @@ const Item = ({
 const Sidebar = (): ReactElement => {
   // store this in state and update on sidebar item on click
   const activeElement = 'testnet';
-  const { count } = useContext(TestnetsContext);
+  const { count, isLoading } = useContext(TestnetsContext);
 
   return (
     <Container>
@@ -146,7 +146,7 @@ const Sidebar = (): ReactElement => {
                     endIcon={item.endIcon}
                   >
                     {item.name}
-                    {item.id === 'testnet' && <Chip>{`${count}`}</Chip>}
+                    {item.id === 'testnet' && !isLoading && <Chip>{`${count}`}</Chip>}
                     {item.id === 'members' && <Chip>{'1'}</Chip>}
                   </Button>
                 </Item>

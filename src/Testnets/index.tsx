@@ -7,6 +7,7 @@ import filterByStatus from './utils/filterByStatus';
 import sortBy, { sortType } from './utils/sortBy';
 import { testnetsType } from './fetchTestnetsData';
 import { TestnetsContext } from '../TestnetsProvider';
+import Text from '../ui/Text';
 
 const Container = styled.div`
   display: flex;
@@ -18,7 +19,7 @@ const Container = styled.div`
 `;
 
 const Testnets = () => {
-  const { testnetsData, count } = useContext(TestnetsContext);
+  const { testnetsData, count, isLoading } = useContext(TestnetsContext);
   const [data, setData] = useState<testnetsType[] | null>(testnetsData);
 
   useEffect(() => {
@@ -40,12 +41,18 @@ const Testnets = () => {
 
   return (
     <Container>
-      <Header
-        count={count}
-        filterDataByStatus={handleFilterDataByStatus}
-        sortData={handleSortData}
-      />
-      <Card testnets={data} />
+      {isLoading ? (
+        <Text>Loading...</Text>
+      ) : (
+        <>
+          <Header
+            count={count}
+            filterDataByStatus={handleFilterDataByStatus}
+            sortData={handleSortData}
+          />
+          <Card testnets={data} />
+        </>
+      )}
     </Container>
   );
 };
