@@ -45,7 +45,12 @@ const CardHeader = ({ id, name, status, disabled = false }: CardHeaderProps) => 
       <Item>
         <TestnetStatus status={status} disabled={disabled} />
         <Dot />
-        <Button variant="text" startIcon={<SettingsIcon />}>
+        <Button
+          variant="text"
+          bold="semiBold"
+          startIcon={<SettingsIcon />}
+          color={theme.color.blue}
+        >
           Settings
         </Button>
       </Item>
