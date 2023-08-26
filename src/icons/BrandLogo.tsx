@@ -1,4 +1,4 @@
-const BrandLogo = ({}) => {
+const BrandLogo = () => {
   return (
     <svg width="98" height="22" viewBox="0 0 98 22" fill="none" xmlns="http://www.w3.org/2000/svg">
       <g clipPath="url(#clip0_1550_1022)">
