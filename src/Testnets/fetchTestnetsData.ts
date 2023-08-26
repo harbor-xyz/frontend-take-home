@@ -48,7 +48,9 @@ export const testnetStatus = {
 };
 const fetchTestnetsData = async (): Promise<any> => {
   try {
-    const result = await axios.get('/testnets');
+    const isDevelopment = process.env.NODE_ENV === 'development';
+    const endpoint = isDevelopment ? '/testnets' : '.netlify/functions/testnets';
+    const result = await axios.get(endpoint);
     if (result.status === 200) {
       return result.data.data;
     } else {
