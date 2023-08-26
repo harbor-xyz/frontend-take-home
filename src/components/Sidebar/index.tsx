@@ -1,4 +1,4 @@
-import { MouseEvent, ReactElement, ReactNode, useContext, useState } from 'react';
+import { ReactElement, ReactNode, useContext } from 'react';
 import styled from '@emotion/styled';
 import { theme } from '../../styles/theme';
 import ArrowBackIcon from '../../icons/ArrowBackIcon';
@@ -116,11 +116,9 @@ const Item = ({
 };
 
 const Sidebar = (): ReactElement => {
-  const [activeElement, setActiveElement] = useState('testnet');
+  // store this in state and update on sidebar item on click
+  const activeElement = 'testnet';
   const { count } = useContext(TestnetsContext);
-  const handleSideBarItemOnClick = (event: MouseEvent<HTMLButtonElement>) => {
-    // setActiveElement(with_the_id);
-  };
 
   return (
     <Container>
@@ -146,7 +144,6 @@ const Sidebar = (): ReactElement => {
                     fullWidth
                     startIcon={item.startIcon}
                     endIcon={item.endIcon}
-                    onClick={handleSideBarItemOnClick}
                   >
                     {item.name}
                     {item.id === 'testnet' && <Chip>{`${count}`}</Chip>}
