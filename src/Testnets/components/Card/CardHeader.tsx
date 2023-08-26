@@ -1,12 +1,12 @@
-import Text from '../../../ui/Text';
-import Chip from '../../../ui/Chip';
-import Dot from '../../../components/Dot';
-import Button from '../../../ui/Button';
-import SettingsIcon from '../../../icons/SettingsIcon';
-import styled from '@emotion/styled';
-import TestnetStatus from './Status';
-import { css } from '@emotion/react';
-import { theme } from '../../../styles/theme';
+import Text from "../../../ui/Text";
+import Chip from "../../../ui/Chip";
+import Dot from "../../../components/Dot";
+import Button from "../../../ui/Button";
+import SettingsIcon from "../../../icons/SettingsIcon";
+import styled from "@emotion/styled";
+import TestnetStatus from "./Status";
+import { css } from "@emotion/react";
+import { theme } from "../../../styles/theme";
 
 const Title = styled.div`
   display: flex;
@@ -35,12 +35,17 @@ interface CardHeaderProps {
   disabled?: boolean;
 }
 
-const CardHeader = ({ id, name, status, disabled = false }: CardHeaderProps) => {
+const CardHeader = ({
+  id,
+  name,
+  status,
+  disabled = false,
+}: CardHeaderProps) => {
   return (
     <Title>
       <Item disabled={disabled}>
         <Text variant="bold">{name}</Text>
-        <Chip>{id}</Chip>
+        <Chip disabled={disabled}>{id}</Chip>
       </Item>
       <Item>
         <TestnetStatus status={status} disabled={disabled} />

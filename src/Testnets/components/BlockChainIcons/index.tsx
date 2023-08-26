@@ -1,12 +1,12 @@
-import styled from '@emotion/styled';
-import { theme } from '../../../styles/theme';
-import { IconData } from '../Card/getBlockChainIcons';
+import styled from "@emotion/styled";
+import { theme } from "../../../styles/theme";
+import { IconData } from "../Card/getBlockChainIcons";
 
 const Container = styled.div`
   display: flex;
   padding-left: 0;
   align-items: center;
-  gap: -6px;
+  margin-left: 6px;
 `;
 
 const Icon = styled.div`
@@ -16,6 +16,7 @@ const Icon = styled.div`
   border-radius: 8px;
   border: 1px solid ${theme.color.greyDDD};
   background: ${theme.color.white};
+  margin-left: -6px;
 `;
 
 interface BlockChainIconsProps {

@@ -1,9 +1,9 @@
-import Paper from '../../../ui/Paper';
-import { testnetStatus, testnetsType } from '../../fetchTestnetsData';
-import { getFormattedCardData } from './getFormattedCardData';
-import CardHeader from './CardHeader';
-import CardContent from './CardContent';
-import styled from '@emotion/styled';
+import Paper from "../../../ui/Paper";
+import { testnetStatus, testnetsType } from "../../fetchTestnetsData";
+import { getFormattedCardData } from "./getFormattedCardData";
+import CardHeader from "./CardHeader";
+import CardContent from "./CardContent";
+import styled from "@emotion/styled";
 
 const Container = styled.div`
   display: flex;
@@ -21,14 +21,15 @@ const Card = ({ testnets }: { testnets: testnetsType[] | null }) => {
             testnetChainsCount,
             lastModifiedTime,
             idLastFourDigits,
-            testnetChains
+            testnetChains,
           } = getFormattedCardData(item);
 
           const isDisabled =
-            item.status === testnetStatus.KILLED || item.status === testnetStatus.STOPPED;
+            item.status === testnetStatus.KILLED ||
+            item.status === testnetStatus.STOPPED;
 
           return (
-            <Paper raised fullWidth>
+            <Paper raised disabled={isDisabled}>
               <>
                 <CardHeader
                   id={idLastFourDigits}

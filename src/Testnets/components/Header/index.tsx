@@ -1,9 +1,9 @@
-import styled from '@emotion/styled';
-import Text from '../../../ui/Text';
-import Button from '../../../ui/Button';
-import PlusIcon from '../../../icons/PlusIcon';
-import { useTheme } from '@emotion/react';
-import { MouseEvent } from 'react';
+import styled from "@emotion/styled";
+import Text from "../../../ui/Text";
+import Button from "../../../ui/Button";
+import PlusIcon from "../../../icons/PlusIcon";
+import { useTheme } from "@emotion/react";
+import { MouseEvent } from "react";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ const Container = styled.div`
 const LeftPanel = styled.div`
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 20px;
   flex: 1 0 0;
 `;
 

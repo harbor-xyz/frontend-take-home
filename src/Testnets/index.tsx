@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
-import Header from './components/Header';
-import { theme } from '../styles/theme';
-import Card from './components/Card';
-import useTestnets from './useTestnets';
+import styled from "@emotion/styled";
+import Header from "./components/Header";
+import { theme } from "../styles/theme";
+import Card from "./components/Card";
+import useTestnets from "./useTestnets";
 
 const Container = styled.div`
   display: flex;
@@ -15,7 +15,6 @@ const Container = styled.div`
 
 const Testnets = () => {
   const { testnetsData, count } = useTestnets();
-  console.log('testnets', testnetsData);
   return (
     <Container>
       <Header count={count} />

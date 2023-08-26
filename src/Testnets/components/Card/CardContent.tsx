@@ -1,12 +1,12 @@
-import Text from '../../../ui/Text';
-import Dot from '../../../components/Dot';
-import ClockIcon from '../../../icons/ClockIcon';
-import { theme } from '../../../styles/theme';
-import styled from '@emotion/styled';
-import { getBlockChainIcons, IconData } from './getBlockChainIcons';
-import { testnetChainsType } from '../../fetchTestnetsData';
-import BlockChainIcons from '../BlockChainIcons';
-import { css } from '@emotion/react';
+import Text from "../../../ui/Text";
+import Dot from "../../../components/Dot";
+import ClockIcon from "../../../icons/ClockIcon";
+import { theme } from "../../../styles/theme";
+import styled from "@emotion/styled";
+import { getBlockChainIcons, IconData } from "./getBlockChainIcons";
+import { testnetChainsType } from "../../fetchTestnetsData";
+import BlockChainIcons from "../BlockChainIcons";
+import { css } from "@emotion/react";
 
 const Content = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const Subtext = styled.div<{ disabled: boolean }>`
   ${({ disabled }) => css`
     ${disabled &&
     css`
-      color: ${theme.color.greyDDD};
+      color: ${theme.color.grey666};
     `};
     display: flex;
     align-items: center;
@@ -48,7 +48,7 @@ const CardContent = ({
   testnetChainsCount,
   lastModifiedTime,
   testnetChains,
-  disabled = false
+  disabled = false,
 }: CardContentProps) => {
   const testnetChainText =
     testnetChainsCount > 1
@@ -60,7 +60,9 @@ const CardContent = ({
   return (
     <Content>
       <Subtext disabled={disabled}>
-        {offChainActorsCount > 0 && <Text>{`${offChainActorsCount} off-chain actors`}</Text>}
+        {offChainActorsCount > 0 && (
+          <Text>{`${offChainActorsCount} off-chain actors`}</Text>
+        )}
         {testnetChainsCount > 0 && (
           <>
             <Dot />
@@ -71,7 +73,9 @@ const CardContent = ({
       </Subtext>
       <Time>
         <ClockIcon />
-        <Text color={theme.color.grey999}>{`Modified ${lastModifiedTime}`}</Text>
+        <Text
+          color={theme.color.grey999}
+        >{`Modified ${lastModifiedTime}`}</Text>
       </Time>
     </Content>
   );
