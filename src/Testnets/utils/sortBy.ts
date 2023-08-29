@@ -44,13 +44,13 @@ const sortBy = ({ data, type }: SortBy): testnetsType[] | null => {
 
     if (type === sortType.DATE_MODIFIED) {
       return [...data].sort((a, b) => {
-        return a.created_at.localeCompare(b.created_at);
+        return new Date(b.updated_at).getTime() - new Date(a.updated_at).getTime();
       });
     }
 
     if (type === sortType.DATE_CREATED) {
       return [...data].sort((a, b) => {
-        return a.updated_at.localeCompare(b.updated_at);
+        return new Date(b.created_at).getTime() - new Date(a.created_at).getTime();
       });
     }
   }
